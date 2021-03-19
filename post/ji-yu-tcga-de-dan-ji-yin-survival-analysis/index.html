@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>基于TCGA的单基因survival analysis | Gridea</title>
-<link rel="shortcut icon" href="https://ninjagg.github.io/Xuan.github.io//favicon.ico?v=1616075096684">
+<link rel="shortcut icon" href="https://ninjagg.github.io/Xuan.github.io//favicon.ico?v=1616132663066">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://ninjagg.github.io/Xuan.github.io//styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="基于TCGA的单基因survival analysis | Gridea - Atom Feed" href="https://ninjagg.github.io/Xuan.github.io//atom.xml">
@@ -30,7 +30,7 @@ UCSC Xena
       <div class="main-content">
         <div class="site-header">
   <a href="https://ninjagg.github.io/Xuan.github.io/">
-  <img class="avatar" src="https://ninjagg.github.io/Xuan.github.io//images/avatar.png?v=1616075096684" alt="">
+  <img class="avatar" src="https://ninjagg.github.io/Xuan.github.io//images/avatar.png?v=1616132663066" alt="">
   </a>
   <h1 class="site-title">
     Gridea
@@ -151,7 +151,7 @@ clinical_clean_2 &lt;- clinical_clean[ ,-2] #删除原列&quot;名字&quot;
 gene_clinical &lt;- data.frame(clinical_clean_2[match(rownames(GENE), clinical_clean_2$SampleID), ], GENE)
 
 ####&quot;KIAA1324&quot;低表达为1，高表达为2####
-gene_clinical$KIAA1324 &lt;- ifelse((gene_clinical$KIAA1324 == &quot;Low), 1, 2)
+gene_clinical$KIAA1324 &lt;- ifelse((gene_clinical$KIAA1324 == &quot;Low&quot;), 1, 2)
 GC &lt;- gene_clinical
 
 ##################生存分析作图 OS作图####
@@ -176,7 +176,7 @@ km_2 &lt;- survfit(fit.surv~KIAA1324, data = GC)
 library(survminer)
 ggsurvplot(km_2,
 legend.title = &quot;KIAA1324&quot;, #改变图例名称
-legend.labs = c(&quot;High&quot;, Low&quot;),
+legend.labs = c(&quot;High&quot;, “Low&quot;),
 pval = T #显示P值
 )
 </code></pre>
