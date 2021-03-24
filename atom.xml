@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ninjagg.github.io/Xuan.github.io/</id>
     <title>Gridea</title>
-    <updated>2021-03-24T05:28:45.163Z</updated>
+    <updated>2021-03-24T06:34:56.808Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ninjagg.github.io/Xuan.github.io/"/>
     <link rel="self" href="https://ninjagg.github.io/Xuan.github.io/atom.xml"/>
@@ -10,6 +10,131 @@
     <logo>https://ninjagg.github.io/Xuan.github.io/images/avatar.png</logo>
     <icon>https://ninjagg.github.io/Xuan.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[t-test检验 & Venn作图]]></title>
+        <id>https://ninjagg.github.io/Xuan.github.io/post/t-test-jian-yan/</id>
+        <link href="https://ninjagg.github.io/Xuan.github.io/post/t-test-jian-yan/">
+        </link>
+        <updated>2021-03-19T10:48:52.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="一实验分组-con-uvb-treatment">一：实验分组 CON UVB TREATMENT</h1>
+<p>质谱检测各组蛋白表达量，可采用ANOVA或t-test两两检验<br>
+本次采用t-test检验 CON vs. UVB &amp; UVB vs. TREATMENT 后取显著性差异结果交集，进一步根据Fold Change情况阐述相应生物学意义</p>
+<h1 id="二r代码">二：R代码</h1>
+<pre><code>####load package####
+library(tidyverse)
+library(readxl)
+library(VennDiagram)
+library(writexl)
+
+####读取数据并清洗####
+rm(list = ls())
+raw_data &lt;- read_excel(path = &quot;01_2020-125-C-01 original data 原始数据.xlsx&quot;)
+df &lt;- as.data.frame(t(raw_data)) #t()转置后是matrix需要as.data.frame转为数据框
+colnames(df) &lt;- as.character(df[1, ]) #更换列名
+df_clean &lt;- df[-1, ] #删掉第一行(原列名)
+
+####t-test####
+1:3列是Con组数据 4:6是UVB组数据 7:9是Treatment 
+
+##############CON vs UVB
+##检测方差是否齐 基本都齐
+##自己造轮子进行批量方差齐性检验 ①创建一个列表 ②定义 i 是&quot;行数&quot; ③对con(1:3) vs. uvb(4:6) &amp; uvb(4:6) vs. treatment(7:9)进行检测 
+
+con_u_var &lt;- list() #创建一个列表
+for (i in c(1:length(rownames(df_clean)))) {
+    result &lt;- var.test(as.numeric(df_clean[i, 1:3]), as.numeric(df_clean[i, 4:6]))
+    con_u_var[[i]] &lt;- result[[3]]
+} #定义i是&quot;行数&quot;，var.test()返回一个列表其中[[3]]是方差检验的数值(大于0.05方差齐)，将每一行(每一个观测/蛋白)的方差检验结果赋值给变量&quot;result&quot;，将结果中的方差检验数值赋值给con_u_var，顺序与行名对应
+
+##t-test
+con_u_t_test &lt;- list()
+for (i in c(1:length(rownames(df_clean)))) {
+    result &lt;- t.test(as.numeric(df_clean[i, 1:3]), as.numeric(df_clean[i, 4:6]), var.equal = T)
+    con_u_t_test[[i]] &lt;- result[[3]]
+}
+
+##############UVB vs Treatment
+##检查方差
+uvb_a_mg_var &lt;- list()
+for (i in c(1:length(rownames(df_clean)))) {
+  result &lt;- var.test(as.numeric(df_clean[i, 4:6]), as.numeric(df_clean[i, 7:9]))
+  uvb_a_mg_var[[i]] &lt;- result[[3]]
+}
+
+##t-test
+uvb_a_mg_t_test &lt;- list()
+for (i in c(1:length(rownames(df_clean)))) {
+  result &lt;- t.test(as.numeric(df_clean[i, 4:6]), as.numeric(df_clean[i, 7:9]), var.equal = T)
+  uvb_a_mg_t_test[[i]] &lt;- result[[3]]
+}
+
+####计算均值 检测fold change####
+##CON组
+temp_mean_con &lt;- vector()
+for (i in c(1:length(rownames(df_clean)))) {
+  test &lt;- mean(as.numeric(df_clean[i, 1:3]))
+  temp_mean_con[i] &lt;- test
+}
+
+##UVB组
+temp_mean_UVB &lt;- vector()
+for (i in c(1:length(rownames(df_clean)))) {
+  test2 &lt;- mean(as.numeric(df_clean[i, 4:6]))
+  temp_mean_UVB[i] &lt;- test2
+}
+
+##Treatment组
+temp_mean_a_mg &lt;- vector()
+for (i in c(1:length(rownames(df_clean)))) {
+  test3 &lt;- mean(as.numeric(df_clean[i, 7:9]))
+  temp_mean_a_mg[i] &lt;- test3
+}
+
+####整理结果，写出文件####
+df_end &lt;- df_clean %&gt;%
+  mutate(P_con_vs_u = signif(as.numeric(con_u_t_test)), 
+         P_uvb_vs_a_mg = signif(as.numeric(uvb_a_mg_t_test)),
+         FC_con_U = temp_mean_UVB / temp_mean_con,
+         FC_UVB_a_mg = temp_mean_a_mg / temp_mean_UVB)
+rownames(df_end) &lt;- rownames(df_clean)
+write.csv(df_end, file = &quot;./outcome_all_data.csv&quot;, row.names = T)
+write.tabel(df_end, file = &quot;./outcome_all_data_test&quot;) #写出\t分隔的txt文件，再次读入时不会存在行名变化问题csv会存在部分问题不知是不是bug
+
+####筛选结果####
+all_temp &lt;- df_end %&gt;%   #筛选CON vs. UVB &amp; UVB vs. Treatment组中均显著的蛋白
+  filter(P_con_vs_u &lt; 0.05 &amp; P_uvb_vs_a_mg &lt; 0.05)
+write.csv(all_temp, file = &quot;./outcome_intersection.csv&quot;) ###写出数据
+
+con_u_temp &lt;- df_end %&gt;% #筛选CON vs. UVB 单显著 cutoff == 0.05 
+  filter(P_con_vs_u &lt; 0.05)
+write.csv(all_temp, file = &quot;./outcome_con_vs_uvb.csv&quot;) ###写出数据
+
+u_a_mg_temp &lt;- df_end %&gt;% #筛选UVB vs. Treatmen cutoff == 0.05 
+  filter(P_uvb_vs_a_mg &lt; 0.05)
+write.csv(all_temp, file = &quot;./outcome_uvb_vs_a_mg.csv&quot;) ###写出数据
+
+####Venn图绘制####
+all_name &lt;- as.character(rownames(all_temp))
+con_u_name &lt;- as.character(rownames(con_u_temp))
+uvb_a_mg_name &lt;- as.character(rownames(u_a_mg_temp))
+venn.plot &lt;- venn.diagram(list(&quot;A&quot; = con_u_name, &quot;B&quot; = uvb_a_mg_name),
+             filename = &quot;venn.tiff&quot;, 
+             fill=c(&quot;red&quot;,&quot;blue&quot;),
+             lty = 1, #圆轮廓线种类：实线、点虚线……
+             lwd = 1, #圆轮廓线宽度
+             col = &quot;black&quot;,
+             cat.col = &quot;black&quot;,
+             alpha=c(0.6,0.6),
+             cat.cex = 1.5, #圆的分组名大小
+             cat.fontface = &quot;bold&quot;,
+             margin = 0.07,
+             ext.text = F, ####区域过小时不允许外界标签，就没有黑色直线了
+             cex = 1.5 ) ##圆内数字大小
+
+
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[基于TCGA的单基因survival analysis]]></title>
         <id>https://ninjagg.github.io/Xuan.github.io/post/ji-yu-tcga-de-dan-ji-yin-survival-analysis/</id>
