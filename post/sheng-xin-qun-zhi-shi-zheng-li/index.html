@@ -2,20 +2,20 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>生信群知识整理 2020.12.04 to 2021.02.18 | Gridea</title>
-<link rel="shortcut icon" href="https://ninjagg.github.io/Xuan.github.io//favicon.ico?v=1616567687290">
+<title>生信群知识整理 2020.12.04 to 2021.02.21 | Gridea</title>
+<link rel="shortcut icon" href="https://ninjagg.github.io/Xuan.github.io//favicon.ico?v=1618576192543">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://ninjagg.github.io/Xuan.github.io//styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="生信群知识整理 2020.12.04 to 2021.02.18 | Gridea - Atom Feed" href="https://ninjagg.github.io/Xuan.github.io//atom.xml">
+<link rel="alternate" type="application/atom+xml" title="生信群知识整理 2020.12.04 to 2021.02.21 | Gridea - Atom Feed" href="https://ninjagg.github.io/Xuan.github.io//atom.xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
-    <meta name="description" content="###2020.12.04 to 2021.02.18
+    <meta name="description" content="2020.12.04 to 2021.02.18
 homer
-#可以根据一段DNA序列预测其转录因子在bioconda中搜索homer，可以看到有很多种版本
+可以根据一段DNA序列预测其转录因子在bioconda中搜索homer，可以看到有很多种版本
 conda search homer -c bioconda
-#默认安装 h..." />
+默认安装 homer ..." />
     <meta name="keywords" content="" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
@@ -25,7 +25,7 @@ conda search homer -c bioconda
       <div class="main-content">
         <div class="site-header">
   <a href="https://ninjagg.github.io/Xuan.github.io/">
-  <img class="avatar" src="https://ninjagg.github.io/Xuan.github.io//images/avatar.png?v=1616567687290" alt="">
+  <img class="avatar" src="https://ninjagg.github.io/Xuan.github.io//images/avatar.png?v=1618576192543" alt="">
   </a>
   <h1 class="site-title">
     Gridea
@@ -78,107 +78,140 @@ conda search homer -c bioconda
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              生信群知识整理 2020.12.04 to 2021.02.18
+              生信群知识整理 2020.12.04 to 2021.02.21
             </h2>
             <div class="post-info">
               <span>
                 2021-03-15
               </span>
               <span>
-                4 min read
+                5 min read
               </span>
               
             </div>
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <p>###2020.12.04 to 2021.02.18</p>
+                <h1 id="20201204-to-20210218">2020.12.04 to 2021.02.18</h1>
 <h1 id="homer">homer</h1>
-<p>#可以根据一段DNA序列预测其转录因子在bioconda中搜索homer，可以看到有很多种版本<br>
-conda search homer -c bioconda</p>
-<p>#默认安装 homer 最新版<br>
-conda install -c bioconda homer -y # -y 表示直接安装，不询问确认与否</p>
+<p>可以根据一段DNA序列预测其转录因子在bioconda中搜索homer，可以看到有很多种版本<br>
+<code>conda search homer -c bioconda</code></p>
+<h1 id="默认安装-homer-最新版">默认安装 homer 最新版</h1>
+<p><code>conda install -c bioconda homer -y</code>  -y 表示直接安装，不询问确认与否</p>
 <h1 id="deeptools">deepTools</h1>
-<p>#deepTools is a suite of python tools particularly developed for the efficient analysis of high-throughput sequencing data, such as ChIP-seq, RNA-seq or MNase-seq. 可以绘制甲基化的图片结果 可以绘制增强子的热图</p>
+<p>deepTools is a suite of python tools particularly developed for the efficient analysis of high-throughput sequencing data, such as ChIP-seq, RNA-seq or MNase-seq. 可以绘制甲基化的图片结果 可以绘制增强子的热图</p>
 <h1 id="starbase-targetscan-miranda">starbase targetscan miRanda</h1>
 <p>#可以根据原有序列进行匹配，寻找靶向的非编码RNA或mRNA</p>
 <h1 id="axel">axel</h1>
-<p>#wget curl虽然支持断点续传但是单线程下载速度不快，可以换用axel</p>
-<p>#mac （本次使用）<br>
-brew install axel<br>
-#简单使用 axel -n 10 http://www.kernel.org/pub/linux/kernel/v2.6/patch-2.6.39.gz</p>
-<p>#Debian<br>
-apt-get install axel</p>
-<p>#Fedora<br>
-yum install axel</p>
+<p>wget curl虽然支持断点续传但是单线程下载速度不快，可以换用axel，迅雷最好用！</p>
+<p>mac （本次使用）<br>
+<code>brew install axel</code><br>
+简单使用 axel -n 10 http://www.kernel.org/pub/linux/kernel/v2.6/patch-2.6.39.gz</p>
+<p>Debian<br>
+<code>apt-get install axel</code></p>
+<p>Fedora<br>
+<code>yum install axel</code></p>
 <h1 id="不同批次数据是否可以合并">不同批次数据是否可以合并</h1>
-<p>#采用PCA分析看有无批次效应<br>
-#一般QIIME参数一致table可以合并，QIIME是一个从原始DNA测序数据执行微生物组分析的开源生物信息学管道。QIIME旨在通过发布高质量的图表和统计数据，从Illumina或其他平台上生成的原始测序数据中获取用户。这包括多路分解和质量过滤、OTU挑选、分类分配、系统发育重建、多样性分析和可视化。QIIME已被应用于基于数万个样本中数十亿个序列的研究。</p>
-<h1 id="supplement-material-下载">supplement material 下载</h1>
-<p>#可以用wget或迅雷，axel会更快，idm（收费软件，需要寻找破解版）会更快</p>
+<p>①采用PCA分析看有无批次效应<br>
+②一般QIIME参数一致table可以合并，QIIME是一个从原始DNA测序数据执行微生物组分析的开源生物信息学管道。QIIME旨在通过发布高质量的图表和统计数据，从Illumina或其他平台上生成的原始测序数据中获取用户。这包括多路分解和质量过滤、OTU挑选、分类分配、系统发育重建、多样性分析和可视化。QIIME已被应用于基于数万个样本中数十亿个序列的研究。</p>
+<h1 id="supplement-material-下载">Supplement material 下载</h1>
+<p>可以用wget或迅雷，axel会更快，idm（收费软件，需要寻找破解版）会更快</p>
 <h1 id="tcga-biolinks">TCGA biolinks</h1>
-<p>#R包 整理临床数据 （实际使用UCSC.xena但是网站有时候有问题）</p>
+<p>R包 整理临床数据 （实际使用UCSC.xena但是网站有时候有问题）</p>
 <h1 id="ggplot坐标轴截断">ggplot坐标轴截断</h1>
-<p>library(gg.gap)<br>
-#或手动坐标轴截断</p>
+<p><code>library(gg.gap)</code> 或手动坐标轴截断</p>
 <h1 id="下载sra数据">下载SRA数据</h1>
-<p>prefetch SRRXXXX</p>
-<h1 id="服务器没有管理员权限安装底层lib-再安装缺少的r包">服务器没有管理员权限安装底层lib 再安装缺少的R包</h1>
-<p>conda install -c conda-forge libgit2</p>
+<p><code>prefetch SRRXXXX</code></p>
+<h1 id="服务器没有管理员权限">服务器没有管理员权限</h1>
+<p>先安装底层lib 再安装缺少的R包<br>
+<code>conda install -c conda-forge libgit2</code></p>
 <h1 id="circos-plot环状热图">circos plot(环状热图)</h1>
 <p><img src="https://ninjagg.github.io/Xuan.github.io//post-images/1615776514571.jpg" alt="" loading="lazy"><br>
-#ggplot2直接热图加极坐标转换即可</p>
+ggplot2直接热图加极坐标转换即可</p>
 <h1 id="office激活">office激活</h1>
-<p>#kmspico</p>
+<p>kmspico</p>
 <h1 id="itol">ITOL</h1>
-<p>#Interactive Tree Of Life is an online tool for the display, annotation and management of phylogenetic trees.交互式生命树是一种用于显示、注释和管理系统发育树的在线工具。<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1615778055094.png" alt="" loading="lazy"></p>
-<h1 id="刘小乐在线书籍introduction-to-bioinformatics-and-computational-biology">刘小乐在线书籍Introduction to Bioinformatics and Computational Biology</h1>
-<p>#https://github.com/liulab-dfci/bioinfo-combio</p>
+<p>Interactive Tree Of Life is an online tool for the display, annotation and management of phylogenetic trees.交互式生命树是一种用于显示、注释和管理系统发育树的在线工具。<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1615778055094.png" alt="" loading="lazy"></p>
+<h1 id="刘小乐在线书籍">刘小乐在线书籍</h1>
+<p>《Introduction to Bioinformatics and Computational Biology》<br>
+<a href="https://github.com/liulab-dfci/bioinfo-combio">链接</a></p>
 <h1 id="biomart-r包">Biomart R包</h1>
 <figure data-type="image" tabindex="1"><img src="https://ninjagg.github.io/Xuan.github.io//post-images/1615779286637.png" alt="" loading="lazy"></figure>
 <h1 id="ensemble下载gtf">ensemble下载gtf</h1>
-<p>#只有gene name 没有gene symbol  而且gene symbol也不太可靠有别名重名 hgnc下的文件读取不进来</p>
-<h1 id="hs_org包转换名字会丢失部分基因">hs_org包转换名字会丢失部分基因</h1>
+<p>只有gene name 没有gene symbol  而且gene symbol也不太可靠有别名重名 hgnc下的文件读取不进来</p>
+<h1 id="hs_org包">hs_org包</h1>
+<p>转换名字会丢失部分基因</p>
 <h1 id="组装线粒体">组装线粒体</h1>
-<p>#getor ganelle</p>
+<p>getor ganelle</p>
 <h1 id="kegg-id应该是entrez-id">KEGG ID应该是entrez id</h1>
-<h1 id="添加北外源">添加北外源</h1>
-<p>conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/pkgs/free/<br>
-conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/bioconda/<br>
-conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/msys2/<br>
-conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/menpo/<br>
-conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/peterjc123/<br>
-conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/pkgs/main/<br>
-conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/conda-forge/<br>
-conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/pytorch/<br>
-conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/pkgs/r/<br>
-conda config --set show_channel_urls yes</p>
-<h1 id=""></h1>
+<h1 id="更换conda源">更换Conda源</h1>
+<p>查看当前conda源信息 <code>conda info</code></p>
+<h3 id="清华源">清华源</h3>
+<pre><code>conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/
+</code></pre>
+<h3 id="中科大源">中科大源</h3>
+<pre><code>conda config --add channels https://mirrors.ustc.edu.cn/anaconda/pkgs/main/
+conda config --add channels https://mirrors.ustc.edu.cn/anaconda/pkgs/free/
+conda config --add channels https://mirrors.ustc.edu.cn/anaconda/cloud/conda-forge/
+conda config --add channels https://mirrors.ustc.edu.cn/anaconda/cloud/msys2/
+conda config --add channels https://mirrors.ustc.edu.cn/anaconda/cloud/bioconda/
+conda config --add channels https://mirrors.ustc.edu.cn/anaconda/cloud/menpo/
+conda config --set show_channel_urls yes
+</code></pre>
+<h3 id="北外源">北外源</h3>
+<pre><code>conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/pkgs/free/ 
+conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/bioconda/ 
+conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/msys2/
+conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/menpo/
+conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/peterjc123/
+conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/pkgs/main/
+conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/conda-forge/
+conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/pytorch/
+conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/pkgs/r/
+conda config --set show_channel_urls yes
+</code></pre>
+<h1 id="改依赖库把系统弄崩溃">改依赖库把系统弄崩溃</h1>
+<p>不小心删除lib64 libc.so.6软链接导致大多数命令无法运行，此时不能退系统，重新恢复该链接或许可以，一般不要动这些。</p>
+<h1 id="数据作图有大量na">数据作图有大量NA</h1>
+<p>①将NA替换为0直接+1取Log<br>
+②<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1618576176895.png" alt="" loading="lazy"></p>
 
               </div>
               <div class="toc-container">
                 <ul class="markdownIt-TOC">
+<li><a href="#20201204-to-20210218">2020.12.04 to 2021.02.18</a></li>
 <li><a href="#homer">homer</a></li>
+<li><a href="#%E9%BB%98%E8%AE%A4%E5%AE%89%E8%A3%85-homer-%E6%9C%80%E6%96%B0%E7%89%88">默认安装 homer 最新版</a></li>
 <li><a href="#deeptools">deepTools</a></li>
 <li><a href="#starbase-targetscan-miranda">starbase targetscan miRanda</a></li>
 <li><a href="#axel">axel</a></li>
 <li><a href="#%E4%B8%8D%E5%90%8C%E6%89%B9%E6%AC%A1%E6%95%B0%E6%8D%AE%E6%98%AF%E5%90%A6%E5%8F%AF%E4%BB%A5%E5%90%88%E5%B9%B6">不同批次数据是否可以合并</a></li>
-<li><a href="#supplement-material-%E4%B8%8B%E8%BD%BD">supplement material 下载</a></li>
+<li><a href="#supplement-material-%E4%B8%8B%E8%BD%BD">Supplement material 下载</a></li>
 <li><a href="#tcga-biolinks">TCGA biolinks</a></li>
 <li><a href="#ggplot%E5%9D%90%E6%A0%87%E8%BD%B4%E6%88%AA%E6%96%AD">ggplot坐标轴截断</a></li>
 <li><a href="#%E4%B8%8B%E8%BD%BDsra%E6%95%B0%E6%8D%AE">下载SRA数据</a></li>
-<li><a href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%B2%A1%E6%9C%89%E7%AE%A1%E7%90%86%E5%91%98%E6%9D%83%E9%99%90%E5%AE%89%E8%A3%85%E5%BA%95%E5%B1%82lib-%E5%86%8D%E5%AE%89%E8%A3%85%E7%BC%BA%E5%B0%91%E7%9A%84r%E5%8C%85">服务器没有管理员权限安装底层lib 再安装缺少的R包</a></li>
+<li><a href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%B2%A1%E6%9C%89%E7%AE%A1%E7%90%86%E5%91%98%E6%9D%83%E9%99%90">服务器没有管理员权限</a></li>
 <li><a href="#circos-plot%E7%8E%AF%E7%8A%B6%E7%83%AD%E5%9B%BE">circos plot(环状热图)</a></li>
 <li><a href="#office%E6%BF%80%E6%B4%BB">office激活</a></li>
 <li><a href="#itol">ITOL</a></li>
-<li><a href="#%E5%88%98%E5%B0%8F%E4%B9%90%E5%9C%A8%E7%BA%BF%E4%B9%A6%E7%B1%8Dintroduction-to-bioinformatics-and-computational-biology">刘小乐在线书籍Introduction to Bioinformatics and Computational Biology</a></li>
+<li><a href="#%E5%88%98%E5%B0%8F%E4%B9%90%E5%9C%A8%E7%BA%BF%E4%B9%A6%E7%B1%8D">刘小乐在线书籍</a></li>
 <li><a href="#biomart-r%E5%8C%85">Biomart R包</a></li>
 <li><a href="#ensemble%E4%B8%8B%E8%BD%BDgtf">ensemble下载gtf</a></li>
-<li><a href="#hs_org%E5%8C%85%E8%BD%AC%E6%8D%A2%E5%90%8D%E5%AD%97%E4%BC%9A%E4%B8%A2%E5%A4%B1%E9%83%A8%E5%88%86%E5%9F%BA%E5%9B%A0">hs_org包转换名字会丢失部分基因</a></li>
+<li><a href="#hs_org%E5%8C%85">hs_org包</a></li>
 <li><a href="#%E7%BB%84%E8%A3%85%E7%BA%BF%E7%B2%92%E4%BD%93">组装线粒体</a></li>
 <li><a href="#kegg-id%E5%BA%94%E8%AF%A5%E6%98%AFentrez-id">KEGG ID应该是entrez id</a></li>
-<li><a href="#%E6%B7%BB%E5%8A%A0%E5%8C%97%E5%A4%96%E6%BA%90">添加北外源</a></li>
-<li></li>
+<li><a href="#%E6%9B%B4%E6%8D%A2conda%E6%BA%90">更换Conda源</a><br>
+*
+<ul>
+<li><a href="#%E6%B8%85%E5%8D%8E%E6%BA%90">清华源</a></li>
+<li><a href="#%E4%B8%AD%E7%A7%91%E5%A4%A7%E6%BA%90">中科大源</a></li>
+<li><a href="#%E5%8C%97%E5%A4%96%E6%BA%90">北外源</a></li>
+</ul>
+</li>
+<li><a href="#%E6%94%B9%E4%BE%9D%E8%B5%96%E5%BA%93%E6%8A%8A%E7%B3%BB%E7%BB%9F%E5%BC%84%E5%B4%A9%E6%BA%83">改依赖库把系统弄崩溃</a></li>
+<li><a href="#%E6%95%B0%E6%8D%AE%E4%BD%9C%E5%9B%BE%E6%9C%89%E5%A4%A7%E9%87%8Fna">数据作图有大量NA</a></li>
 </ul>
 
               </div>

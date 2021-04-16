@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ninjagg.github.io/Xuan.github.io/</id>
     <title>Gridea</title>
-    <updated>2021-03-24T06:34:56.808Z</updated>
+    <updated>2021-04-16T12:29:54.968Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ninjagg.github.io/Xuan.github.io/"/>
     <link rel="self" href="https://ninjagg.github.io/Xuan.github.io/atom.xml"/>
@@ -10,6 +10,42 @@
     <logo>https://ninjagg.github.io/Xuan.github.io/images/avatar.png</logo>
     <icon>https://ninjagg.github.io/Xuan.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[Conda Collecting package metadata (current_repodata.json): failed 解决方法]]></title>
+        <id>https://ninjagg.github.io/Xuan.github.io/post/conda-collecting-package-metadata-current_repodatajson-failed-jie-jue-fang-fa/</id>
+        <link href="https://ninjagg.github.io/Xuan.github.io/post/conda-collecting-package-metadata-current_repodatajson-failed-jie-jue-fang-fa/">
+        </link>
+        <updated>2021-04-16T11:37:00.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="问题背景">问题背景</h1>
+<p>conda重置，设置清华源、中科大源都无法解决<code>conda install mamba</code>时的Collecting package metadata (current_repodata.json): failed</p>
+<h1 id="解决方法">解决方法</h1>
+<p>考虑可能是默认源问题，删除~/.condarc文件最下面的defaults后可以正常使用。但还有可能报错（并不是每次都有）failed with initial frozen solve. Retrying with flexible solve.该错误不影响执行。</p>
+<p>也可以通过以下设置解决（本次没设置）：<code>conda config --set channel_priority flexible</code></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[mac本地安装cufflinks 2.1.1 tar.gz文件]]></title>
+        <id>https://ninjagg.github.io/Xuan.github.io/post/mac-ben-di-an-zhuang-cufflinks-211-targz-wen-jian-conda-mei-you/</id>
+        <link href="https://ninjagg.github.io/Xuan.github.io/post/mac-ben-di-an-zhuang-cufflinks-211-targz-wen-jian-conda-mei-you/">
+        </link>
+        <updated>2021-04-12T12:03:55.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="1-问题背景">① 问题背景</h1>
+<h3 id="cuffdiff-221版本python27-对hisat2的mapping后bam文件数据处理时报错segmentation-fault-11-据说是火星撞地球级别的错误报告尝试几乎所有方法和参数无法起效">cuffdiff 2.2.1版本(python=2.7) 对hisat2的mapping后bam文件数据处理时报错：Segmentation fault: 11 据说是&quot;火星撞地球&quot;级别的错误报告，尝试几乎所有方法和参数无法起效</h3>
+<p><img src="https://ninjagg.github.io/Xuan.github.io//post-images/1618229859018.png" alt="error" loading="lazy"><br>
+<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1618229884767.png" alt="error code" loading="lazy"></p>
+<h1 id="2-解决方法">② 解决方法</h1>
+<h3 id="安装cufflinks-211版本即解决该问题python379但conda上并没有cufflinks-211版本因此在cufflinks官网下载该软件cufflinks-211osx_x86_64targz">安装cufflinks 2.1.1版本即解决该问题(python=3.7.9)，但conda上并没有cufflinks 2.1.1版本，因此在<a href="http://cole-trapnell-lab.github.io/cufflinks/releases/v2.1.1/">cufflinks官网</a>下载该软件&quot;cufflinks-2.1.1.OSX_x86_64.tar.gz&quot;</h3>
+<pre><code>cd ~/test_HD/biosofts
+tar -zxvf cufflinks-2.1.1.OSX_x86_64.tar.gz
+cd cufflinks-2.1.1.OSX_x86_64
+vim ~/.bash_profile
+</code></pre>
+<h3 id="在行末添加一行">在行末添加一行</h3>
+<pre><code>export PATH=//Users/mac/test_HD/biosofts/cufflinks-2.1.1.OSX_x86_64:$PATH
+source ~/.bash_profile #重启bash文件 环境变量即生效
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[t-test检验 & Venn作图]]></title>
         <id>https://ninjagg.github.io/Xuan.github.io/post/t-test-jian-yan/</id>
@@ -266,73 +302,96 @@ vim .bash_profile
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[生信群知识整理 2020.12.04 to 2021.02.18]]></title>
+        <title type="html"><![CDATA[生信群知识整理 2020.12.04 to 2021.02.21]]></title>
         <id>https://ninjagg.github.io/Xuan.github.io/post/sheng-xin-qun-zhi-shi-zheng-li/</id>
         <link href="https://ninjagg.github.io/Xuan.github.io/post/sheng-xin-qun-zhi-shi-zheng-li/">
         </link>
         <updated>2021-03-15T00:36:35.000Z</updated>
-        <content type="html"><![CDATA[<p>###2020.12.04 to 2021.02.18</p>
+        <content type="html"><![CDATA[<h1 id="20201204-to-20210218">2020.12.04 to 2021.02.18</h1>
 <h1 id="homer">homer</h1>
-<p>#可以根据一段DNA序列预测其转录因子在bioconda中搜索homer，可以看到有很多种版本<br>
-conda search homer -c bioconda</p>
-<p>#默认安装 homer 最新版<br>
-conda install -c bioconda homer -y # -y 表示直接安装，不询问确认与否</p>
+<p>可以根据一段DNA序列预测其转录因子在bioconda中搜索homer，可以看到有很多种版本<br>
+<code>conda search homer -c bioconda</code></p>
+<h1 id="默认安装-homer-最新版">默认安装 homer 最新版</h1>
+<p><code>conda install -c bioconda homer -y</code>  -y 表示直接安装，不询问确认与否</p>
 <h1 id="deeptools">deepTools</h1>
-<p>#deepTools is a suite of python tools particularly developed for the efficient analysis of high-throughput sequencing data, such as ChIP-seq, RNA-seq or MNase-seq. 可以绘制甲基化的图片结果 可以绘制增强子的热图</p>
+<p>deepTools is a suite of python tools particularly developed for the efficient analysis of high-throughput sequencing data, such as ChIP-seq, RNA-seq or MNase-seq. 可以绘制甲基化的图片结果 可以绘制增强子的热图</p>
 <h1 id="starbase-targetscan-miranda">starbase targetscan miRanda</h1>
 <p>#可以根据原有序列进行匹配，寻找靶向的非编码RNA或mRNA</p>
 <h1 id="axel">axel</h1>
-<p>#wget curl虽然支持断点续传但是单线程下载速度不快，可以换用axel</p>
-<p>#mac （本次使用）<br>
-brew install axel<br>
-#简单使用 axel -n 10 http://www.kernel.org/pub/linux/kernel/v2.6/patch-2.6.39.gz</p>
-<p>#Debian<br>
-apt-get install axel</p>
-<p>#Fedora<br>
-yum install axel</p>
+<p>wget curl虽然支持断点续传但是单线程下载速度不快，可以换用axel，迅雷最好用！</p>
+<p>mac （本次使用）<br>
+<code>brew install axel</code><br>
+简单使用 axel -n 10 http://www.kernel.org/pub/linux/kernel/v2.6/patch-2.6.39.gz</p>
+<p>Debian<br>
+<code>apt-get install axel</code></p>
+<p>Fedora<br>
+<code>yum install axel</code></p>
 <h1 id="不同批次数据是否可以合并">不同批次数据是否可以合并</h1>
-<p>#采用PCA分析看有无批次效应<br>
-#一般QIIME参数一致table可以合并，QIIME是一个从原始DNA测序数据执行微生物组分析的开源生物信息学管道。QIIME旨在通过发布高质量的图表和统计数据，从Illumina或其他平台上生成的原始测序数据中获取用户。这包括多路分解和质量过滤、OTU挑选、分类分配、系统发育重建、多样性分析和可视化。QIIME已被应用于基于数万个样本中数十亿个序列的研究。</p>
-<h1 id="supplement-material-下载">supplement material 下载</h1>
-<p>#可以用wget或迅雷，axel会更快，idm（收费软件，需要寻找破解版）会更快</p>
+<p>①采用PCA分析看有无批次效应<br>
+②一般QIIME参数一致table可以合并，QIIME是一个从原始DNA测序数据执行微生物组分析的开源生物信息学管道。QIIME旨在通过发布高质量的图表和统计数据，从Illumina或其他平台上生成的原始测序数据中获取用户。这包括多路分解和质量过滤、OTU挑选、分类分配、系统发育重建、多样性分析和可视化。QIIME已被应用于基于数万个样本中数十亿个序列的研究。</p>
+<h1 id="supplement-material-下载">Supplement material 下载</h1>
+<p>可以用wget或迅雷，axel会更快，idm（收费软件，需要寻找破解版）会更快</p>
 <h1 id="tcga-biolinks">TCGA biolinks</h1>
-<p>#R包 整理临床数据 （实际使用UCSC.xena但是网站有时候有问题）</p>
+<p>R包 整理临床数据 （实际使用UCSC.xena但是网站有时候有问题）</p>
 <h1 id="ggplot坐标轴截断">ggplot坐标轴截断</h1>
-<p>library(gg.gap)<br>
-#或手动坐标轴截断</p>
+<p><code>library(gg.gap)</code> 或手动坐标轴截断</p>
 <h1 id="下载sra数据">下载SRA数据</h1>
-<p>prefetch SRRXXXX</p>
-<h1 id="服务器没有管理员权限安装底层lib-再安装缺少的r包">服务器没有管理员权限安装底层lib 再安装缺少的R包</h1>
-<p>conda install -c conda-forge libgit2</p>
+<p><code>prefetch SRRXXXX</code></p>
+<h1 id="服务器没有管理员权限">服务器没有管理员权限</h1>
+<p>先安装底层lib 再安装缺少的R包<br>
+<code>conda install -c conda-forge libgit2</code></p>
 <h1 id="circos-plot环状热图">circos plot(环状热图)</h1>
 <p><img src="https://ninjagg.github.io/Xuan.github.io//post-images/1615776514571.jpg" alt="" loading="lazy"><br>
-#ggplot2直接热图加极坐标转换即可</p>
+ggplot2直接热图加极坐标转换即可</p>
 <h1 id="office激活">office激活</h1>
-<p>#kmspico</p>
+<p>kmspico</p>
 <h1 id="itol">ITOL</h1>
-<p>#Interactive Tree Of Life is an online tool for the display, annotation and management of phylogenetic trees.交互式生命树是一种用于显示、注释和管理系统发育树的在线工具。<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1615778055094.png" alt="" loading="lazy"></p>
-<h1 id="刘小乐在线书籍introduction-to-bioinformatics-and-computational-biology">刘小乐在线书籍Introduction to Bioinformatics and Computational Biology</h1>
-<p>#https://github.com/liulab-dfci/bioinfo-combio</p>
+<p>Interactive Tree Of Life is an online tool for the display, annotation and management of phylogenetic trees.交互式生命树是一种用于显示、注释和管理系统发育树的在线工具。<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1615778055094.png" alt="" loading="lazy"></p>
+<h1 id="刘小乐在线书籍">刘小乐在线书籍</h1>
+<p>《Introduction to Bioinformatics and Computational Biology》<br>
+<a href="https://github.com/liulab-dfci/bioinfo-combio">链接</a></p>
 <h1 id="biomart-r包">Biomart R包</h1>
 <figure data-type="image" tabindex="1"><img src="https://ninjagg.github.io/Xuan.github.io//post-images/1615779286637.png" alt="" loading="lazy"></figure>
 <h1 id="ensemble下载gtf">ensemble下载gtf</h1>
-<p>#只有gene name 没有gene symbol  而且gene symbol也不太可靠有别名重名 hgnc下的文件读取不进来</p>
-<h1 id="hs_org包转换名字会丢失部分基因">hs_org包转换名字会丢失部分基因</h1>
+<p>只有gene name 没有gene symbol  而且gene symbol也不太可靠有别名重名 hgnc下的文件读取不进来</p>
+<h1 id="hs_org包">hs_org包</h1>
+<p>转换名字会丢失部分基因</p>
 <h1 id="组装线粒体">组装线粒体</h1>
-<p>#getor ganelle</p>
+<p>getor ganelle</p>
 <h1 id="kegg-id应该是entrez-id">KEGG ID应该是entrez id</h1>
-<h1 id="添加北外源">添加北外源</h1>
-<p>conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/pkgs/free/<br>
-conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/bioconda/<br>
-conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/msys2/<br>
-conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/menpo/<br>
-conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/peterjc123/<br>
-conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/pkgs/main/<br>
-conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/conda-forge/<br>
-conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/pytorch/<br>
-conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/pkgs/r/<br>
-conda config --set show_channel_urls yes</p>
-<h1 id=""></h1>
+<h1 id="更换conda源">更换Conda源</h1>
+<p>查看当前conda源信息 <code>conda info</code></p>
+<h3 id="清华源">清华源</h3>
+<pre><code>conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/
+</code></pre>
+<h3 id="中科大源">中科大源</h3>
+<pre><code>conda config --add channels https://mirrors.ustc.edu.cn/anaconda/pkgs/main/
+conda config --add channels https://mirrors.ustc.edu.cn/anaconda/pkgs/free/
+conda config --add channels https://mirrors.ustc.edu.cn/anaconda/cloud/conda-forge/
+conda config --add channels https://mirrors.ustc.edu.cn/anaconda/cloud/msys2/
+conda config --add channels https://mirrors.ustc.edu.cn/anaconda/cloud/bioconda/
+conda config --add channels https://mirrors.ustc.edu.cn/anaconda/cloud/menpo/
+conda config --set show_channel_urls yes
+</code></pre>
+<h3 id="北外源">北外源</h3>
+<pre><code>conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/pkgs/free/ 
+conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/bioconda/ 
+conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/msys2/
+conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/menpo/
+conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/peterjc123/
+conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/pkgs/main/
+conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/conda-forge/
+conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/pytorch/
+conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/pkgs/r/
+conda config --set show_channel_urls yes
+</code></pre>
+<h1 id="改依赖库把系统弄崩溃">改依赖库把系统弄崩溃</h1>
+<p>不小心删除lib64 libc.so.6软链接导致大多数命令无法运行，此时不能退系统，重新恢复该链接或许可以，一般不要动这些。</p>
+<h1 id="数据作图有大量na">数据作图有大量NA</h1>
+<p>①将NA替换为0直接+1取Log<br>
+②<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1618576176895.png" alt="" loading="lazy"></p>
 ]]></content>
     </entry>
     <entry>
