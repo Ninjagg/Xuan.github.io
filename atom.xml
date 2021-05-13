@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ninjagg.github.io/Xuan.github.io/</id>
     <title>Gridea</title>
-    <updated>2021-04-17T03:00:44.935Z</updated>
+    <updated>2021-05-13T11:20:39.268Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ninjagg.github.io/Xuan.github.io/"/>
     <link rel="self" href="https://ninjagg.github.io/Xuan.github.io/atom.xml"/>
@@ -10,6 +10,64 @@
     <logo>https://ninjagg.github.io/Xuan.github.io/images/avatar.png</logo>
     <icon>https://ninjagg.github.io/Xuan.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[R tips]]></title>
+        <id>https://ninjagg.github.io/Xuan.github.io/post/r-tips/</id>
+        <link href="https://ninjagg.github.io/Xuan.github.io/post/r-tips/">
+        </link>
+        <updated>2021-05-13T08:32:02.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="合并多个同类型文件如多个excel文件根据药物components预测的靶点信息">合并多个同类型文件，如多个excel文件(根据药物components预测的靶点信息)</h1>
+<pre><code>path &lt;- list.files(path = &quot;../hongshen_alcohol/components_target_csv/&quot;, pattern = &quot;*.csv&quot;, full.names = T) #将各个文件的路径+文件名作为单个因子保存在列表path中
+predicted_target &lt;- map_df(path1, ~read.csv(., header = T)) %&gt;% filter(Probability. &gt; 0) # map_df 返回一个data.frame，将一个函数/匿名函数应用到list的每一个Vector，默认按行合并约等于“map_dfr”
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[中药+疾病+网络药理学]]></title>
+        <id>https://ninjagg.github.io/Xuan.github.io/post/ji-bing-ba-dian-shai-xuan-guo-lu/</id>
+        <link href="https://ninjagg.github.io/Xuan.github.io/post/ji-bing-ba-dian-shai-xuan-guo-lu/">
+        </link>
+        <updated>2021-05-12T11:57:55.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="热门疾病">热门疾病</h1>
+<p>如肿瘤、心血管等热门疾病在相关疾病数据库 <a href="https://www.genecards.org/">genecard</a> <a href="https://omim.org/">OMIM</a>搜索英文关键字，挑选一个term即可</p>
+<h1 id="冷门疾病">冷门疾病</h1>
+<p>如过敏(allergic)、光老化(photoaging)等冷门疾病可以在<a href="https://omim.org/">OMIM</a>搜索英文关键字，此时平均一个term仅有个位数的gene target无法网络药理学或其他筛选的要求(300-400个)<br>
+<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1620821026638.png" alt="" loading="lazy"><br>
+可选择将结果展示为Gene Map Table<br>
+<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1620821093188.png" alt="" loading="lazy"><br>
+下载excel格式文件<br>
+<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1620821139114.png" alt="" loading="lazy"><br>
+并在excel中利用&quot;分列&quot;功能将gene target整理为一列新的数据，另存为一个文件，后续在R中进行清洗</p>
+<h3 id="r-part-1">R Part 1</h3>
+<pre><code>df &lt;- read_excel(path = &quot;../allergic_gene.xlsx&quot;)
+df_rm_dup &lt;- unique(df) #去重
+allergic_gene &lt;- na.omit(df_rm_dup) #去除na
+
+sum(is.na(df_rm_dup)) #查看是否有na存在
+sum(is.na(allergic_gene)) #查看是否有na存在
+
+write_csv(allergic_gene, file = &quot;../allergic_fil_gene.csv&quot;) #写出整洁的疾病靶点
+</code></pre>
+<h1 id="tcmsptcmid-数据库检索中药单体成分">TCMSP/TCMID 数据库检索中药单体成分</h1>
+<p><a href="https://old.tcmsp-e.com/tcmsp.php">TCMSP</a><br>
+<a href="http://119.3.41.228:8000/tcmid/">TCMID</a><br>
+通过上述2个数据库直接获得SMILE格式<br>
+或获取CAS号，通过<a href="https://pubchem.ncbi.nlm.nih.gov/">pubchem</a>获取相应SMILE格式<br>
+<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1620904441007.png" alt="" loading="lazy"></p>
+<h1 id="预测靶点相关成分">预测靶点相关成分</h1>
+<p><a href="http://www.swisstargetprediction.ch/">Swiss</a><br>
+将SMILE格式文件作为Input提交<br>
+<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1620904478125.png" alt="" loading="lazy"><br>
+下载csv格式靶点信息(默认下载前100个)至一个文件夹<br>
+<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1620904611812.png" alt="" loading="lazy"></p>
+<h3 id="r-part-2">R Part 2</h3>
+<pre><code>path1 &lt;- list.files(path = &quot;../hongshen_alcohol/components_target_csv/&quot;, pattern = &quot;*.csv&quot;, full.names = T) #合并所有单体预测靶点的路径至path1
+predicted_target &lt;- map_df(path1, ~read.csv(., header = T)) %&gt;% 
+  filter(Probability. &gt; 0) #提取所有单体预测靶点信息，按行合并至predicted_target
+</code></pre>
+<p>Cytoscape作图</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Conda Collecting package metadata (current_repodata.json): failed 解决方法]]></title>
         <id>https://ninjagg.github.io/Xuan.github.io/post/conda-collecting-package-metadata-current_repodatajson-failed-jie-jue-fang-fa/</id>
@@ -302,22 +360,22 @@ vim .bash_profile
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[生信群知识整理 2020.12.04 to 2021.02.21]]></title>
+        <title type="html"><![CDATA[知识整理 2020.12.04 to 2021.02.21]]></title>
         <id>https://ninjagg.github.io/Xuan.github.io/post/sheng-xin-qun-zhi-shi-zheng-li/</id>
         <link href="https://ninjagg.github.io/Xuan.github.io/post/sheng-xin-qun-zhi-shi-zheng-li/">
         </link>
         <updated>2021-03-15T00:36:35.000Z</updated>
         <content type="html"><![CDATA[<h1 id="20201204-to-20210218">2020.12.04 to 2021.02.18</h1>
-<h1 id="homer">homer</h1>
+<h2 id="homer">homer</h2>
 <p>可以根据一段DNA序列预测其转录因子在bioconda中搜索homer，可以看到有很多种版本<br>
 <code>conda search homer -c bioconda</code></p>
-<h1 id="默认安装-homer-最新版">默认安装 homer 最新版</h1>
+<h2 id="默认安装-homer-最新版">默认安装 homer 最新版</h2>
 <p><code>conda install -c bioconda homer -y</code>  -y 表示直接安装，不询问确认与否</p>
-<h1 id="deeptools">deepTools</h1>
+<h2 id="deeptools">deepTools</h2>
 <p>deepTools is a suite of python tools particularly developed for the efficient analysis of high-throughput sequencing data, such as ChIP-seq, RNA-seq or MNase-seq. 可以绘制甲基化的图片结果 可以绘制增强子的热图</p>
-<h1 id="starbase-targetscan-miranda">starbase targetscan miRanda</h1>
+<h2 id="starbase-targetscan-miranda">starbase targetscan miRanda</h2>
 <p>#可以根据原有序列进行匹配，寻找靶向的非编码RNA或mRNA</p>
-<h1 id="axel">axel</h1>
+<h2 id="axel">axel</h2>
 <p>wget curl虽然支持断点续传但是单线程下载速度不快，可以换用axel，迅雷最好用！</p>
 <p>mac （本次使用）<br>
 <code>brew install axel</code><br>
@@ -326,40 +384,40 @@ vim .bash_profile
 <code>apt-get install axel</code></p>
 <p>Fedora<br>
 <code>yum install axel</code></p>
-<h1 id="不同批次数据是否可以合并">不同批次数据是否可以合并</h1>
+<h2 id="不同批次数据是否可以合并">不同批次数据是否可以合并</h2>
 <p>①采用PCA分析看有无批次效应<br>
 ②一般QIIME参数一致table可以合并，QIIME是一个从原始DNA测序数据执行微生物组分析的开源生物信息学管道。QIIME旨在通过发布高质量的图表和统计数据，从Illumina或其他平台上生成的原始测序数据中获取用户。这包括多路分解和质量过滤、OTU挑选、分类分配、系统发育重建、多样性分析和可视化。QIIME已被应用于基于数万个样本中数十亿个序列的研究。</p>
-<h1 id="supplement-material-下载">Supplement material 下载</h1>
+<h2 id="supplement-material-下载">Supplement material 下载</h2>
 <p>可以用wget或迅雷，axel会更快，idm（收费软件，需要寻找破解版）会更快</p>
-<h1 id="tcga-biolinks">TCGA biolinks</h1>
+<h2 id="tcga-biolinks">TCGA biolinks</h2>
 <p>R包 整理临床数据 （实际使用UCSC.xena但是网站有时候有问题）</p>
-<h1 id="ggplot坐标轴截断">ggplot坐标轴截断</h1>
+<h2 id="ggplot坐标轴截断">ggplot坐标轴截断</h2>
 <p><code>library(gg.gap)</code> 或手动坐标轴截断</p>
-<h1 id="下载sra数据">下载SRA数据</h1>
+<h2 id="下载sra数据">下载SRA数据</h2>
 <p><code>prefetch SRRXXXX</code></p>
-<h1 id="服务器没有管理员权限">服务器没有管理员权限</h1>
+<h2 id="服务器没有管理员权限">服务器没有管理员权限</h2>
 <p>先安装底层lib 再安装缺少的R包<br>
 <code>conda install -c conda-forge libgit2</code></p>
-<h1 id="circos-plot环状热图">circos plot(环状热图)</h1>
+<h2 id="circos-plot环状热图">circos plot(环状热图)</h2>
 <p><img src="https://ninjagg.github.io/Xuan.github.io//post-images/1615776514571.jpg" alt="" loading="lazy"><br>
 ggplot2直接热图加极坐标转换即可</p>
-<h1 id="office激活">office激活</h1>
+<h2 id="office激活">office激活</h2>
 <p>kmspico</p>
-<h1 id="itol">ITOL</h1>
+<h2 id="itol">ITOL</h2>
 <p>Interactive Tree Of Life is an online tool for the display, annotation and management of phylogenetic trees.交互式生命树是一种用于显示、注释和管理系统发育树的在线工具。<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1615778055094.png" alt="" loading="lazy"></p>
-<h1 id="刘小乐在线书籍">刘小乐在线书籍</h1>
+<h2 id="刘小乐在线书籍">刘小乐在线书籍</h2>
 <p>《Introduction to Bioinformatics and Computational Biology》<br>
 <a href="https://github.com/liulab-dfci/bioinfo-combio">链接</a></p>
-<h1 id="biomart-r包">Biomart R包</h1>
+<h2 id="biomart-r包">Biomart R包</h2>
 <figure data-type="image" tabindex="1"><img src="https://ninjagg.github.io/Xuan.github.io//post-images/1615779286637.png" alt="" loading="lazy"></figure>
-<h1 id="ensemble下载gtf">ensemble下载gtf</h1>
+<h2 id="ensemble下载gtf">ensemble下载gtf</h2>
 <p>只有gene name 没有gene symbol  而且gene symbol也不太可靠有别名重名 hgnc下的文件读取不进来</p>
-<h1 id="hs_org包">hs_org包</h1>
+<h2 id="hs_org包">hs_org包</h2>
 <p>转换名字会丢失部分基因</p>
-<h1 id="组装线粒体">组装线粒体</h1>
+<h2 id="组装线粒体">组装线粒体</h2>
 <p>getor ganelle</p>
-<h1 id="kegg-id应该是entrez-id">KEGG ID应该是entrez id</h1>
-<h1 id="更换conda源">更换Conda源</h1>
+<h2 id="kegg-id应该是entrez-id">KEGG ID应该是entrez id</h2>
+<h2 id="更换conda源">更换Conda源</h2>
 <p>查看当前conda源信息 <code>conda info</code></p>
 <h3 id="清华源">清华源</h3>
 <pre><code>conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
@@ -387,11 +445,31 @@ conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/pytorch/
 conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/pkgs/r/
 conda config --set show_channel_urls yes
 </code></pre>
-<h1 id="改依赖库把系统弄崩溃">改依赖库把系统弄崩溃</h1>
+<h2 id="改依赖库把系统弄崩溃">改依赖库把系统弄崩溃</h2>
 <p>不小心删除lib64 libc.so.6软链接导致大多数命令无法运行，此时不能退系统，重新恢复该链接或许可以，一般不要动这些。</p>
-<h1 id="数据作图有大量na">数据作图有大量NA</h1>
+<h2 id="数据作图有大量na">数据作图有大量NA</h2>
 <p>①将NA替换为0直接+1取Log<br>
 ②<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1618576176895.png" alt="" loading="lazy"></p>
+<h1 id="20210222-20210314">2021.02.22-2021.03.14</h1>
+<h2 id="深度学习">深度学习</h2>
+<p>基础是线性代数、一点点矩阵分析、概率论，剩下学到哪里现学，不如听课</p>
+<h2 id="基因组组装">基因组组装</h2>
+<p>Spades 可以使用多个Kmer长度的组装结果，一般选auto模式就可以了(数据质量不好的话碎片片段会多)<br>
+megahit</p>
+<h2 id="外源基因共转进细胞">外源基因共转进细胞</h2>
+<p>测序时可以把该基因的序列加在基因组文件中,同时修改注释文件，重新构建索引，进行比对<br>
+单独看可以用Pcr</p>
+<h2 id="nanopore的guppy软件">Nanopore的guppy软件</h2>
+<p><code>wget https://mirror.oxfordnanoportal.com/software/analysis/ont-guppy-cpu_4.2.2_linux64.tar.gz</code></p>
+<h2 id="两组a和ba平均表达量比b组高使用boxplot把点打上之后wilcox或t-test检验">两组A和B，A平均表达量比B组高，使用boxplot+把点打上，之后wilcox或t-test检验</h2>
+<h2 id="基因家族画共线性-基因组共线性用mcscanxtbtools-circos">基因家族画共线性、基因组共线性用mcscanx，tbtools、circos</h2>
+<h2 id="ucla-qcbio-collaboratory的ngs培训视频">UCLA QCBio Collaboratory的NGS培训视频</h2>
+<p><a href="https://www.youtube.com/channel/UC_Nsj_F_u7X7Il9x9V-g-sQ/playlists">飞机票</a><br>
+不要贪多，用到什么或者即将用到什么就去看看，每一部分也就 6-10h</p>
+<h2 id="geoquery-下载geo数据">GEOquery 下载GEO数据</h2>
+<h2 id="好的workshop">好的workshop</h2>
+<p><a href="https://space.bilibili.com/401352356/video">飞机票</a><br>
+按需观看</p>
 ]]></content>
     </entry>
     <entry>
