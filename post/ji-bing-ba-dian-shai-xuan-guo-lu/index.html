@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>中药+疾病+网络药理学 | Gridea</title>
-<link rel="shortcut icon" href="https://ninjagg.github.io/Xuan.github.io//favicon.ico?v=1620905039435">
+<link rel="shortcut icon" href="https://ninjagg.github.io/Xuan.github.io//favicon.ico?v=1621684699802">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://ninjagg.github.io/Xuan.github.io//styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="中药+疾病+网络药理学 | Gridea - Atom Feed" href="https://ninjagg.github.io/Xuan.github.io//atom.xml">
@@ -24,7 +24,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://ninjagg.github.io/Xuan.github.io/">
-  <img class="avatar" src="https://ninjagg.github.io/Xuan.github.io//images/avatar.png?v=1620905039435" alt="">
+  <img class="avatar" src="https://ninjagg.github.io/Xuan.github.io//images/avatar.png?v=1621684699802" alt="">
   </a>
   <h1 class="site-title">
     Gridea
@@ -84,7 +84,7 @@
                 2021-05-12
               </span>
               <span>
-                2 min read
+                7 min read
               </span>
               
             </div>
@@ -116,19 +116,142 @@ write_csv(allergic_gene, file = &quot;../allergic_fil_gene.csv&quot;) #写出整
 <a href="http://119.3.41.228:8000/tcmid/">TCMID</a><br>
 通过上述2个数据库直接获得SMILE格式<br>
 或获取CAS号，通过<a href="https://pubchem.ncbi.nlm.nih.gov/">pubchem</a>获取相应SMILE格式<br>
-<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1620904441007.png" alt="" loading="lazy"></p>
+<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1620904441007.png" alt="" loading="lazy"><br>
+<strong>通过数据库收集中药单体成分信息时极有可能获得重复值，注意筛查</strong></p>
 <h1 id="预测靶点相关成分">预测靶点相关成分</h1>
 <p><a href="http://www.swisstargetprediction.ch/">Swiss</a><br>
 将SMILE格式文件作为Input提交<br>
 <img src="https://ninjagg.github.io/Xuan.github.io//post-images/1620904478125.png" alt="" loading="lazy"><br>
 下载csv格式靶点信息(默认下载前100个)至一个文件夹<br>
-<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1620904611812.png" alt="" loading="lazy"></p>
+<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1620904611812.png" alt="" loading="lazy"><br>
+在每一个单体药物预测靶点的excel文件内加入&quot;drug&quot;列，将单体名字输入并统一格式<br>
+<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1620979402621.png" alt="" loading="lazy"></p>
 <h3 id="r-part-2">R Part 2</h3>
 <pre><code>path1 &lt;- list.files(path = &quot;../hongshen_alcohol/components_target_csv/&quot;, pattern = &quot;*.csv&quot;, full.names = T) #合并所有单体预测靶点的路径至path1
 predicted_target &lt;- map_df(path1, ~read.csv(., header = T)) %&gt;% 
   filter(Probability. &gt; 0) #提取所有单体预测靶点信息，按行合并至predicted_target
+write_csv(predicted_target, file = &quot;./hongshen_alcohol/bind_predicted_targets.csv&quot;) #写出整合后的&quot;预测靶点文件&quot;
+uni_drug &lt;- as.data.frame(unique(predicted_target$drug)) #提取所有单体药物信息
+write_csv(uni_drug, file = &quot;./hongshen_alcohol/unique_drug.csv&quot;) #写出所有单体药物信息
 </code></pre>
+<h1 id="将疾病靶点与中药成分预测靶点做交集保留交集靶点">将&quot;疾病靶点&quot;与&quot;中药成分预测靶点&quot;做交集，保留交集靶点</h1>
+<h3 id="r-part-3">R Part 3</h3>
+<pre><code>allergic &lt;- read_csv(file = &quot;./allergic_fil_gene.csv&quot;)
+predicted_target &lt;- read_csv(file = &quot;./hongshen_alcohol/bind_predicted_targets.csv&quot;) %&gt;% select(Common.name) %&gt;% unique(.)
+
+colnames(predicted_target) &lt;- &quot;gene&quot; #将两个数据集的列名设为一致
+
+both &lt;- intersect(allergic, predicted_target) #有一致列名时，intersect返回数据框
+write_csv(both, file = &quot;./hongshen_alcohol/intersection.csv&quot;) #写出数据
+</code></pre>
+<p>构建&quot;疾病&quot;-&quot;disease &amp; drug 交集靶点&quot;-&quot;中药&quot;network，若交集靶点过少可仅采用&quot;中药-成分-预测靶点&quot;构建Network</p>
 <h1 id="cytoscape作图">Cytoscape作图</h1>
+<p>制作network、type文件<br>
+<em>network</em>文件形式</p>
+<pre><code>ID      Symbol
+drug1   STAT3
+drug1   PTAFR
+drug1   IL2
+drug2  MAPK
+...
+drug15  CDK1
+HS      drug1 #HS 红参(中药)
+HS      drug2
+...
+HS      drug15
+</code></pre>
+<figure data-type="image" tabindex="1"><img src="https://ninjagg.github.io/Xuan.github.io//post-images/1620979877334.png" alt="" loading="lazy"></figure>
+<p><em>type</em>文件格式</p>
+<pre><code>Term    Type
+drug1   drug
+drug2   drug
+...
+drug15  drug
+STAT3   gene
+PTAFR   gene
+IL2    gene
+MAPK    gene
+Allergic    A #Allergic (疾病)
+HS          B #HS 红参(中药)
+</code></pre>
+<p><img src="https://ninjagg.github.io/Xuan.github.io//post-images/1620980699539.png" alt="" loading="lazy"><br>
+<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1620980729126.png" alt="" loading="lazy"></p>
+<p>Cytoscape导入制作好的Network、Type文件<br>
+<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1620981090810.png" alt="" loading="lazy"><br>
+将Symbol属性设置为&quot;target node&quot;<br>
+<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1620981157761.png" alt="" loading="lazy"><br>
+菜单栏&quot;Tools&quot;、&quot;Analyze Network&quot;(不勾选对号为无定向网络分析，本次不勾)<br>
+<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1620981710779.png" alt="" loading="lazy"></p>
+<h1 id="go-kegg富集">GO、KEGG富集</h1>
+<p>R Part 3</p>
+<pre><code>### GO富集
+erich.go.all &lt;- enrichGO(gene = DEG.gene_symbol_entrez_id, 
+                         OrgDb = org.Hs.eg.db, 
+                         keyType = &quot;ENTREZID&quot;, ont = &quot;ALL&quot;,
+                         pvalueCutoff = 0.01, qvalueCutoff = 0.05,
+                         readable = T, # 使用gene ID表示gene FALSE的话就返回entrez ID
+                         pool = T) # ont = &quot;ALL&quot;时 pool = T返回一个整合的dataframe
+temp &lt;- data.frame(erich.go.all)
+# barplot 一步GO三大类出图
+dotplot(erich.go.all, split=&quot;ONTOLOGY&quot;)+facet_grid(ONTOLOGY~., scale=&quot;free&quot;) 
+
+pdf(file = &quot;./paper_dotplot_BP_CC_MF&quot;, width = 9, height = 9) #最后保存 pdf 9 * 9
+png(filename = &quot;./hongshen_alcohol/test.png&quot;, width = 800, height = 800)
+dev.off() #pdf png 和dev.off一起使用
+
+### KEGG
+erich.kegg.all &lt;- enrichKEGG(gene = DEG.gene_symbol_entrez_id, 
+                             organism = &quot;hsa&quot;, 
+                             keyType = &quot;kegg&quot;,
+                             pvalueCutoff = 0.01, qvalueCutoff = 0.05)
+temp &lt;- data.frame(erich.kegg.all)
+# Chord图
+temp_kegg &lt;- data.frame(erich.kegg.all)[1:10,] %&gt;%
+  mutate(Category=&quot;KEGG&quot;) #取top10 富集到的kegg通路
+temp_kegg &lt;- temp_kegg[,c(10,1,2,8,6)] #筛选需要的列
+terms &lt;- data.frame(Category=temp_kegg$Category, # Chord要求的&quot;terms&quot;文件，“列名”不可变
+                    ID=temp_kegg$ID, 
+                    Term=temp_kegg$Description, 
+                    Genes = temp_kegg$geneID, 
+                    adj_pval=temp_kegg$p.adjust) 
+genes &lt;- data.frame(ID=enrich_raw_data$gene_symbol, # Chord要求的&quot;genes&quot;文件,列名不可变
+                    logFC=rnorm(length(enrich_raw_data$gene_symbol), #本次分析没有logFC，生成随机数列代替
+                    mean = 0, sd = 2))
+
+# entrez_id to gene_symbol 
+# 与GO结果不同，Kegg结果中的Genes是entrezid，需要转换为gene_symbol再作图
+gene_entrez_list &lt;- temp_kegg$geneID 
+
+# 将gene_entrez_list以&quot;/&quot;的结果拆分成outcome&quot;list&quot;中的各个向量
+outcome &lt;- vector()
+for (i in seq_along(gene_entrez_list)) {
+  outcome[i] &lt;- strsplit(gene_entrez_list[i], split = &quot;/&quot;)
+}
+
+#将outcome中的各个向量的值从entrezid转换为gene_symbol columens是要转换的格式，keytype是当前格式
+gene_symbol &lt;- list()
+for (i in seq_along(outcome)) {
+  gene_symbol[[i]] &lt;- select(org.Hs.eg.db, 
+                             keys=outcome[[i]], #keys 为需要转换格式的set
+                             columns=&quot;SYMBOL&quot;, #columns 为需要转换格式的set 当前命名格式
+                             keytype = &quot;ENTREZID&quot;) #keytype 需要转换成的命名格式
+}
+
+#将gene_sybol中各组对应的gene_symbol整合成以&quot;,&quot;分隔的一个向量，赋值给terms$Genes
+for (i in seq_along(terms$Genes)) {
+  terms$Genes[i] &lt;- str_c(gene_symbol[[i]]$SYMBOL, collapse = &quot;,&quot;)
+}
+
+# 画图
+circ &lt;- circle_dat(terms = terms, genes = genes)
+chord &lt;- chord_dat(data = circ, genes = genes, process = terms$Term)
+GOChord(chord,
+        space = 0.05, # space 各弦部分间的距离
+        gene.order = 'logFC', # 以logFC进行排序
+        gene.space = 0.18, # gene.space gene标签与弦之间的距离
+        process.label = 7,
+        gene.size = 2) # gene.size gene标签字体大小
+</code></pre>
 
               </div>
               <div class="toc-container">
@@ -147,7 +270,14 @@ predicted_target &lt;- map_df(path1, ~read.csv(., header = T)) %&gt;%
 <li><a href="#r-part-2">R Part 2</a></li>
 </ul>
 </li>
+<li><a href="#%E5%B0%86%E7%96%BE%E7%97%85%E9%9D%B6%E7%82%B9%E4%B8%8E%E4%B8%AD%E8%8D%AF%E6%88%90%E5%88%86%E9%A2%84%E6%B5%8B%E9%9D%B6%E7%82%B9%E5%81%9A%E4%BA%A4%E9%9B%86%E4%BF%9D%E7%95%99%E4%BA%A4%E9%9B%86%E9%9D%B6%E7%82%B9">将&quot;疾病靶点&quot;与&quot;中药成分预测靶点&quot;做交集，保留交集靶点</a><br>
+*
+<ul>
+<li><a href="#r-part-3">R Part 3</a></li>
+</ul>
+</li>
 <li><a href="#cytoscape%E4%BD%9C%E5%9B%BE">Cytoscape作图</a></li>
+<li><a href="#go-kegg%E5%AF%8C%E9%9B%86">GO、KEGG富集</a></li>
 </ul>
 
               </div>

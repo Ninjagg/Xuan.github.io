@@ -1,0 +1,283 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Cox回归分析 | Gridea</title>
+<link rel="shortcut icon" href="https://ninjagg.github.io/Xuan.github.io//favicon.ico?v=1621684699802">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://ninjagg.github.io/Xuan.github.io//styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="Cox回归分析 | Gridea - Atom Feed" href="https://ninjagg.github.io/Xuan.github.io//atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="单因素Cox回归分析
+##### load package #####
+library(survminer)
+library(survival)
+
+##### 单个 单因素Cox回归分析 #####
+# 只能对离散型变量进行回归，因此基因表..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://ninjagg.github.io/Xuan.github.io/">
+  <img class="avatar" src="https://ninjagg.github.io/Xuan.github.io//images/avatar.png?v=1621684699802" alt="">
+  </a>
+  <h1 class="site-title">
+    Gridea
+  </h1>
+  <p class="site-description">
+    温故而知新
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              Cox回归分析
+            </h2>
+            <div class="post-info">
+              <span>
+                2021-05-22
+              </span>
+              <span>
+                5 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h3 id="单因素cox回归分析">单因素Cox回归分析</h3>
+<pre><code>##### load package #####
+library(survminer)
+library(survival)
+
+##### 单个 单因素Cox回归分析 #####
+# 只能对离散型变量进行回归，因此基因表达量需要按中位数划分为&quot;high&quot;和&quot;low&quot;
+# rows为各样本 cols 为各基因 
+for (i in c(1:59)) {
+  TCGA_ferroptosis_surv[[i]] &lt;- ifelse(TCGA_ferroptosis_surv[[i]]&gt;median(TCGA_ferroptosis_surv[[i]]),'high','low')
+}
+
+# 回归
+res.cox &lt;- coxph(Surv(OS.time, OS) ~ DPP4, data = TCGA_ferroptosis_surv)  # DPP4是一个基因
+temp  &lt;- summary(res.cox)  # 看结果
+ggforest(res.com)
+
+##### 实战 批量 单因素Cox回归分析 #####
+ferroptosis_gene &lt;- colnames(TCGA_ferroptosis_surv)[1:59]  # 提取ferroptosis相关59个基因
+ 
+ # 此处使用lapply也可 但各子集没有名字了 as.formula提取formula对象，用于回归
+univ_formulas &lt;- sapply(ferroptosis_gene,  
+                        function(x) {as.formula(paste('Surv(OS.time, OS)~', x))})
+
+univ_models &lt;- lapply( univ_formulas, function(x) {coxph(x, data = TCGA_ferroptosis_surv)})
+
+#提取HR，95%置信区间和p值
+univ_results &lt;- lapply(univ_models,
+                       function(x){ 
+                         x &lt;- summary(x)
+                         #获取p值; signif 四舍五入取数
+                         p.value &lt;- signif(x$wald[&quot;pvalue&quot;], digits=3)
+                         #获取HR
+                         HR &lt;-signif(x$coef[2], digits=2);
+                         #获取95%置信区间
+                         HR.confint.lower &lt;- signif(x$conf.int[,&quot;lower .95&quot;], 2)
+                         HR.confint.upper &lt;- signif(x$conf.int[,&quot;upper .95&quot;], 2)
+                         HR &lt;- paste0(HR, &quot; (&quot;, 
+                                      HR.confint.lower, &quot;-&quot;, HR.confint.upper, &quot;)&quot;)
+                         res&lt;-c(p.value,HR)
+                         names(res)&lt;-c(&quot;p.value&quot;,&quot;HR (95% CI for HR)&quot;)
+                         return(res)  # 返回需要的结果
+                       })
+
+# 转换成数据框，并转置
+res &lt;- as.data.frame(t(as.data.frame(univ_results, check.names = FALSE)))  # 删除check.names好像也没事
+
+res_fil &lt;- res[res$p.value &lt;= 0.05,]  # 筛选p.value &lt;= 0.05的基因
+
+# 写出结果
+# quote = T, character列的内容将会用&quot;&quot;包裹起来。
+write.table(file=&quot;univariate_cox_result.txt&quot;, as.data.frame(res), quote = F, sep=&quot;\t&quot;)
+write.table(res_fil, file=&quot;p_value_univariate_cox_result.txt&quot;, quote = F, sep=&quot;\t&quot;)
+
+# 批量单因素Cox回归作forest图
+#############################################################
+#对HR (95% CI for HR)做处理，得到HR和low .95和high .95
+#当然也可以改计算univ_results这一步的代码，不要将HR和CI贴起来
+############################################################
+HR=gsub(&quot;[\\(\\)]&quot;,&quot;&quot;,res$`HR (95% CI for HR)`)
+HR=gsub(&quot;-&quot;,&quot; &quot;,HR)
+HR=as.data.frame(do.call(cbind,strsplit(HR,&quot; &quot;)),stringsAsFactors=F)
+names(HR)=rownames(res)
+
+#################################  
+#开始绘图，直接保存到pdf文件中
+#################################
+pdf(file=&quot;test.pdf&quot;,width=7)
+#左边和右边边距稍微留多一点来写变量名称，pvalue和HR
+par(mar = c(5,16,4,6))  # mar 设置图片四周距离(bottom, left, top, right) 该区域不是绘图区域
+
+#先用小方块画出HR
+plot(as.numeric(HR[1,]),1:dim(HR)[2],
+     pch=15, cex=0.8, col=&quot;orange&quot;,bty='n',  # pch 方块形状; cex 方块大小; col 方块颜色; bty 'n'整个plot没有边框
+     yaxt='n', ylab=NA, xlab=&quot;Hazard Ratio&quot;,  # yaxt 决定y轴种类 'n'没有y轴; ylab y轴标签; xlab x轴标签
+     xlim=c(0,2), # xlim x轴范围，正常应该是range(as.numeric(unlist(HR))) 此处为了美观   
+)
+
+#添加中线(无效线)
+# lwd 线宽度; lty 线种类 '1'实线 '2'虚线 '3'点线 '4' 点虚线
+abline(v=1,col=&quot;grey&quot;,lwd=2,lty=1)  
+
+# xpd = T 不画在绘图区域，可以作为图例使用
+for(i in 1:ncol(HR)){
+  x=as.numeric(HR[2:3,i])
+  #循环画出CI; x为横坐标(2个数) y为纵坐标(2个数) 对应两个点 连成线段
+  lines(x,c(i,i),col=&quot;blue&quot;)  
+  #添加变量名
+  text(-2,i,rownames(res)[i],adj = c(0,0),xpd=T, cex = 0.5) 
+  #添加p值
+  text(-1.5,i,as.numeric(res[i,1]),adj = c(0,0),xpd=T, cex = 0.5)
+  #添加HR和CI
+  text(-1,i,as.character(res[i,2]),adj = c(0,0),xpd=T, cex = 0.5)
+}
+
+#添加标题
+text(-1.5,ncol(HR)+1.5,&quot;pvalue&quot;,xpd=T,adj = c(0,0), cex = 0.8)
+text(-1,ncol(HR)+1.5,&quot;HR(CI)&quot;,xpd=T,adj = c(0,0), cex = 0.8)
+dev.off()
+</code></pre>
+<h3 id="多因素cox回归分析">多因素Cox回归分析</h3>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#%E5%8D%95%E5%9B%A0%E7%B4%A0cox%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90">单因素Cox回归分析</a></li>
+<li><a href="#%E5%A4%9A%E5%9B%A0%E7%B4%A0cox%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90">多因素Cox回归分析</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://ninjagg.github.io/Xuan.github.io/post/r-tips/">
+              <h3 class="post-title">
+                R tips
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://ninjagg.github.io/Xuan.github.io//atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

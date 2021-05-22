@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ninjagg.github.io/Xuan.github.io/</id>
     <title>Gridea</title>
-    <updated>2021-05-13T11:24:05.789Z</updated>
+    <updated>2021-05-22T11:59:59.581Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ninjagg.github.io/Xuan.github.io/"/>
     <link rel="self" href="https://ninjagg.github.io/Xuan.github.io/atom.xml"/>
@@ -10,6 +10,115 @@
     <logo>https://ninjagg.github.io/Xuan.github.io/images/avatar.png</logo>
     <icon>https://ninjagg.github.io/Xuan.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[Cox回归分析]]></title>
+        <id>https://ninjagg.github.io/Xuan.github.io/post/cox-hui-gui-fen-xi/</id>
+        <link href="https://ninjagg.github.io/Xuan.github.io/post/cox-hui-gui-fen-xi/">
+        </link>
+        <updated>2021-05-22T11:02:47.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="单因素cox回归分析">单因素Cox回归分析</h3>
+<pre><code>##### load package #####
+library(survminer)
+library(survival)
+
+##### 单个 单因素Cox回归分析 #####
+# 只能对离散型变量进行回归，因此基因表达量需要按中位数划分为&quot;high&quot;和&quot;low&quot;
+# rows为各样本 cols 为各基因 
+for (i in c(1:59)) {
+  TCGA_ferroptosis_surv[[i]] &lt;- ifelse(TCGA_ferroptosis_surv[[i]]&gt;median(TCGA_ferroptosis_surv[[i]]),'high','low')
+}
+
+# 回归
+res.cox &lt;- coxph(Surv(OS.time, OS) ~ DPP4, data = TCGA_ferroptosis_surv)  # DPP4是一个基因
+temp  &lt;- summary(res.cox)  # 看结果
+ggforest(res.com)
+
+##### 实战 批量 单因素Cox回归分析 #####
+ferroptosis_gene &lt;- colnames(TCGA_ferroptosis_surv)[1:59]  # 提取ferroptosis相关59个基因
+ 
+ # 此处使用lapply也可 但各子集没有名字了 as.formula提取formula对象，用于回归
+univ_formulas &lt;- sapply(ferroptosis_gene,  
+                        function(x) {as.formula(paste('Surv(OS.time, OS)~', x))})
+
+univ_models &lt;- lapply( univ_formulas, function(x) {coxph(x, data = TCGA_ferroptosis_surv)})
+
+#提取HR，95%置信区间和p值
+univ_results &lt;- lapply(univ_models,
+                       function(x){ 
+                         x &lt;- summary(x)
+                         #获取p值; signif 四舍五入取数
+                         p.value &lt;- signif(x$wald[&quot;pvalue&quot;], digits=3)
+                         #获取HR
+                         HR &lt;-signif(x$coef[2], digits=2);
+                         #获取95%置信区间
+                         HR.confint.lower &lt;- signif(x$conf.int[,&quot;lower .95&quot;], 2)
+                         HR.confint.upper &lt;- signif(x$conf.int[,&quot;upper .95&quot;], 2)
+                         HR &lt;- paste0(HR, &quot; (&quot;, 
+                                      HR.confint.lower, &quot;-&quot;, HR.confint.upper, &quot;)&quot;)
+                         res&lt;-c(p.value,HR)
+                         names(res)&lt;-c(&quot;p.value&quot;,&quot;HR (95% CI for HR)&quot;)
+                         return(res)  # 返回需要的结果
+                       })
+
+# 转换成数据框，并转置
+res &lt;- as.data.frame(t(as.data.frame(univ_results, check.names = FALSE)))  # 删除check.names好像也没事
+
+res_fil &lt;- res[res$p.value &lt;= 0.05,]  # 筛选p.value &lt;= 0.05的基因
+
+# 写出结果
+# quote = T, character列的内容将会用&quot;&quot;包裹起来。
+write.table(file=&quot;univariate_cox_result.txt&quot;, as.data.frame(res), quote = F, sep=&quot;\t&quot;)
+write.table(res_fil, file=&quot;p_value_univariate_cox_result.txt&quot;, quote = F, sep=&quot;\t&quot;)
+
+# 批量单因素Cox回归作forest图
+#############################################################
+#对HR (95% CI for HR)做处理，得到HR和low .95和high .95
+#当然也可以改计算univ_results这一步的代码，不要将HR和CI贴起来
+############################################################
+HR=gsub(&quot;[\\(\\)]&quot;,&quot;&quot;,res$`HR (95% CI for HR)`)
+HR=gsub(&quot;-&quot;,&quot; &quot;,HR)
+HR=as.data.frame(do.call(cbind,strsplit(HR,&quot; &quot;)),stringsAsFactors=F)
+names(HR)=rownames(res)
+
+#################################  
+#开始绘图，直接保存到pdf文件中
+#################################
+pdf(file=&quot;test.pdf&quot;,width=7)
+#左边和右边边距稍微留多一点来写变量名称，pvalue和HR
+par(mar = c(5,16,4,6))  # mar 设置图片四周距离(bottom, left, top, right) 该区域不是绘图区域
+
+#先用小方块画出HR
+plot(as.numeric(HR[1,]),1:dim(HR)[2],
+     pch=15, cex=0.8, col=&quot;orange&quot;,bty='n',  # pch 方块形状; cex 方块大小; col 方块颜色; bty 'n'整个plot没有边框
+     yaxt='n', ylab=NA, xlab=&quot;Hazard Ratio&quot;,  # yaxt 决定y轴种类 'n'没有y轴; ylab y轴标签; xlab x轴标签
+     xlim=c(0,2), # xlim x轴范围，正常应该是range(as.numeric(unlist(HR))) 此处为了美观   
+)
+
+#添加中线(无效线)
+# lwd 线宽度; lty 线种类 '1'实线 '2'虚线 '3'点线 '4' 点虚线
+abline(v=1,col=&quot;grey&quot;,lwd=2,lty=1)  
+
+# xpd = T 不画在绘图区域，可以作为图例使用
+for(i in 1:ncol(HR)){
+  x=as.numeric(HR[2:3,i])
+  #循环画出CI; x为横坐标(2个数) y为纵坐标(2个数) 对应两个点 连成线段
+  lines(x,c(i,i),col=&quot;blue&quot;)  
+  #添加变量名
+  text(-2,i,rownames(res)[i],adj = c(0,0),xpd=T, cex = 0.5) 
+  #添加p值
+  text(-1.5,i,as.numeric(res[i,1]),adj = c(0,0),xpd=T, cex = 0.5)
+  #添加HR和CI
+  text(-1,i,as.character(res[i,2]),adj = c(0,0),xpd=T, cex = 0.5)
+}
+
+#添加标题
+text(-1.5,ncol(HR)+1.5,&quot;pvalue&quot;,xpd=T,adj = c(0,0), cex = 0.8)
+text(-1,ncol(HR)+1.5,&quot;HR(CI)&quot;,xpd=T,adj = c(0,0), cex = 0.8)
+dev.off()
+</code></pre>
+<h3 id="多因素cox回归分析">多因素Cox回归分析</h3>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[R tips]]></title>
         <id>https://ninjagg.github.io/Xuan.github.io/post/r-tips/</id>
@@ -20,6 +129,51 @@
 <pre><code>path &lt;- list.files(path = &quot;../hongshen_alcohol/components_target_csv/&quot;, pattern = &quot;*.csv&quot;, full.names = T) #将各个文件的路径+文件名作为单个因子保存在列表path中
 predicted_target &lt;- map_df(path1, ~read.csv(., header = T)) %&gt;% filter(Probability. &gt; 0) # map_df 返回一个data.frame，将一个函数/匿名函数应用到list的每一个Vector，默认按行合并约等于“map_dfr”
 </code></pre>
+<h1 id="对两个数据集取交集">对两个数据集取交集</h1>
+<p><code>intersect(allergic$gene, predicted_target$Common.name)</code><br>
+<em>intersect</em> 默认对两个数据框中具有同一列名的数据取交集并返回一个数据框，若无同一列名可设定某一列具体数值返回vector</p>
+<h1 id="拆分object">拆分object</h1>
+<p><code>strsplit(gene_entrez_list[1], split = &quot;/&quot;)</code><br>
+使用<em>strsplit</em>函数<br>
+<strong>Description</strong><br>
+Split the elements of a character vector x into substrings according to the matches to substring split within them.</p>
+<h1 id="转化基因名">转化基因名</h1>
+<p>从TCGA下载癌症基因表达矩阵文件，对ENSG0100213.. 格式基因名转换&quot;SYMBOL&quot;格式<br>
+<em>select</em> 返回一个矩阵(保留一对多情况，长度与原行数不符)<br>
+<em>mapIds</em> 返回一个列表，长度与原行数相符(推荐使用)</p>
+<pre><code>options(connectionObserver = NULL)  # 目前org.Hs.eg.db有小Bug 需要两个一起使用
+libraray(org.Hs.eg.db)
+
+keytypes(org.Hs.eg.db)  # 查看有哪些命名格式
+head(keys(org.Hs.eg.db, keytype = &quot;ENSEMBL&quot;))  # 查看各个命名格式是什么样子
+
+gene &lt;- as.character(TCGA_count_data$Ensembl_ID)  # 需要整理成character格式基因名
+length(gene)  # 查看长度
+
+temp &lt;- str_replace_all(gene, pattern = &quot;\\.\\d*$&quot;, replacement = &quot;&quot;)  # ENSEMBL ID略有特殊，后面有类似&quot;.05&quot;的后缀，是版本号，需要使用正则清除
+
+tran_temp &lt;- mapIds(x = org.Hs.eg.db,
+       keys = temp,  # 需要转换的gene set
+       column = &quot;SYMBOL&quot;,  # column 代表gene set需要转换后命名格式
+       keytype = &quot;ENSEMBL&quot;)  # keytype 代表gene set转换前的命名格式
+length(tran_temp)  # 再次查看长度，防止出现1对多情况
+</code></pre>
+<h1 id="对r-object行名赋值报错">对R object行名赋值报错</h1>
+<p>Error in .rowNamesDF&lt;- (x, value = value) : 'row.names'里不允许有遗漏值<br>
+原因可能在于<strong>行名中存在NA</strong></p>
+<h1 id="对r-数据框取子集-行名消失">对R 数据框取子集 行名消失</h1>
+<p>使用<em>as.data.frame</em>对object转换，再取子集就可以保留行名</p>
+<h1 id="lapply-对列表每一个元素施加function">lapply 对列表每一个元素施加Function</h1>
+<p>返回一个与输入等长的list<br>
+lapply(X, FUN, ...)</p>
+<p>衍生有sapply<br>
+sapply(X, FUN, ..., simplify = TRUE, USE.NAMES = TRUE)</p>
+<p><code>univ_models &lt;- lapply( univ_formulas, function(x) {coxph(x, data = TCGA_ferroptosis_surv)})</code></p>
+<h1 id="signif-获取四舍五入后的值">signif 获取四舍五入后的值</h1>
+<p>signif(x, digits = 6) 获取6位小数的四舍五入值</p>
+<h1 id="t-转置行列后数据框将不再是dataframe格式">t() 转置行列后，数据框将不再是data.frame格式</h1>
+<h1 id="paste-默认以空格作为分隔paste0-默认无内容作为分隔">paste 默认以空格作为分隔，paste0 默认无内容作为分隔</h1>
+<h1 id="names">names()</h1>
 ]]></content>
     </entry>
     <entry>
@@ -53,19 +207,142 @@ write_csv(allergic_gene, file = &quot;../allergic_fil_gene.csv&quot;) #写出整
 <a href="http://119.3.41.228:8000/tcmid/">TCMID</a><br>
 通过上述2个数据库直接获得SMILE格式<br>
 或获取CAS号，通过<a href="https://pubchem.ncbi.nlm.nih.gov/">pubchem</a>获取相应SMILE格式<br>
-<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1620904441007.png" alt="" loading="lazy"></p>
+<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1620904441007.png" alt="" loading="lazy"><br>
+<strong>通过数据库收集中药单体成分信息时极有可能获得重复值，注意筛查</strong></p>
 <h1 id="预测靶点相关成分">预测靶点相关成分</h1>
 <p><a href="http://www.swisstargetprediction.ch/">Swiss</a><br>
 将SMILE格式文件作为Input提交<br>
 <img src="https://ninjagg.github.io/Xuan.github.io//post-images/1620904478125.png" alt="" loading="lazy"><br>
 下载csv格式靶点信息(默认下载前100个)至一个文件夹<br>
-<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1620904611812.png" alt="" loading="lazy"></p>
+<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1620904611812.png" alt="" loading="lazy"><br>
+在每一个单体药物预测靶点的excel文件内加入&quot;drug&quot;列，将单体名字输入并统一格式<br>
+<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1620979402621.png" alt="" loading="lazy"></p>
 <h3 id="r-part-2">R Part 2</h3>
 <pre><code>path1 &lt;- list.files(path = &quot;../hongshen_alcohol/components_target_csv/&quot;, pattern = &quot;*.csv&quot;, full.names = T) #合并所有单体预测靶点的路径至path1
 predicted_target &lt;- map_df(path1, ~read.csv(., header = T)) %&gt;% 
   filter(Probability. &gt; 0) #提取所有单体预测靶点信息，按行合并至predicted_target
+write_csv(predicted_target, file = &quot;./hongshen_alcohol/bind_predicted_targets.csv&quot;) #写出整合后的&quot;预测靶点文件&quot;
+uni_drug &lt;- as.data.frame(unique(predicted_target$drug)) #提取所有单体药物信息
+write_csv(uni_drug, file = &quot;./hongshen_alcohol/unique_drug.csv&quot;) #写出所有单体药物信息
 </code></pre>
+<h1 id="将疾病靶点与中药成分预测靶点做交集保留交集靶点">将&quot;疾病靶点&quot;与&quot;中药成分预测靶点&quot;做交集，保留交集靶点</h1>
+<h3 id="r-part-3">R Part 3</h3>
+<pre><code>allergic &lt;- read_csv(file = &quot;./allergic_fil_gene.csv&quot;)
+predicted_target &lt;- read_csv(file = &quot;./hongshen_alcohol/bind_predicted_targets.csv&quot;) %&gt;% select(Common.name) %&gt;% unique(.)
+
+colnames(predicted_target) &lt;- &quot;gene&quot; #将两个数据集的列名设为一致
+
+both &lt;- intersect(allergic, predicted_target) #有一致列名时，intersect返回数据框
+write_csv(both, file = &quot;./hongshen_alcohol/intersection.csv&quot;) #写出数据
+</code></pre>
+<p>构建&quot;疾病&quot;-&quot;disease &amp; drug 交集靶点&quot;-&quot;中药&quot;network，若交集靶点过少可仅采用&quot;中药-成分-预测靶点&quot;构建Network</p>
 <h1 id="cytoscape作图">Cytoscape作图</h1>
+<p>制作network、type文件<br>
+<em>network</em>文件形式</p>
+<pre><code>ID      Symbol
+drug1   STAT3
+drug1   PTAFR
+drug1   IL2
+drug2  MAPK
+...
+drug15  CDK1
+HS      drug1 #HS 红参(中药)
+HS      drug2
+...
+HS      drug15
+</code></pre>
+<figure data-type="image" tabindex="1"><img src="https://ninjagg.github.io/Xuan.github.io//post-images/1620979877334.png" alt="" loading="lazy"></figure>
+<p><em>type</em>文件格式</p>
+<pre><code>Term    Type
+drug1   drug
+drug2   drug
+...
+drug15  drug
+STAT3   gene
+PTAFR   gene
+IL2    gene
+MAPK    gene
+Allergic    A #Allergic (疾病)
+HS          B #HS 红参(中药)
+</code></pre>
+<p><img src="https://ninjagg.github.io/Xuan.github.io//post-images/1620980699539.png" alt="" loading="lazy"><br>
+<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1620980729126.png" alt="" loading="lazy"></p>
+<p>Cytoscape导入制作好的Network、Type文件<br>
+<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1620981090810.png" alt="" loading="lazy"><br>
+将Symbol属性设置为&quot;target node&quot;<br>
+<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1620981157761.png" alt="" loading="lazy"><br>
+菜单栏&quot;Tools&quot;、&quot;Analyze Network&quot;(不勾选对号为无定向网络分析，本次不勾)<br>
+<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1620981710779.png" alt="" loading="lazy"></p>
+<h1 id="go-kegg富集">GO、KEGG富集</h1>
+<p>R Part 3</p>
+<pre><code>### GO富集
+erich.go.all &lt;- enrichGO(gene = DEG.gene_symbol_entrez_id, 
+                         OrgDb = org.Hs.eg.db, 
+                         keyType = &quot;ENTREZID&quot;, ont = &quot;ALL&quot;,
+                         pvalueCutoff = 0.01, qvalueCutoff = 0.05,
+                         readable = T, # 使用gene ID表示gene FALSE的话就返回entrez ID
+                         pool = T) # ont = &quot;ALL&quot;时 pool = T返回一个整合的dataframe
+temp &lt;- data.frame(erich.go.all)
+# barplot 一步GO三大类出图
+dotplot(erich.go.all, split=&quot;ONTOLOGY&quot;)+facet_grid(ONTOLOGY~., scale=&quot;free&quot;) 
+
+pdf(file = &quot;./paper_dotplot_BP_CC_MF&quot;, width = 9, height = 9) #最后保存 pdf 9 * 9
+png(filename = &quot;./hongshen_alcohol/test.png&quot;, width = 800, height = 800)
+dev.off() #pdf png 和dev.off一起使用
+
+### KEGG
+erich.kegg.all &lt;- enrichKEGG(gene = DEG.gene_symbol_entrez_id, 
+                             organism = &quot;hsa&quot;, 
+                             keyType = &quot;kegg&quot;,
+                             pvalueCutoff = 0.01, qvalueCutoff = 0.05)
+temp &lt;- data.frame(erich.kegg.all)
+# Chord图
+temp_kegg &lt;- data.frame(erich.kegg.all)[1:10,] %&gt;%
+  mutate(Category=&quot;KEGG&quot;) #取top10 富集到的kegg通路
+temp_kegg &lt;- temp_kegg[,c(10,1,2,8,6)] #筛选需要的列
+terms &lt;- data.frame(Category=temp_kegg$Category, # Chord要求的&quot;terms&quot;文件，“列名”不可变
+                    ID=temp_kegg$ID, 
+                    Term=temp_kegg$Description, 
+                    Genes = temp_kegg$geneID, 
+                    adj_pval=temp_kegg$p.adjust) 
+genes &lt;- data.frame(ID=enrich_raw_data$gene_symbol, # Chord要求的&quot;genes&quot;文件,列名不可变
+                    logFC=rnorm(length(enrich_raw_data$gene_symbol), #本次分析没有logFC，生成随机数列代替
+                    mean = 0, sd = 2))
+
+# entrez_id to gene_symbol 
+# 与GO结果不同，Kegg结果中的Genes是entrezid，需要转换为gene_symbol再作图
+gene_entrez_list &lt;- temp_kegg$geneID 
+
+# 将gene_entrez_list以&quot;/&quot;的结果拆分成outcome&quot;list&quot;中的各个向量
+outcome &lt;- vector()
+for (i in seq_along(gene_entrez_list)) {
+  outcome[i] &lt;- strsplit(gene_entrez_list[i], split = &quot;/&quot;)
+}
+
+#将outcome中的各个向量的值从entrezid转换为gene_symbol columens是要转换的格式，keytype是当前格式
+gene_symbol &lt;- list()
+for (i in seq_along(outcome)) {
+  gene_symbol[[i]] &lt;- select(org.Hs.eg.db, 
+                             keys=outcome[[i]], #keys 为需要转换格式的set
+                             columns=&quot;SYMBOL&quot;, #columns 为需要转换格式的set 当前命名格式
+                             keytype = &quot;ENTREZID&quot;) #keytype 需要转换成的命名格式
+}
+
+#将gene_sybol中各组对应的gene_symbol整合成以&quot;,&quot;分隔的一个向量，赋值给terms$Genes
+for (i in seq_along(terms$Genes)) {
+  terms$Genes[i] &lt;- str_c(gene_symbol[[i]]$SYMBOL, collapse = &quot;,&quot;)
+}
+
+# 画图
+circ &lt;- circle_dat(terms = terms, genes = genes)
+chord &lt;- chord_dat(data = circ, genes = genes, process = terms$Term)
+GOChord(chord,
+        space = 0.05, # space 各弦部分间的距离
+        gene.order = 'logFC', # 以logFC进行排序
+        gene.space = 0.18, # gene.space gene标签与弦之间的距离
+        process.label = 7,
+        gene.size = 2) # gene.size gene标签字体大小
+</code></pre>
 ]]></content>
     </entry>
     <entry>
