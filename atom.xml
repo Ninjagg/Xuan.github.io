@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ninjagg.github.io/Xuan.github.io/</id>
     <title>Gridea</title>
-    <updated>2021-05-22T11:59:59.581Z</updated>
+    <updated>2021-05-24T08:59:04.564Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ninjagg.github.io/Xuan.github.io/"/>
     <link rel="self" href="https://ninjagg.github.io/Xuan.github.io/atom.xml"/>
@@ -22,16 +22,11 @@ library(survminer)
 library(survival)
 
 ##### 单个 单因素Cox回归分析 #####
-# 只能对离散型变量进行回归，因此基因表达量需要按中位数划分为&quot;high&quot;和&quot;low&quot;
-# rows为各样本 cols 为各基因 
-for (i in c(1:59)) {
-  TCGA_ferroptosis_surv[[i]] &lt;- ifelse(TCGA_ferroptosis_surv[[i]]&gt;median(TCGA_ferroptosis_surv[[i]]),'high','low')
-}
-
+# rows为样本 cols 为基因 
 # 回归
 res.cox &lt;- coxph(Surv(OS.time, OS) ~ DPP4, data = TCGA_ferroptosis_surv)  # DPP4是一个基因
-temp  &lt;- summary(res.cox)  # 看结果
-ggforest(res.com)
+summary(res.cox)  # 看结果
+ggforest(res.com)  # 作图
 
 ##### 实战 批量 单因素Cox回归分析 #####
 ferroptosis_gene &lt;- colnames(TCGA_ferroptosis_surv)[1:59]  # 提取ferroptosis相关59个基因
@@ -173,7 +168,19 @@ sapply(X, FUN, ..., simplify = TRUE, USE.NAMES = TRUE)</p>
 <p>signif(x, digits = 6) 获取6位小数的四舍五入值</p>
 <h1 id="t-转置行列后数据框将不再是dataframe格式">t() 转置行列后，数据框将不再是data.frame格式</h1>
 <h1 id="paste-默认以空格作为分隔paste0-默认无内容作为分隔">paste 默认以空格作为分隔，paste0 默认无内容作为分隔</h1>
-<h1 id="names">names()</h1>
+<h1 id="writetable-用于保存带行名的数据框">write.table() 用于保存带行名的数据框</h1>
+<p>write.table(x, file = &quot;./&quot;, quote = F)  #quote = F 内容不加双引号</p>
+<h1 id="ifelse-结合for循环对数据框进行判定-赋值">ifelse() 结合for循环对数据框进行判定、赋值</h1>
+<p>ifelse(test, yes, no)</p>
+<pre><code>for (i in c(1:59)) {
+  TCGA_ferroptosis_surv[[i]] &lt;- ifelse(TCGA_ferroptosis_surv[[i]]&gt;median(TCGA_ferroptosis_surv[[i]]),'high','low')
+}
+dim(TCGA_ferroptosis_surv)  # 567 rows &amp; 64 cols
+</code></pre>
+<h1 id="table">table()</h1>
+<p><code>table(df$sample_id)</code>  # 查看数据表df的samp_id列含有哪些元素及重复了多少次</p>
+<h1 id="example">example()</h1>
+<p><code>example(exp)</code>  # 查看某一函数示例</p>
 ]]></content>
     </entry>
     <entry>

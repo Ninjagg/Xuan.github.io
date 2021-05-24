@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Cox回归分析 | Gridea</title>
-<link rel="shortcut icon" href="https://ninjagg.github.io/Xuan.github.io//favicon.ico?v=1621684699802">
+<link rel="shortcut icon" href="https://ninjagg.github.io/Xuan.github.io//favicon.ico?v=1621846742615">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://ninjagg.github.io/Xuan.github.io//styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="Cox回归分析 | Gridea - Atom Feed" href="https://ninjagg.github.io/Xuan.github.io//atom.xml">
@@ -17,7 +17,8 @@ library(survminer)
 library(survival)
 
 ##### 单个 单因素Cox回归分析 #####
-# 只能对离散型变量进行回归，因此基因表..." />
+# rows为样本 cols 为基因 
+..." />
     <meta name="keywords" content="" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
@@ -27,7 +28,7 @@ library(survival)
       <div class="main-content">
         <div class="site-header">
   <a href="https://ninjagg.github.io/Xuan.github.io/">
-  <img class="avatar" src="https://ninjagg.github.io/Xuan.github.io//images/avatar.png?v=1621684699802" alt="">
+  <img class="avatar" src="https://ninjagg.github.io/Xuan.github.io//images/avatar.png?v=1621846742615" alt="">
   </a>
   <h1 class="site-title">
     Gridea
@@ -100,16 +101,11 @@ library(survminer)
 library(survival)
 
 ##### 单个 单因素Cox回归分析 #####
-# 只能对离散型变量进行回归，因此基因表达量需要按中位数划分为&quot;high&quot;和&quot;low&quot;
-# rows为各样本 cols 为各基因 
-for (i in c(1:59)) {
-  TCGA_ferroptosis_surv[[i]] &lt;- ifelse(TCGA_ferroptosis_surv[[i]]&gt;median(TCGA_ferroptosis_surv[[i]]),'high','low')
-}
-
+# rows为样本 cols 为基因 
 # 回归
 res.cox &lt;- coxph(Surv(OS.time, OS) ~ DPP4, data = TCGA_ferroptosis_surv)  # DPP4是一个基因
-temp  &lt;- summary(res.cox)  # 看结果
-ggforest(res.com)
+summary(res.cox)  # 看结果
+ggforest(res.com)  # 作图
 
 ##### 实战 批量 单因素Cox回归分析 #####
 ferroptosis_gene &lt;- colnames(TCGA_ferroptosis_surv)[1:59]  # 提取ferroptosis相关59个基因

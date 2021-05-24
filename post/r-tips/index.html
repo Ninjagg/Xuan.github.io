@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>R tips | Gridea</title>
-<link rel="shortcut icon" href="https://ninjagg.github.io/Xuan.github.io//favicon.ico?v=1621684699802">
+<link rel="shortcut icon" href="https://ninjagg.github.io/Xuan.github.io//favicon.ico?v=1621846742615">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://ninjagg.github.io/Xuan.github.io//styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="R tips | Gridea - Atom Feed" href="https://ninjagg.github.io/Xuan.github.io//atom.xml">
@@ -22,7 +22,7 @@ path &lt;- list.files(path = &quot;../hongshen_alcohol/components_target_csv..."
       <div class="main-content">
         <div class="site-header">
   <a href="https://ninjagg.github.io/Xuan.github.io/">
-  <img class="avatar" src="https://ninjagg.github.io/Xuan.github.io//images/avatar.png?v=1621684699802" alt="">
+  <img class="avatar" src="https://ninjagg.github.io/Xuan.github.io//images/avatar.png?v=1621846742615" alt="">
   </a>
   <h1 class="site-title">
     Gridea
@@ -82,7 +82,7 @@ path &lt;- list.files(path = &quot;../hongshen_alcohol/components_target_csv..."
                 2021-05-13
               </span>
               <span>
-                3 min read
+                4 min read
               </span>
               
             </div>
@@ -137,7 +137,19 @@ sapply(X, FUN, ..., simplify = TRUE, USE.NAMES = TRUE)</p>
 <p>signif(x, digits = 6) 获取6位小数的四舍五入值</p>
 <h1 id="t-转置行列后数据框将不再是dataframe格式">t() 转置行列后，数据框将不再是data.frame格式</h1>
 <h1 id="paste-默认以空格作为分隔paste0-默认无内容作为分隔">paste 默认以空格作为分隔，paste0 默认无内容作为分隔</h1>
-<h1 id="names">names()</h1>
+<h1 id="writetable-用于保存带行名的数据框">write.table() 用于保存带行名的数据框</h1>
+<p>write.table(x, file = &quot;./&quot;, quote = F)  #quote = F 内容不加双引号</p>
+<h1 id="ifelse-结合for循环对数据框进行判定-赋值">ifelse() 结合for循环对数据框进行判定、赋值</h1>
+<p>ifelse(test, yes, no)</p>
+<pre><code>for (i in c(1:59)) {
+  TCGA_ferroptosis_surv[[i]] &lt;- ifelse(TCGA_ferroptosis_surv[[i]]&gt;median(TCGA_ferroptosis_surv[[i]]),'high','low')
+}
+dim(TCGA_ferroptosis_surv)  # 567 rows &amp; 64 cols
+</code></pre>
+<h1 id="table">table()</h1>
+<p><code>table(df$sample_id)</code>  # 查看数据表df的samp_id列含有哪些元素及重复了多少次</p>
+<h1 id="example">example()</h1>
+<p><code>example(exp)</code>  # 查看某一函数示例</p>
 
               </div>
               <div class="toc-container">
@@ -152,7 +164,10 @@ sapply(X, FUN, ..., simplify = TRUE, USE.NAMES = TRUE)</p>
 <li><a href="#signif-%E8%8E%B7%E5%8F%96%E5%9B%9B%E8%88%8D%E4%BA%94%E5%85%A5%E5%90%8E%E7%9A%84%E5%80%BC">signif 获取四舍五入后的值</a></li>
 <li><a href="#t-%E8%BD%AC%E7%BD%AE%E8%A1%8C%E5%88%97%E5%90%8E%E6%95%B0%E6%8D%AE%E6%A1%86%E5%B0%86%E4%B8%8D%E5%86%8D%E6%98%AFdataframe%E6%A0%BC%E5%BC%8F">t() 转置行列后，数据框将不再是data.frame格式</a></li>
 <li><a href="#paste-%E9%BB%98%E8%AE%A4%E4%BB%A5%E7%A9%BA%E6%A0%BC%E4%BD%9C%E4%B8%BA%E5%88%86%E9%9A%94paste0-%E9%BB%98%E8%AE%A4%E6%97%A0%E5%86%85%E5%AE%B9%E4%BD%9C%E4%B8%BA%E5%88%86%E9%9A%94">paste 默认以空格作为分隔，paste0 默认无内容作为分隔</a></li>
-<li><a href="#names">names()</a></li>
+<li><a href="#writetable-%E7%94%A8%E4%BA%8E%E4%BF%9D%E5%AD%98%E5%B8%A6%E8%A1%8C%E5%90%8D%E7%9A%84%E6%95%B0%E6%8D%AE%E6%A1%86">write.table() 用于保存带行名的数据框</a></li>
+<li><a href="#ifelse-%E7%BB%93%E5%90%88for%E5%BE%AA%E7%8E%AF%E5%AF%B9%E6%95%B0%E6%8D%AE%E6%A1%86%E8%BF%9B%E8%A1%8C%E5%88%A4%E5%AE%9A-%E8%B5%8B%E5%80%BC">ifelse() 结合for循环对数据框进行判定、赋值</a></li>
+<li><a href="#table">table()</a></li>
+<li><a href="#example">example()</a></li>
 </ul>
 
               </div>
