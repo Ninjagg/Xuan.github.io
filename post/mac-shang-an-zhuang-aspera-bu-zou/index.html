@@ -1,97 +1,92 @@
+
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+<meta charset="utf-8" >
+
 <title>Mac上安装Aspera步骤 | Gridea</title>
-<link rel="shortcut icon" href="https://ninjagg.github.io/Xuan.github.io//favicon.ico?v=1621939975652">
-<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<meta name="description" content="温故而知新">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://ninjagg.github.io/Xuan.github.io//favicon.ico?v=1621940078479">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://ninjagg.github.io/Xuan.github.io//styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="Mac上安装Aspera步骤 | Gridea - Atom Feed" href="https://ninjagg.github.io/Xuan.github.io//atom.xml">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
-    <meta name="description" content="1. 下载Aspera
-谷歌浏览器也可安装图形界面（本次安装使用命令行界面）
-cd /Users/mac/test_HD/biosofts
-wget https://d3gcli72yxqn2z.cloudfront.net/connect..." />
-    <meta name="keywords" content="" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
-    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
   </head>
   <body>
-    <div class="main">
-      <div class="main-content">
-        <div class="site-header">
-  <a href="https://ninjagg.github.io/Xuan.github.io/">
-  <img class="avatar" src="https://ninjagg.github.io/Xuan.github.io//images/avatar.png?v=1621939975652" alt="">
-  </a>
-  <h1 class="site-title">
-    Gridea
-  </h1>
-  <p class="site-description">
-    温故而知新
-  </p>
-  <div class="menu-container">
-    
-      
-        <a href="/" class="menu">
-          首页
-        </a>
-      
-    
-      
-        <a href="/archives" class="menu">
-          归档
-        </a>
-      
-    
-      
-        <a href="/tags" class="menu">
-          标签
-        </a>
-      
-    
-      
-        <a href="/post/about" class="menu">
-          关于
-        </a>
-      
-    
-  </div>
-  <div class="social-container">
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://ninjagg.github.io/Xuan.github.io/">
+        <img class="avatar" src="https://ninjagg.github.io/Xuan.github.io//images/avatar.png?v=1621940078479" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://ninjagg.github.io/Xuan.github.io/">
+        <h1 class="site-title">Gridea</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
   </div>
 </div>
 
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
         <div class="post-detail">
-          <article class="post">
-            <h2 class="post-title">
-              Mac上安装Aspera步骤
-            </h2>
-            <div class="post-info">
-              <span>
-                2021-03-15
-              </span>
-              <span>
-                1 min read
-              </span>
-              
-            </div>
+          
+          <h2 class="post-title">Mac上安装Aspera步骤</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2021-03-15</span>
             
-            <div class="post-content-wrapper">
-              <div class="post-content">
-                <h1 id="1-下载aspera">1. 下载Aspera</h1>
+          </div>
+          <div class="post-content">
+            <h1 id="1-下载aspera">1. 下载Aspera</h1>
 <h2 id="谷歌浏览器也可安装图形界面本次安装使用命令行界面">谷歌浏览器也可安装图形界面（本次安装使用命令行界面）</h2>
 <pre><code>cd /Users/mac/test_HD/biosofts
 wget https://d3gcli72yxqn2z.cloudfront.net/connect_latest/v4/bin/IBMAsperaConnectInstallerOneClick-3.11.1.58.dmg
@@ -123,99 +118,57 @@ vim .bash_profile
 <h1 id="3-关闭mac防火墙本机已关闭">3. 关闭Mac防火墙（本机已关闭）</h1>
 <h1 id="4-aspera万能使用语句">4. Aspera万能使用语句</h1>
 
-              </div>
-              <div class="toc-container">
-                <ul class="markdownIt-TOC">
-<li><a href="#1-%E4%B8%8B%E8%BD%BDaspera">1. 下载Aspera</a>
-<ul>
-<li><a href="#%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B9%9F%E5%8F%AF%E5%AE%89%E8%A3%85%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E6%9C%AC%E6%AC%A1%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%95%8C%E9%9D%A2">谷歌浏览器也可安装图形界面（本次安装使用命令行界面）</a></li>
-</ul>
-</li>
-<li><a href="#2-%E5%AE%89%E8%A3%85aspera">2. 安装Aspera</a>
-<ul>
-<li><a href="#%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E4%B8%AD">图形界面中</a></li>
-<li><a href="#%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%95%8C%E9%9D%A2%E4%B8%AD">命令行界面中</a><br>
-*
-<ul>
-<li><a href="#%E5%A6%82%E6%9E%9C%E6%98%AFdmg%E6%96%87%E4%BB%B6"><em>如果是.dmg文件</em></a></li>
-<li><a href="#%E5%A6%82%E6%9E%9C%E6%98%AFpkg%E6%96%87%E4%BB%B6"><em>如果是.pkg文件</em></a></li>
-<li><a href="#%E5%A6%82%E6%9E%9C%E6%98%AFconfigsh%E6%96%87%E4%BB%B6"><em>如果是.config/.sh文件</em></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#2-%E5%B0%86aspera-connect%E6%B7%BB%E5%8A%A0%E5%88%B0%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E4%B8%AD">2. 将Aspera Connect添加到环境变量中</a></li>
-<li><a href="#3-%E5%85%B3%E9%97%ADmac%E9%98%B2%E7%81%AB%E5%A2%99%E6%9C%AC%E6%9C%BA%E5%B7%B2%E5%85%B3%E9%97%AD">3. 关闭Mac防火墙（本机已关闭）</a></li>
-<li><a href="#4-aspera%E4%B8%87%E8%83%BD%E4%BD%BF%E7%94%A8%E8%AF%AD%E5%8F%A5">4. Aspera万能使用语句</a></li>
-</ul>
-
-              </div>
-            </div>
-          </article>
+          </div>
         </div>
 
         
           <div class="next-post">
-            <div class="next">下一篇</div>
-            <a href="https://ninjagg.github.io/Xuan.github.io/post/sheng-xin-qun-zhi-shi-zheng-li/">
+            <a class="purple-link" href="https://ninjagg.github.io/Xuan.github.io/post/sheng-xin-qun-zhi-shi-zheng-li/">
               <h3 class="post-title">
-                知识整理 2020.12.04 to 2021.02.21
+                下一篇：知识整理 2020.12.04 to 2021.02.21
               </h3>
             </a>
           </div>
-        
+          
+      </div>
 
-        
+      
 
-        <div class="site-footer">
-  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
-  <a class="rss" href="https://ninjagg.github.io/Xuan.github.io//atom.xml" target="_blank">
-    <i class="ri-rss-line"></i> RSS
-  </a>
+      <div class="site-footer">
+  <div class="slogan">温故而知新</div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://ninjagg.github.io/Xuan.github.io//atom.xml" target="_blank">RSS</a>
 </div>
 
-      </div>
+
     </div>
+    <script type="application/javascript">
 
-    <script>
-      hljs.initHighlightingOnLoad()
+hljs.initHighlightingOnLoad()
 
-      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
 
-      // This should probably be throttled.
-      // Especially because it triggers during smooth scrolling.
-      // https://lodash.com/docs/4.17.10#throttle
-      // You could do like...
-      // window.addEventListener("scroll", () => {
-      //    _.throttle(doThatStuff, 100);
-      // });
-      // Only not doing it here to keep this Pen dependency-free.
+</script>
 
-      window.addEventListener("scroll", event => {
-        let fromTop = window.scrollY;
 
-        mainNavLinks.forEach((link, index) => {
-          let section = document.getElementById(decodeURI(link.hash).substring(1));
-          let nextSection = null
-          if (mainNavLinks[index + 1]) {
-            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
-          }
-          if (section.offsetTop <= fromTop) {
-            if (nextSection) {
-              if (nextSection.offsetTop > fromTop) {
-                link.classList.add("current");
-              } else {
-                link.classList.remove("current");    
-              }
-            } else {
-              link.classList.add("current");
-            }
-          } else {
-            link.classList.remove("current");
-          }
-        });
-      });
 
-    </script>
+
   </body>
 </html>
