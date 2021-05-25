@@ -1,196 +1,168 @@
 <html>
   <head>
-    
-<meta charset="utf-8" >
-
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Gridea</title>
-<meta name="description" content="温故而知新">
-
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
-
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://ninjagg.github.io/Xuan.github.io//favicon.ico?v=1621940078479">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="shortcut icon" href="https://ninjagg.github.io/Xuan.github.io//favicon.ico?v=1621940173481">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://ninjagg.github.io/Xuan.github.io//styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="Gridea - Atom Feed" href="https://ninjagg.github.io/Xuan.github.io//atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-
-
-
+    <meta name="description" content="温故而知新" />
   </head>
   <body>
-    <div id="app" class="main">
-      <div class="site-header-container">
-  <div class="site-header">
-    <div class="left">
-      <a href="https://ninjagg.github.io/Xuan.github.io/">
-        <img class="avatar" src="https://ninjagg.github.io/Xuan.github.io//images/avatar.png?v=1621940078479" alt="" width="32px" height="32px">
-      </a>
-      <a href="https://ninjagg.github.io/Xuan.github.io/">
-        <h1 class="site-title">Gridea</h1>
-      </a>
-    </div>
-    <div class="right">
-      <transition name="fade">
-        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
-      </transition>
-    </div>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://ninjagg.github.io/Xuan.github.io/">
+  <img class="avatar" src="https://ninjagg.github.io/Xuan.github.io//images/avatar.png?v=1621940173481" alt="">
+  </a>
+  <h1 class="site-title">
+    Gridea
+  </h1>
+  <p class="site-description">
+    温故而知新
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
   </div>
 </div>
 
-<transition name="fade">
-  <div class="menu-container" style="display: none;" v-show="menuVisible">
-    <div class="menu-list">
-      
+    
         
-          <a href="/" class="menu purple-link">
-            首页
-          </a>
-        
-      
-        
-          <a href="/archives" class="menu purple-link">
-            归档
-          </a>
-        
-      
-        
-          <a href="/tags" class="menu purple-link">
-            标签
-          </a>
-        
-      
-        
-          <a href="/post/about" class="menu purple-link">
-            关于
-          </a>
-        
-      
-    </div>
-  </div>
-</transition>
-
-
-        <div class="content-container">
-          
-          
 
 <div class="archives-container">
   
     <h2 class="year">2021</h2>
     
       
-        <article class="post">
-          <a href="https://ninjagg.github.io/Xuan.github.io/post/python-ji-chu/">
-            <h2 class="post-title">
-              Python基础
-              <small>2021-05-25</small>
-            </h2>
-          </a>
-        </article>
+        <a href="https://ninjagg.github.io/Xuan.github.io/post/python-ji-chu/" class="post">
+          <h2 class="post-title">
+            Python基础
+          </h2>
+          <div class="time">2021-05-25</div>
+        </a>
       
     
       
-        <article class="post">
-          <a href="https://ninjagg.github.io/Xuan.github.io/post/cox-hui-gui-fen-xi/">
-            <h2 class="post-title">
-              Cox回归分析
-              <small>2021-05-22</small>
-            </h2>
-          </a>
-        </article>
+        <a href="https://ninjagg.github.io/Xuan.github.io/post/cox-hui-gui-fen-xi/" class="post">
+          <h2 class="post-title">
+            Cox回归分析
+          </h2>
+          <div class="time">2021-05-22</div>
+        </a>
       
     
       
-        <article class="post">
-          <a href="https://ninjagg.github.io/Xuan.github.io/post/r-tips/">
-            <h2 class="post-title">
-              R tips
-              <small>2021-05-13</small>
-            </h2>
-          </a>
-        </article>
+        <a href="https://ninjagg.github.io/Xuan.github.io/post/r-tips/" class="post">
+          <h2 class="post-title">
+            R tips
+          </h2>
+          <div class="time">2021-05-13</div>
+        </a>
       
     
       
-        <article class="post">
-          <a href="https://ninjagg.github.io/Xuan.github.io/post/ji-bing-ba-dian-shai-xuan-guo-lu/">
-            <h2 class="post-title">
-              中药+疾病+网络药理学
-              <small>2021-05-12</small>
-            </h2>
-          </a>
-        </article>
+        <a href="https://ninjagg.github.io/Xuan.github.io/post/ji-bing-ba-dian-shai-xuan-guo-lu/" class="post">
+          <h2 class="post-title">
+            中药+疾病+网络药理学
+          </h2>
+          <div class="time">2021-05-12</div>
+        </a>
       
     
       
-        <article class="post">
-          <a href="https://ninjagg.github.io/Xuan.github.io/post/conda-collecting-package-metadata-current_repodatajson-failed-jie-jue-fang-fa/">
-            <h2 class="post-title">
-              Conda Collecting package metadata (current_repodata.json): failed 解决方法
-              <small>2021-04-16</small>
-            </h2>
-          </a>
-        </article>
+        <a href="https://ninjagg.github.io/Xuan.github.io/post/conda-collecting-package-metadata-current_repodatajson-failed-jie-jue-fang-fa/" class="post">
+          <h2 class="post-title">
+            Conda Collecting package metadata (current_repodata.json): failed 解决方法
+          </h2>
+          <div class="time">2021-04-16</div>
+        </a>
       
     
       
-        <article class="post">
-          <a href="https://ninjagg.github.io/Xuan.github.io/post/mac-ben-di-an-zhuang-cufflinks-211-targz-wen-jian-conda-mei-you/">
-            <h2 class="post-title">
-              mac本地安装cufflinks 2.1.1 tar.gz文件
-              <small>2021-04-12</small>
-            </h2>
-          </a>
-        </article>
+        <a href="https://ninjagg.github.io/Xuan.github.io/post/mac-ben-di-an-zhuang-cufflinks-211-targz-wen-jian-conda-mei-you/" class="post">
+          <h2 class="post-title">
+            mac本地安装cufflinks 2.1.1 tar.gz文件
+          </h2>
+          <div class="time">2021-04-12</div>
+        </a>
       
     
       
-        <article class="post">
-          <a href="https://ninjagg.github.io/Xuan.github.io/post/t-test-jian-yan/">
-            <h2 class="post-title">
-              t-test检验 &amp; Venn作图
-              <small>2021-03-19</small>
-            </h2>
-          </a>
-        </article>
+        <a href="https://ninjagg.github.io/Xuan.github.io/post/t-test-jian-yan/" class="post">
+          <h2 class="post-title">
+            t-test检验 &amp; Venn作图
+          </h2>
+          <div class="time">2021-03-19</div>
+        </a>
       
     
       
-        <article class="post">
-          <a href="https://ninjagg.github.io/Xuan.github.io/post/ji-yu-tcga-de-dan-ji-yin-survival-analysis/">
-            <h2 class="post-title">
-              基于TCGA的单基因survival analysis
-              <small>2021-03-18</small>
-            </h2>
-          </a>
-        </article>
+        <a href="https://ninjagg.github.io/Xuan.github.io/post/ji-yu-tcga-de-dan-ji-yin-survival-analysis/" class="post">
+          <h2 class="post-title">
+            基于TCGA的单基因survival analysis
+          </h2>
+          <div class="time">2021-03-18</div>
+        </a>
       
     
       
-        <article class="post">
-          <a href="https://ninjagg.github.io/Xuan.github.io/post/mac-shang-an-zhuang-aspera-bu-zou/">
-            <h2 class="post-title">
-              Mac上安装Aspera步骤
-              <small>2021-03-15</small>
-            </h2>
-          </a>
-        </article>
+        <a href="https://ninjagg.github.io/Xuan.github.io/post/mac-shang-an-zhuang-aspera-bu-zou/" class="post">
+          <h2 class="post-title">
+            Mac上安装Aspera步骤
+          </h2>
+          <div class="time">2021-03-15</div>
+        </a>
       
     
       
-        <article class="post">
-          <a href="https://ninjagg.github.io/Xuan.github.io/post/sheng-xin-qun-zhi-shi-zheng-li/">
-            <h2 class="post-title">
-              知识整理 2020.12.04 to 2021.02.21
-              <small>2021-03-15</small>
-            </h2>
-          </a>
-        </article>
+        <a href="https://ninjagg.github.io/Xuan.github.io/post/sheng-xin-qun-zhi-shi-zheng-li/" class="post">
+          <h2 class="post-title">
+            知识整理 2020.12.04 to 2021.02.21
+          </h2>
+          <div class="time">2021-03-15</div>
+        </a>
       
     
       
@@ -221,69 +193,41 @@
       
     
       
-        <article class="post">
-          <a href="https://ninjagg.github.io/Xuan.github.io/post/hello-gridea 2/">
-            <h2 class="post-title">
-              Hello Gridea
-              <small>2018-12-12</small>
-            </h2>
-          </a>
-        </article>
+        <a href="https://ninjagg.github.io/Xuan.github.io/post/hello-gridea 2/" class="post">
+          <h2 class="post-title">
+            Hello Gridea
+          </h2>
+          <div class="time">2018-12-12</div>
+        </a>
       
     
       
-        <article class="post">
-          <a href="https://ninjagg.github.io/Xuan.github.io/post/hello-gridea/">
-            <h2 class="post-title">
-              Hello Gridea
-              <small>2018-12-12</small>
-            </h2>
-          </a>
-        </article>
+        <a href="https://ninjagg.github.io/Xuan.github.io/post/hello-gridea/" class="post">
+          <h2 class="post-title">
+            Hello Gridea
+          </h2>
+          <div class="time">2018-12-12</div>
+        </a>
       
     
   
 </div>
 
-
-        </div>
-
-        <div class="site-footer">
-  <div class="slogan">温故而知新</div>
-  <div class="social-container">
     
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-  </div>
-  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://ninjagg.github.io/Xuan.github.io//atom.xml" target="_blank">RSS</a>
+        <div class="pagination-container">
+  
+  
 </div>
 
+    
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://ninjagg.github.io/Xuan.github.io//atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
 
       </div>
-      <script type="application/javascript">
-
-hljs.initHighlightingOnLoad()
-
-var app = new Vue({
-  el: '#app',
-  data: {
-    menuVisible: false,
-  },
-})
-
-</script>
-
-
-
-
     </div>
   </body>
 </html>
