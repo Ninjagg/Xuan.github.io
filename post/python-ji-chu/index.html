@@ -2,19 +2,23 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Mac上安装Aspera步骤 | Gridea</title>
+<title>Python基础 | Gridea</title>
 <link rel="shortcut icon" href="https://ninjagg.github.io/Xuan.github.io//favicon.ico?v=1621938933519">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://ninjagg.github.io/Xuan.github.io//styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="Mac上安装Aspera步骤 | Gridea - Atom Feed" href="https://ninjagg.github.io/Xuan.github.io//atom.xml">
+<link rel="alternate" type="application/atom+xml" title="Python基础 | Gridea - Atom Feed" href="https://ninjagg.github.io/Xuan.github.io//atom.xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
-    <meta name="description" content="1. 下载Aspera
-谷歌浏览器也可安装图形界面（本次安装使用命令行界面）
-cd /Users/mac/test_HD/biosofts
-wget https://d3gcli72yxqn2z.cloudfront.net/connect..." />
+    <meta name="description" content="混合数据类型的列表中 max/min无法运算
+调用函数
+capitalize 使首字母大写，其他字母小写
+用法：newstr = string.capitalize()
+参数：函数括号内什么都不用写
+细节：
+name = 'xiaoMu'
+..." />
     <meta name="keywords" content="" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
@@ -77,11 +81,11 @@ wget https://d3gcli72yxqn2z.cloudfront.net/connect..." />
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              Mac上安装Aspera步骤
+              Python基础
             </h2>
             <div class="post-info">
               <span>
-                2021-03-15
+                2021-05-25
               </span>
               <span>
                 1 min read
@@ -91,62 +95,37 @@ wget https://d3gcli72yxqn2z.cloudfront.net/connect..." />
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <h1 id="1-下载aspera">1. 下载Aspera</h1>
-<h2 id="谷歌浏览器也可安装图形界面本次安装使用命令行界面">谷歌浏览器也可安装图形界面（本次安装使用命令行界面）</h2>
-<pre><code>cd /Users/mac/test_HD/biosofts
-wget https://d3gcli72yxqn2z.cloudfront.net/connect_latest/v4/bin/IBMAsperaConnectInstallerOneClick-3.11.1.58.dmg
+                <h1 id="混合数据类型的列表中-maxmin无法运算">混合数据类型的列表中 max/min无法运算</h1>
+<h1 id="调用函数">调用函数</h1>
+<h3 id="capitalize-使首字母大写其他字母小写">capitalize 使首字母大写，其他字母小写</h3>
+<p>用法：newstr = string.capitalize()<br>
+参数：函数括号内什么都不用写<br>
+细节：</p>
+<pre><code>name = 'xiaoMu'
+new_name = name.capitalize()
 </code></pre>
-<h1 id="2-安装aspera">2. 安装Aspera</h1>
-<h2 id="图形界面中">图形界面中</h2>
-<p>直接在/Users/mac/test_HD/biosofts中双击XXX.dmg文件，后拖到Application即可</p>
-<h2 id="命令行界面中">命令行界面中</h2>
-<h4 id="如果是dmg文件"><em>如果是.dmg文件</em></h4>
-<p>.dmg文件会安装到/Volumes下</p>
-<pre><code>cd /Users/mac/test_HD/biosofts
-hdiutil attach xxx.dmg
-cp -rf ./xxx.app /Applications
-</code></pre>
-<h4 id="如果是pkg文件"><em>如果是.pkg文件</em></h4>
-<pre><code>cd /Users/mac/test_HD/biosofts
-sudo installer -pkg xxx.pkg -target /Application
-</code></pre>
-<h4 id="如果是configsh文件"><em>如果是.config/.sh文件</em></h4>
-<p>则运行对应文件</p>
-<h1 id="2-将aspera-connect添加到环境变量中">2. 将Aspera Connect添加到环境变量中</h1>
-<p>Aspera Connect安装完</p>
-<pre><code>cd ~
-vim .bash_profile
-</code></pre>
-<p>添加环境变量<br>
-<code>PATH=/Users/mac/Applications/Aspera_Connect.app/Contents/Resources:$PATH</code><br>
-保存退出，重新打开terminal</p>
-<h1 id="3-关闭mac防火墙本机已关闭">3. 关闭Mac防火墙（本机已关闭）</h1>
-<h1 id="4-aspera万能使用语句">4. Aspera万能使用语句</h1>
+<h3 id="lower-将字符串全体小写">.lower() 将字符串全体小写</h3>
+<p>用法：newstr = string.casefold()<br>
+newstr = string.lower()<br>
+参数：括号内什么都不写<br>
+细节：只对字符串中字母有效、已经是小写则无效；casefold有将其他语言大写转小写的功能，出的更晚，但平时string.lower()就足够用了</p>
+<h3 id="upper-将字符串全体大写">.upper() 将字符串全体大写</h3>
+<p>用法：big_str = string.upper()<br>
+参数：函数括号内什么都不用写<br>
+细节：只对字符串中字母有效、已经大写则无效</p>
 
               </div>
               <div class="toc-container">
                 <ul class="markdownIt-TOC">
-<li><a href="#1-%E4%B8%8B%E8%BD%BDaspera">1. 下载Aspera</a>
-<ul>
-<li><a href="#%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B9%9F%E5%8F%AF%E5%AE%89%E8%A3%85%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E6%9C%AC%E6%AC%A1%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%95%8C%E9%9D%A2">谷歌浏览器也可安装图形界面（本次安装使用命令行界面）</a></li>
-</ul>
-</li>
-<li><a href="#2-%E5%AE%89%E8%A3%85aspera">2. 安装Aspera</a>
-<ul>
-<li><a href="#%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E4%B8%AD">图形界面中</a></li>
-<li><a href="#%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%95%8C%E9%9D%A2%E4%B8%AD">命令行界面中</a><br>
+<li><a href="#%E6%B7%B7%E5%90%88%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%88%97%E8%A1%A8%E4%B8%AD-maxmin%E6%97%A0%E6%B3%95%E8%BF%90%E7%AE%97">混合数据类型的列表中 max/min无法运算</a></li>
+<li><a href="#%E8%B0%83%E7%94%A8%E5%87%BD%E6%95%B0">调用函数</a><br>
 *
 <ul>
-<li><a href="#%E5%A6%82%E6%9E%9C%E6%98%AFdmg%E6%96%87%E4%BB%B6"><em>如果是.dmg文件</em></a></li>
-<li><a href="#%E5%A6%82%E6%9E%9C%E6%98%AFpkg%E6%96%87%E4%BB%B6"><em>如果是.pkg文件</em></a></li>
-<li><a href="#%E5%A6%82%E6%9E%9C%E6%98%AFconfigsh%E6%96%87%E4%BB%B6"><em>如果是.config/.sh文件</em></a></li>
+<li><a href="#capitalize-%E4%BD%BF%E9%A6%96%E5%AD%97%E6%AF%8D%E5%A4%A7%E5%86%99%E5%85%B6%E4%BB%96%E5%AD%97%E6%AF%8D%E5%B0%8F%E5%86%99">capitalize 使首字母大写，其他字母小写</a></li>
+<li><a href="#lower-%E5%B0%86%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%85%A8%E4%BD%93%E5%B0%8F%E5%86%99">.lower() 将字符串全体小写</a></li>
+<li><a href="#upper-%E5%B0%86%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%85%A8%E4%BD%93%E5%A4%A7%E5%86%99">.upper() 将字符串全体大写</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li><a href="#2-%E5%B0%86aspera-connect%E6%B7%BB%E5%8A%A0%E5%88%B0%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E4%B8%AD">2. 将Aspera Connect添加到环境变量中</a></li>
-<li><a href="#3-%E5%85%B3%E9%97%ADmac%E9%98%B2%E7%81%AB%E5%A2%99%E6%9C%AC%E6%9C%BA%E5%B7%B2%E5%85%B3%E9%97%AD">3. 关闭Mac防火墙（本机已关闭）</a></li>
-<li><a href="#4-aspera%E4%B8%87%E8%83%BD%E4%BD%BF%E7%94%A8%E8%AF%AD%E5%8F%A5">4. Aspera万能使用语句</a></li>
 </ul>
 
               </div>
@@ -157,9 +136,9 @@ vim .bash_profile
         
           <div class="next-post">
             <div class="next">下一篇</div>
-            <a href="https://ninjagg.github.io/Xuan.github.io/post/sheng-xin-qun-zhi-shi-zheng-li/">
+            <a href="https://ninjagg.github.io/Xuan.github.io/post/cox-hui-gui-fen-xi/">
               <h3 class="post-title">
-                知识整理 2020.12.04 to 2021.02.21
+                Cox回归分析
               </h3>
             </a>
           </div>
