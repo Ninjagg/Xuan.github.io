@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Python基础 | Gridea</title>
-<link rel="shortcut icon" href="https://ninjagg.github.io/Xuan.github.io//favicon.ico?v=1621988024947">
+<link rel="shortcut icon" href="https://ninjagg.github.io/Xuan.github.io//favicon.ico?v=1622343728406">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://ninjagg.github.io/Xuan.github.io//styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="Python基础 | Gridea - Atom Feed" href="https://ninjagg.github.io/Xuan.github.io//atom.xml">
@@ -28,7 +28,7 @@ name = 'xiaoMu'
       <div class="main-content">
         <div class="site-header">
   <a href="https://ninjagg.github.io/Xuan.github.io/">
-  <img class="avatar" src="https://ninjagg.github.io/Xuan.github.io//images/avatar.png?v=1621988024947" alt="">
+  <img class="avatar" src="https://ninjagg.github.io/Xuan.github.io//images/avatar.png?v=1622343728406" alt="">
   </a>
   <h1 class="site-title">
     Gridea
@@ -88,7 +88,7 @@ name = 'xiaoMu'
                 2021-05-25
               </span>
               <span>
-                1 min read
+                2 min read
               </span>
               
             </div>
@@ -108,11 +108,27 @@ new_name = name.capitalize()
 <p>用法：newstr = string.casefold()<br>
 newstr = string.lower()<br>
 参数：括号内什么都不写<br>
-细节：只对字符串中字母有效、已经是小写则无效；casefold有将其他语言大写转小写的功能，出的更晚，但平时string.lower()就足够用了</p>
+细节：只对字符串中字母有效、已经是小写则无效，字符串内可以有数字、符号等内容不会报错，正常对字母部分转换；casefold有将其他语言大写转小写的功能，出的更晚，但平时string.lower()就足够用了</p>
 <h3 id="upper-将字符串全体大写">.upper() 将字符串全体大写</h3>
 <p>用法：big_str = string.upper()<br>
 参数：函数括号内什么都不用写<br>
-细节：只对字符串中字母有效、已经大写则无效</p>
+细节：只对字符串中字母有效、已经大写则无效，字符串内可以有数字、符号等内容不会报错，正常对字母部分转换。</p>
+<h3 id="swapcase-将字符串大小写转换">.swapcase() 将字符串大小写转换</h3>
+<p>用法： newstr = string.swapcase()<br>
+参数：函数括号内什么都不写<br>
+细节：字符串内可以有数字、符号等内容不会报错，正常对字母部分转换。</p>
+<h3 id="zfill-为字符串定义长度如不满足缺少的部分在字符串前面用0填补">.zfill 为字符串定义长度，如不满足，缺少的部分'在字符串前面'用0填补</h3>
+<p>用法：newstr = string.zfill(width)<br>
+参数：width: 新字符串希望的宽度<br>
+细节：与字符串的字符无关；如果定义长度小于当前字符串长度，则不发生变化</p>
+<h3 id="print-打印对象">print() 打印对象</h3>
+<p>细节：print('逗号' = '一个空格'; '加号' = '没有空格')</p>
+<pre><code>A = 'liu'
+B = 'xuan'
+print(A, B)  # liu xuan
+print(A + b)  #  liuxuan
+</code></pre>
+<h3 id="count">count()</h3>
 
               </div>
               <div class="toc-container">
@@ -124,6 +140,10 @@ newstr = string.lower()<br>
 <li><a href="#capitalize-%E4%BD%BF%E9%A6%96%E5%AD%97%E6%AF%8D%E5%A4%A7%E5%86%99%E5%85%B6%E4%BB%96%E5%AD%97%E6%AF%8D%E5%B0%8F%E5%86%99">capitalize 使首字母大写，其他字母小写</a></li>
 <li><a href="#lower-%E5%B0%86%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%85%A8%E4%BD%93%E5%B0%8F%E5%86%99">.lower() 将字符串全体小写</a></li>
 <li><a href="#upper-%E5%B0%86%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%85%A8%E4%BD%93%E5%A4%A7%E5%86%99">.upper() 将字符串全体大写</a></li>
+<li><a href="#swapcase-%E5%B0%86%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%A7%E5%B0%8F%E5%86%99%E8%BD%AC%E6%8D%A2">.swapcase() 将字符串大小写转换</a></li>
+<li><a href="#zfill-%E4%B8%BA%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AE%9A%E4%B9%89%E9%95%BF%E5%BA%A6%E5%A6%82%E4%B8%8D%E6%BB%A1%E8%B6%B3%E7%BC%BA%E5%B0%91%E7%9A%84%E9%83%A8%E5%88%86%E5%9C%A8%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%89%8D%E9%9D%A2%E7%94%A80%E5%A1%AB%E8%A1%A5">.zfill 为字符串定义长度，如不满足，缺少的部分'在字符串前面'用0填补</a></li>
+<li><a href="#print-%E6%89%93%E5%8D%B0%E5%AF%B9%E8%B1%A1">print() 打印对象</a></li>
+<li><a href="#count">count()</a></li>
 </ul>
 </li>
 </ul>

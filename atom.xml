@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ninjagg.github.io/Xuan.github.io/</id>
     <title>Gridea</title>
-    <updated>2021-05-26T00:13:47.245Z</updated>
+    <updated>2021-05-30T03:02:10.421Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ninjagg.github.io/Xuan.github.io/"/>
     <link rel="self" href="https://ninjagg.github.io/Xuan.github.io/atom.xml"/>
@@ -29,11 +29,27 @@ new_name = name.capitalize()
 <p>用法：newstr = string.casefold()<br>
 newstr = string.lower()<br>
 参数：括号内什么都不写<br>
-细节：只对字符串中字母有效、已经是小写则无效；casefold有将其他语言大写转小写的功能，出的更晚，但平时string.lower()就足够用了</p>
+细节：只对字符串中字母有效、已经是小写则无效，字符串内可以有数字、符号等内容不会报错，正常对字母部分转换；casefold有将其他语言大写转小写的功能，出的更晚，但平时string.lower()就足够用了</p>
 <h3 id="upper-将字符串全体大写">.upper() 将字符串全体大写</h3>
 <p>用法：big_str = string.upper()<br>
 参数：函数括号内什么都不用写<br>
-细节：只对字符串中字母有效、已经大写则无效</p>
+细节：只对字符串中字母有效、已经大写则无效，字符串内可以有数字、符号等内容不会报错，正常对字母部分转换。</p>
+<h3 id="swapcase-将字符串大小写转换">.swapcase() 将字符串大小写转换</h3>
+<p>用法： newstr = string.swapcase()<br>
+参数：函数括号内什么都不写<br>
+细节：字符串内可以有数字、符号等内容不会报错，正常对字母部分转换。</p>
+<h3 id="zfill-为字符串定义长度如不满足缺少的部分在字符串前面用0填补">.zfill 为字符串定义长度，如不满足，缺少的部分'在字符串前面'用0填补</h3>
+<p>用法：newstr = string.zfill(width)<br>
+参数：width: 新字符串希望的宽度<br>
+细节：与字符串的字符无关；如果定义长度小于当前字符串长度，则不发生变化</p>
+<h3 id="print-打印对象">print() 打印对象</h3>
+<p>细节：print('逗号' = '一个空格'; '加号' = '没有空格')</p>
+<pre><code>A = 'liu'
+B = 'xuan'
+print(A, B)  # liu xuan
+print(A + b)  #  liuxuan
+</code></pre>
+<h3 id="count">count()</h3>
 ]]></content>
     </entry>
     <entry>
