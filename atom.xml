@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ninjagg.github.io/Xuan.github.io/</id>
     <title>Gridea</title>
-    <updated>2021-05-30T03:09:24.392Z</updated>
+    <updated>2021-05-30T03:42:16.578Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ninjagg.github.io/Xuan.github.io/"/>
     <link rel="self" href="https://ninjagg.github.io/Xuan.github.io/atom.xml"/>
@@ -49,7 +49,10 @@ B = 'xuan'
 print(A, B)  # liu xuan
 print(A + b)  #  liuxuan
 </code></pre>
-<h3 id="count">count()</h3>
+<h3 id="count-返回当前字符串中某个成员元素的个数-返回一个数字">count() 返回当前字符串中某个成员(元素)的个数 (返回一个数字)</h3>
+<p>用法：inttype = string.count(item)<br>
+参数：item: 查询个数的元素<br>
+细节：如果查询的成员(元素)不存在，则返回0</p>
 ]]></content>
     </entry>
     <entry>
