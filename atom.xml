@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ninjagg.github.io/Xuan.github.io/</id>
     <title>Gridea</title>
-    <updated>2021-05-30T03:42:16.578Z</updated>
+    <updated>2021-06-08T15:57:54.210Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ninjagg.github.io/Xuan.github.io/"/>
     <link rel="self" href="https://ninjagg.github.io/Xuan.github.io/atom.xml"/>
@@ -53,6 +53,20 @@ print(A + b)  #  liuxuan
 <p>用法：inttype = string.count(item)<br>
 参数：item: 查询个数的元素<br>
 细节：如果查询的成员(元素)不存在，则返回0</p>
+<h3 id="startswith-endswith-判断开头或结尾是否是设定的元素">startswith() endswith() 判断开头或结尾是否是设定的元素</h3>
+<p>用法：string.startswith(item)<br>
+string.endswith(item)<br>
+参数：item：你想查询匹配的元素<br>
+细节：返回一个bool值，二者可以对首尾字符串进行判断，也可以对整个字符串进行判断</p>
+<h3 id="find-index-返回你想要元素的位置">find() index() 返回你想要元素的位置</h3>
+<p>用法：string.find(item)<br>
+string.index(item)<br>
+参数：item：你想查询的元素<br>
+细节：返回一个整型；字符串里位置是从左向右，以0开始的；find找不到这个元素会返回-1，index找不到这个元素，会导致程序报错；日常中也许find更适合开发——懒惰匹配（只匹配字符串中该元素第一次出现的位置）</p>
+<h3 id="strip去掉字符串左右两边的指定元素默认是空格">strip()去掉字符串左右两边的指定元素，默认是空格</h3>
+<p>用法：newstr = string.strip(item)<br>
+参数：item:你想去掉的元素，不填即默认'空格'<br>
+细节：传入的元素如果不在开头或结尾则无效；无论首尾有多少空格都可以去掉；lstrip()用法与strip()一致但仅能去掉字符串开头的指定元素或空格；rstrip()相同但仅能去掉字符串结尾的指定元素或空格</p>
 ]]></content>
     </entry>
     <entry>
@@ -689,7 +703,7 @@ vim .bash_profile
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[知识整理 2020.12.04 to 2021.02.21]]></title>
+        <title type="html"><![CDATA[知识整理 2020.12.04 to 2021.03.14]]></title>
         <id>https://ninjagg.github.io/Xuan.github.io/post/sheng-xin-qun-zhi-shi-zheng-li/</id>
         <link href="https://ninjagg.github.io/Xuan.github.io/post/sheng-xin-qun-zhi-shi-zheng-li/">
         </link>
@@ -799,6 +813,51 @@ megahit</p>
 <h2 id="好的workshop">好的workshop</h2>
 <p><a href="https://space.bilibili.com/401352356/video">飞机票</a><br>
 按需观看</p>
+<h2 id="测序技术标准化">测序技术标准化</h2>
+<p><a href="https://blog.csdn.net/weixin_46585008/article/details/109478030?spm=1001.2014.3001.5501">链接</a></p>
+<h2 id="ascp下载sra文件还好下载fastq容易崩">ascp下载SRA文件还好，下载fastq容易崩</h2>
+<h1 id="20210315-">2021.03.15 -</h1>
+<h2 id="rnc-seq正在翻译的全长mrna测序-待验证补充植物中">RNC-seq(正在翻译的全长mRNA测序, 待验证补充，植物中？)</h2>
+<p>用蔗糖超速离心法分离出与核糖体结合的mRNA<br>
+可以直接polyA建库测序</p>
+<h2 id="3d散点图">3D散点图</h2>
+<p><a href="http://www.sthda.com/english/wiki/scatterplot3d-3d-graphics-r-software-and-data-visualization">链接1</a><br>
+<a href="https://cran.r-project.org/web/packages/barplot3d/vignettes/barplot3d.html">链接2</a><br>
+<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1622857900316.jpg" alt="" loading="lazy"></p>
+<h2 id="snakemake">snakemake</h2>
+<p>有坑、一般只用简单功能搭流程，复杂功能调试起来很麻烦<br>
+文档写的不好<br>
+限定软件cpu使用核数：snakemake --cores<br>
+重要功能：wildcard功能</p>
+<h2 id="nature母刊新筛药平台">Nature母刊，新筛药平台</h2>
+<p>An open-source drug discovery platform enables ultra-large virtual screens</p>
+<h2 id="去除类似ab和ba这样的重复行">去除类似AB和BA这样的重复行</h2>
+<p><a href="https://www.jianshu.com/p/a2860df3f654?utm_campaign=haruki&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=qq">链接</a></p>
+<h2 id="complexheatmap">Complexheatmap</h2>
+<p>可以左边基因表达热图，右边给GO<br>
+<a href="https://jokergoo.github.io/ComplexHeatmap-reference/book/a-single-heatmap.html#render-dendrograms">github参考</a><br>
+<a href="https://bioconductor.org/packages/release/bioc/html/ComplexHeatmap.html">bioconductor</a><br>
+<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1622860594640.jpg" alt="" loading="lazy"></p>
+<h2 id="dns">DNS</h2>
+<p>mac情况下 使用 8.8.8.8域名浏览器打开速度很快</p>
+<h2 id="识别肿瘤细胞">识别肿瘤细胞</h2>
+<p>使用inferCNV<br>
+使用CopyKAT<br>
+singlerR注释结果里面，好像没有肿瘤细胞这个分类<br>
+细胞注释只能注释细胞属于哪种细胞类型，无法注释细胞是否是肿瘤细胞</p>
+<h2 id="sratoolkit把下载的sra数据转换成fastq">SRAtoolkit把下载的SRA数据转换成fastq</h2>
+<p><code>fastq-dump SRR10845261.sra</code>  # 需要在文件名后面加上后缀？ 待确认</p>
+<h2 id="按固定符号分隔一个列表">按固定符号分隔一个列表</h2>
+<p>linux/mac: <code>cut -f [list] -d &quot;,&quot; -s [file]</code>  # [list] 是选择的列 [file] 是要处理的文件<br>
+R: separate_rows(V2, sep = &quot;,&quot;, convert = F)  # tidyr的函数 对行按固定符号分隔？？<br>
+excel: 分列功能</p>
+<h2 id="igv可视化-rseqc">igv可视化、RSeQC</h2>
+<p>观察：RNA测序数据比对到基因组上类似直方图，反应不同位置比对到的reads量</p>
+<h2 id="配色网站">配色网站</h2>
+<p><a href="https://www.materialpalette.com/colors">链接1</a><br>
+<a href="http://colorschemedesigner.com/csd-3.5/">链接2</a><br>
+<a href="https://coolors.co/8da7be-f8333c-e4b363-72a98d-39a4a2-009fb7">链接3</a><br>
+<a href="">链接4</a></p>
 ]]></content>
     </entry>
 </feed>
