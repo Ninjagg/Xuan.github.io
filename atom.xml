@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ninjagg.github.io/Xuan.github.io/</id>
     <title>Gridea</title>
-    <updated>2021-06-08T15:57:54.210Z</updated>
+    <updated>2021-06-09T14:04:01.078Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ninjagg.github.io/Xuan.github.io/"/>
     <link rel="self" href="https://ninjagg.github.io/Xuan.github.io/atom.xml"/>
@@ -53,20 +53,9 @@ print(A + b)  #  liuxuan
 <p>用法：inttype = string.count(item)<br>
 参数：item: 查询个数的元素<br>
 细节：如果查询的成员(元素)不存在，则返回0</p>
-<h3 id="startswith-endswith-判断开头或结尾是否是设定的元素">startswith() endswith() 判断开头或结尾是否是设定的元素</h3>
-<p>用法：string.startswith(item)<br>
-string.endswith(item)<br>
-参数：item：你想查询匹配的元素<br>
-细节：返回一个bool值，二者可以对首尾字符串进行判断，也可以对整个字符串进行判断</p>
-<h3 id="find-index-返回你想要元素的位置">find() index() 返回你想要元素的位置</h3>
-<p>用法：string.find(item)<br>
-string.index(item)<br>
-参数：item：你想查询的元素<br>
-细节：返回一个整型；字符串里位置是从左向右，以0开始的；find找不到这个元素会返回-1，index找不到这个元素，会导致程序报错；日常中也许find更适合开发——懒惰匹配（只匹配字符串中该元素第一次出现的位置）</p>
-<h3 id="strip去掉字符串左右两边的指定元素默认是空格">strip()去掉字符串左右两边的指定元素，默认是空格</h3>
-<p>用法：newstr = string.strip(item)<br>
-参数：item:你想去掉的元素，不填即默认'空格'<br>
-细节：传入的元素如果不在开头或结尾则无效；无论首尾有多少空格都可以去掉；lstrip()用法与strip()一致但仅能去掉字符串开头的指定元素或空格；rstrip()相同但仅能去掉字符串结尾的指定元素或空格</p>
+<h3 id="isinstance-检查对象是否符合这一类型返回true-false">isinstance() 检查对象是否符合这一类型，返回True, False</h3>
+<p>用法：isinstance(a, int)   isinstance(a, (int, float))</p>
+<h3 id=""></h3>
 ]]></content>
     </entry>
     <entry>
