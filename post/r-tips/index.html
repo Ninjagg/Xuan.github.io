@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>R tips | Gridea</title>
-<link rel="shortcut icon" href="https://ninjagg.github.io/Xuan.github.io//favicon.ico?v=1623247439231">
+<link rel="shortcut icon" href="https://ninjagg.github.io/Xuan.github.io//favicon.ico?v=1623328827085">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://ninjagg.github.io/Xuan.github.io//styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="R tips | Gridea - Atom Feed" href="https://ninjagg.github.io/Xuan.github.io//atom.xml">
@@ -22,7 +22,7 @@ path &lt;- list.files(path = &quot;../hongshen_alcohol/components_target_csv..."
       <div class="main-content">
         <div class="site-header">
   <a href="https://ninjagg.github.io/Xuan.github.io/">
-  <img class="avatar" src="https://ninjagg.github.io/Xuan.github.io//images/avatar.png?v=1623247439231" alt="">
+  <img class="avatar" src="https://ninjagg.github.io/Xuan.github.io//images/avatar.png?v=1623328827085" alt="">
   </a>
   <h1 class="site-title">
     Gridea
@@ -146,10 +146,24 @@ sapply(X, FUN, ..., simplify = TRUE, USE.NAMES = TRUE)</p>
 }
 dim(TCGA_ferroptosis_surv)  # 567 rows &amp; 64 cols
 </code></pre>
-<h1 id="table">table()</h1>
-<p><code>table(df$sample_id)</code>  # 查看数据表df的samp_id列含有哪些元素及重复了多少次</p>
-<h1 id="example">example()</h1>
-<p><code>example(exp)</code>  # 查看某一函数示例</p>
+<h1 id="table-查看数据表df的samp_id列含有哪些元素及重复了多少次">table() 查看数据表df的samp_id列含有哪些元素及重复了多少次</h1>
+<p><code>table(df$sample_id)</code></p>
+<h1 id="example-查看某一函数示例">example() 查看某一函数示例</h1>
+<p><code>example(exp)</code></p>
+<h1 id="str_sub-按字符串起始-终止位点提取字符">str_sub() 按字符串起始、终止位点提取字符</h1>
+<p>用法：</p>
+<pre><code>library(stringr)
+str_sub(Filename, 23, 32)  # 提取Filename的第23-32字符
+</code></pre>
+<h1 id="str_split-按pattern将字符串-元素分隔">str_split() 按&quot;pattern&quot;将字符串、元素分隔</h1>
+<p>用法：</p>
+<pre><code>library(stringr)
+str_split(Filename, pattern = &quot;\t&quot;, simplify = T)
+</code></pre>
+<p>细节：缺省值simplify = F, 返回一个列表；simplify = T， 返回一个向量</p>
+<h1 id="identical-判断两个对象是否完全相等">identical() 判断两个对象是否完全相等</h1>
+<p>用法：<code>identical(x, y)</code></p>
+<h1 id="cmd-opt-o-快速折叠r脚本中所有分组shift-cmd-opt-o-快速打开r脚本中所有分组">cmd + opt + o 快速折叠R脚本中所有分组，shift + cmd + opt + o 快速打开R脚本中所有分组</h1>
 
               </div>
               <div class="toc-container">
@@ -166,8 +180,12 @@ dim(TCGA_ferroptosis_surv)  # 567 rows &amp; 64 cols
 <li><a href="#paste-%E9%BB%98%E8%AE%A4%E4%BB%A5%E7%A9%BA%E6%A0%BC%E4%BD%9C%E4%B8%BA%E5%88%86%E9%9A%94paste0-%E9%BB%98%E8%AE%A4%E6%97%A0%E5%86%85%E5%AE%B9%E4%BD%9C%E4%B8%BA%E5%88%86%E9%9A%94">paste 默认以空格作为分隔，paste0 默认无内容作为分隔</a></li>
 <li><a href="#writetable-%E7%94%A8%E4%BA%8E%E4%BF%9D%E5%AD%98%E5%B8%A6%E8%A1%8C%E5%90%8D%E7%9A%84%E6%95%B0%E6%8D%AE%E6%A1%86">write.table() 用于保存带行名的数据框</a></li>
 <li><a href="#ifelse-%E7%BB%93%E5%90%88for%E5%BE%AA%E7%8E%AF%E5%AF%B9%E6%95%B0%E6%8D%AE%E6%A1%86%E8%BF%9B%E8%A1%8C%E5%88%A4%E5%AE%9A-%E8%B5%8B%E5%80%BC">ifelse() 结合for循环对数据框进行判定、赋值</a></li>
-<li><a href="#table">table()</a></li>
-<li><a href="#example">example()</a></li>
+<li><a href="#table-%E6%9F%A5%E7%9C%8B%E6%95%B0%E6%8D%AE%E8%A1%A8df%E7%9A%84samp_id%E5%88%97%E5%90%AB%E6%9C%89%E5%93%AA%E4%BA%9B%E5%85%83%E7%B4%A0%E5%8F%8A%E9%87%8D%E5%A4%8D%E4%BA%86%E5%A4%9A%E5%B0%91%E6%AC%A1">table() 查看数据表df的samp_id列含有哪些元素及重复了多少次</a></li>
+<li><a href="#example-%E6%9F%A5%E7%9C%8B%E6%9F%90%E4%B8%80%E5%87%BD%E6%95%B0%E7%A4%BA%E4%BE%8B">example() 查看某一函数示例</a></li>
+<li><a href="#str_sub-%E6%8C%89%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%B5%B7%E5%A7%8B-%E7%BB%88%E6%AD%A2%E4%BD%8D%E7%82%B9%E6%8F%90%E5%8F%96%E5%AD%97%E7%AC%A6">str_sub() 按字符串起始、终止位点提取字符</a></li>
+<li><a href="#str_split-%E6%8C%89pattern%E5%B0%86%E5%AD%97%E7%AC%A6%E4%B8%B2-%E5%85%83%E7%B4%A0%E5%88%86%E9%9A%94">str_split() 按&quot;pattern&quot;将字符串、元素分隔</a></li>
+<li><a href="#identical-%E5%88%A4%E6%96%AD%E4%B8%A4%E4%B8%AA%E5%AF%B9%E8%B1%A1%E6%98%AF%E5%90%A6%E5%AE%8C%E5%85%A8%E7%9B%B8%E7%AD%89">identical() 判断两个对象是否完全相等</a></li>
+<li><a href="#cmd-opt-o-%E5%BF%AB%E9%80%9F%E6%8A%98%E5%8F%A0r%E8%84%9A%E6%9C%AC%E4%B8%AD%E6%89%80%E6%9C%89%E5%88%86%E7%BB%84shift-cmd-opt-o-%E5%BF%AB%E9%80%9F%E6%89%93%E5%BC%80r%E8%84%9A%E6%9C%AC%E4%B8%AD%E6%89%80%E6%9C%89%E5%88%86%E7%BB%84">cmd + opt + o 快速折叠R脚本中所有分组，shift + cmd + opt + o 快速打开R脚本中所有分组</a></li>
 </ul>
 
               </div>
