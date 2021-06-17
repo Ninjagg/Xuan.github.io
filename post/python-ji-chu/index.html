@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Python基础 | Gridea</title>
-<link rel="shortcut icon" href="https://ninjagg.github.io/Xuan.github.io//favicon.ico?v=1623849451347">
+<link rel="shortcut icon" href="https://ninjagg.github.io/Xuan.github.io//favicon.ico?v=1623946507101">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://ninjagg.github.io/Xuan.github.io//styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="Python基础 | Gridea - Atom Feed" href="https://ninjagg.github.io/Xuan.github.io//atom.xml">
@@ -28,7 +28,7 @@ name = 'xiaoMu'
       <div class="main-content">
         <div class="site-header">
   <a href="https://ninjagg.github.io/Xuan.github.io/">
-  <img class="avatar" src="https://ninjagg.github.io/Xuan.github.io//images/avatar.png?v=1623849451347" alt="">
+  <img class="avatar" src="https://ninjagg.github.io/Xuan.github.io//images/avatar.png?v=1623946507101" alt="">
   </a>
   <h1 class="site-title">
     Gridea
@@ -163,7 +163,13 @@ print(A + b)  #  liuxuan
 <p>用法：a.sort()<br>
 参数：括号中可选填<code>key = len</code>，可按照列表中各字符串长度升序排列<br>
 细节：升序排列</p>
-<h3 id=""></h3>
+<h3 id="bisect模块找到元素应当插入的位置插入到相应位置">bisect模块，找到元素应当插入的位置/插入到相应位置</h3>
+<p>用法：</p>
+<pre><code class="language-import">c = [1, 2, 2, 2, 3, 4, 7]
+bisect.bisect(c, 2)  # 查询2在c中应排在哪个位置
+bisect.insort(c, 6)  # 将6插入到c中 按升序
+</code></pre>
+<p>细节：bisect不会检查列表是否排序，对未排序列表使用不会报错，但结果是错误的</p>
 
               </div>
               <div class="toc-container">
@@ -189,7 +195,7 @@ print(A + b)  #  liuxuan
 <li><a href="#%E5%8F%AF%E4%BB%A5%E4%BD%BF%E7%94%A8-%E8%BF%9E%E6%8E%A5%E4%B8%A4%E4%B8%AA%E5%88%97%E8%A1%A8%E6%88%96%E5%85%83%E7%BB%84">可以使用 + 连接两个列表或元组</a></li>
 <li><a href="#extend-%E7%94%A8%E4%BA%8E%E5%AF%B9%E5%B7%B2%E7%BB%8F%E5%AE%9A%E4%B9%89%E7%9A%84%E5%88%97%E8%A1%A8%E6%B7%BB%E5%8A%A0%E6%96%B0%E7%9A%84%E5%85%83%E7%B4%A0">extend() 用于对已经定义的列表添加新的元素</a></li>
 <li><a href="#sort-%E5%AF%B9%E5%88%97%E8%A1%A8%E8%BF%9B%E8%A1%8C%E6%8E%92%E5%BA%8F">sort() 对列表进行排序</a></li>
-<li></li>
+<li><a href="#bisect%E6%A8%A1%E5%9D%97%E6%89%BE%E5%88%B0%E5%85%83%E7%B4%A0%E5%BA%94%E5%BD%93%E6%8F%92%E5%85%A5%E7%9A%84%E4%BD%8D%E7%BD%AE%E6%8F%92%E5%85%A5%E5%88%B0%E7%9B%B8%E5%BA%94%E4%BD%8D%E7%BD%AE">bisect模块，找到元素应当插入的位置/插入到相应位置</a></li>
 </ul>
 </li>
 </ul>
