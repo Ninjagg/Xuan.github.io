@@ -2,17 +2,17 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>mac本地安装cufflinks 2.1.1 tar.gz文件 | Gridea</title>
+<title>PCR_workflow | Gridea</title>
 <link rel="shortcut icon" href="https://ninjagg.github.io/Xuan.github.io//favicon.ico?v=1624790251072">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://ninjagg.github.io/Xuan.github.io//styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="mac本地安装cufflinks 2.1.1 tar.gz文件 | Gridea - Atom Feed" href="https://ninjagg.github.io/Xuan.github.io//atom.xml">
+<link rel="alternate" type="application/atom+xml" title="PCR_workflow | Gridea - Atom Feed" href="https://ninjagg.github.io/Xuan.github.io//atom.xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
-    <meta name="description" content="① 问题背景
-cuffdiff 2.2.1版本(python=2.7) 对hisat2的mapping后bam文件数据处理时报错：Segmentation fault: 11 据说是&quot;火星撞地球&quot;级别的错误报告，尝试几乎..." />
+    <meta name="description" content="引物设计
+" />
     <meta name="keywords" content="" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
@@ -75,11 +75,11 @@ cuffdiff 2.2.1版本(python=2.7) 对hisat2的mapping后bam文件数据处理时�
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              mac本地安装cufflinks 2.1.1 tar.gz文件
+              PCR_workflow
             </h2>
             <div class="post-info">
               <span>
-                2021-04-12
+                2021-06-18
               </span>
               <span>
                 1 min read
@@ -89,38 +89,12 @@ cuffdiff 2.2.1版本(python=2.7) 对hisat2的mapping后bam文件数据处理时�
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <h1 id="1-问题背景">① 问题背景</h1>
-<h3 id="cuffdiff-221版本python27-对hisat2的mapping后bam文件数据处理时报错segmentation-fault-11-据说是火星撞地球级别的错误报告尝试几乎所有方法和参数无法起效">cuffdiff 2.2.1版本(python=2.7) 对hisat2的mapping后bam文件数据处理时报错：Segmentation fault: 11 据说是&quot;火星撞地球&quot;级别的错误报告，尝试几乎所有方法和参数无法起效</h3>
-<p><img src="https://ninjagg.github.io/Xuan.github.io//post-images/1618229859018.png" alt="error" loading="lazy"><br>
-<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1618229884767.png" alt="error code" loading="lazy"></p>
-<h1 id="2-解决方法">② 解决方法</h1>
-<h3 id="安装cufflinks-211版本即解决该问题python379但conda上并没有cufflinks-211版本因此在cufflinks官网下载该软件cufflinks-211osx_x86_64targz">安装cufflinks 2.1.1版本即解决该问题(python=3.7.9)，但conda上并没有cufflinks 2.1.1版本，因此在<a href="http://cole-trapnell-lab.github.io/cufflinks/releases/v2.1.1/">cufflinks官网</a>下载该软件&quot;cufflinks-2.1.1.OSX_x86_64.tar.gz&quot;</h3>
-<pre><code>cd ~/test_HD/biosofts
-tar -zxvf cufflinks-2.1.1.OSX_x86_64.tar.gz
-cd cufflinks-2.1.1.OSX_x86_64
-vim ~/.bash_profile
-</code></pre>
-<h3 id="在行末添加一行">在行末添加一行</h3>
-<pre><code>export PATH=//Users/mac/test_HD/biosofts/cufflinks-2.1.1.OSX_x86_64:$PATH
-source ~/.bash_profile #重启bash文件 环境变量即生效
-</code></pre>
+                <h1 id="引物设计">引物设计</h1>
 
               </div>
               <div class="toc-container">
                 <ul class="markdownIt-TOC">
-<li><a href="#1-%E9%97%AE%E9%A2%98%E8%83%8C%E6%99%AF">① 问题背景</a><br>
-*
-<ul>
-<li><a href="#cuffdiff-221%E7%89%88%E6%9C%ACpython27-%E5%AF%B9hisat2%E7%9A%84mapping%E5%90%8Ebam%E6%96%87%E4%BB%B6%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E6%97%B6%E6%8A%A5%E9%94%99segmentation-fault-11-%E6%8D%AE%E8%AF%B4%E6%98%AF%E7%81%AB%E6%98%9F%E6%92%9E%E5%9C%B0%E7%90%83%E7%BA%A7%E5%88%AB%E7%9A%84%E9%94%99%E8%AF%AF%E6%8A%A5%E5%91%8A%E5%B0%9D%E8%AF%95%E5%87%A0%E4%B9%8E%E6%89%80%E6%9C%89%E6%96%B9%E6%B3%95%E5%92%8C%E5%8F%82%E6%95%B0%E6%97%A0%E6%B3%95%E8%B5%B7%E6%95%88">cuffdiff 2.2.1版本(python=2.7) 对hisat2的mapping后bam文件数据处理时报错：Segmentation fault: 11 据说是&quot;火星撞地球&quot;级别的错误报告，尝试几乎所有方法和参数无法起效</a></li>
-</ul>
-</li>
-<li><a href="#2-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95">② 解决方法</a><br>
-*
-<ul>
-<li><a href="#%E5%AE%89%E8%A3%85cufflinks-211%E7%89%88%E6%9C%AC%E5%8D%B3%E8%A7%A3%E5%86%B3%E8%AF%A5%E9%97%AE%E9%A2%98python379%E4%BD%86conda%E4%B8%8A%E5%B9%B6%E6%B2%A1%E6%9C%89cufflinks-211%E7%89%88%E6%9C%AC%E5%9B%A0%E6%AD%A4%E5%9C%A8cufflinks%E5%AE%98%E7%BD%91%E4%B8%8B%E8%BD%BD%E8%AF%A5%E8%BD%AF%E4%BB%B6cufflinks-211osx_x86_64targz">安装cufflinks 2.1.1版本即解决该问题(python=3.7.9)，但conda上并没有cufflinks 2.1.1版本，因此在cufflinks官网下载该软件&quot;cufflinks-2.1.1.OSX_x86_64.tar.gz&quot;</a></li>
-<li><a href="#%E5%9C%A8%E8%A1%8C%E6%9C%AB%E6%B7%BB%E5%8A%A0%E4%B8%80%E8%A1%8C">在行末添加一行</a></li>
-</ul>
-</li>
+<li><a href="#%E5%BC%95%E7%89%A9%E8%AE%BE%E8%AE%A1">引物设计</a></li>
 </ul>
 
               </div>
@@ -131,9 +105,9 @@ source ~/.bash_profile #重启bash文件 环境变量即生效
         
           <div class="next-post">
             <div class="next">下一篇</div>
-            <a href="https://ninjagg.github.io/Xuan.github.io/post/t-test-jian-yan/">
+            <a href="https://ninjagg.github.io/Xuan.github.io/post/python-ji-chu/">
               <h3 class="post-title">
-                t-test检验 &amp; Venn作图
+                Python基础
               </h3>
             </a>
           </div>

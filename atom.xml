@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ninjagg.github.io/Xuan.github.io/</id>
     <title>Gridea</title>
-    <updated>2021-06-17T16:19:02.436Z</updated>
+    <updated>2021-06-27T10:37:33.970Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ninjagg.github.io/Xuan.github.io/"/>
     <link rel="self" href="https://ninjagg.github.io/Xuan.github.io/atom.xml"/>
@@ -10,6 +10,15 @@
     <logo>https://ninjagg.github.io/Xuan.github.io/images/avatar.png</logo>
     <icon>https://ninjagg.github.io/Xuan.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[PCR_workflow]]></title>
+        <id>https://ninjagg.github.io/Xuan.github.io/post/pcr_workflow/</id>
+        <link href="https://ninjagg.github.io/Xuan.github.io/post/pcr_workflow/">
+        </link>
+        <updated>2021-06-18T01:36:32.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="引物设计">引物设计</h1>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Python基础]]></title>
         <id>https://ninjagg.github.io/Xuan.github.io/post/python-ji-chu/</id>
@@ -738,164 +747,6 @@ vim .bash_profile
 保存退出，重新打开terminal</p>
 <h1 id="3-关闭mac防火墙本机已关闭">3. 关闭Mac防火墙（本机已关闭）</h1>
 <h1 id="4-aspera万能使用语句">4. Aspera万能使用语句</h1>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[知识整理 2020.12.04 to 2021.03.14]]></title>
-        <id>https://ninjagg.github.io/Xuan.github.io/post/sheng-xin-qun-zhi-shi-zheng-li/</id>
-        <link href="https://ninjagg.github.io/Xuan.github.io/post/sheng-xin-qun-zhi-shi-zheng-li/">
-        </link>
-        <updated>2021-03-15T00:36:35.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="20201204-to-20210218">2020.12.04 to 2021.02.18</h1>
-<h2 id="homer">homer</h2>
-<p>可以根据一段DNA序列预测其转录因子在bioconda中搜索homer，可以看到有很多种版本<br>
-<code>conda search homer -c bioconda</code></p>
-<h2 id="默认安装-homer-最新版">默认安装 homer 最新版</h2>
-<p><code>conda install -c bioconda homer -y</code>  -y 表示直接安装，不询问确认与否</p>
-<h2 id="deeptools">deepTools</h2>
-<p>deepTools is a suite of python tools particularly developed for the efficient analysis of high-throughput sequencing data, such as ChIP-seq, RNA-seq or MNase-seq. 可以绘制甲基化的图片结果 可以绘制增强子的热图</p>
-<h2 id="starbase-targetscan-miranda">starbase targetscan miRanda</h2>
-<p>#可以根据原有序列进行匹配，寻找靶向的非编码RNA或mRNA</p>
-<h2 id="axel">axel</h2>
-<p>wget curl虽然支持断点续传但是单线程下载速度不快，可以换用axel，迅雷最好用！</p>
-<p>mac （本次使用）<br>
-<code>brew install axel</code><br>
-简单使用 axel -n 10 http://www.kernel.org/pub/linux/kernel/v2.6/patch-2.6.39.gz</p>
-<p>Debian<br>
-<code>apt-get install axel</code></p>
-<p>Fedora<br>
-<code>yum install axel</code></p>
-<h2 id="不同批次数据是否可以合并">不同批次数据是否可以合并</h2>
-<p>①采用PCA分析看有无批次效应<br>
-②一般QIIME参数一致table可以合并，QIIME是一个从原始DNA测序数据执行微生物组分析的开源生物信息学管道。QIIME旨在通过发布高质量的图表和统计数据，从Illumina或其他平台上生成的原始测序数据中获取用户。这包括多路分解和质量过滤、OTU挑选、分类分配、系统发育重建、多样性分析和可视化。QIIME已被应用于基于数万个样本中数十亿个序列的研究。</p>
-<h2 id="supplement-material-下载">Supplement material 下载</h2>
-<p>可以用wget或迅雷，axel会更快，idm（收费软件，需要寻找破解版）会更快</p>
-<h2 id="tcga-biolinks">TCGA biolinks</h2>
-<p>R包 整理临床数据 （实际使用UCSC.xena但是网站有时候有问题）</p>
-<h2 id="ggplot坐标轴截断">ggplot坐标轴截断</h2>
-<p><code>library(gg.gap)</code> 或手动坐标轴截断</p>
-<h2 id="下载sra数据">下载SRA数据</h2>
-<p><code>prefetch SRRXXXX</code></p>
-<h2 id="服务器没有管理员权限">服务器没有管理员权限</h2>
-<p>先安装底层lib 再安装缺少的R包<br>
-<code>conda install -c conda-forge libgit2</code></p>
-<h2 id="circos-plot环状热图">circos plot(环状热图)</h2>
-<p><img src="https://ninjagg.github.io/Xuan.github.io//post-images/1615776514571.jpg" alt="" loading="lazy"><br>
-ggplot2直接热图加极坐标转换即可</p>
-<h2 id="office激活">office激活</h2>
-<p>kmspico</p>
-<h2 id="itol">ITOL</h2>
-<p>Interactive Tree Of Life is an online tool for the display, annotation and management of phylogenetic trees.交互式生命树是一种用于显示、注释和管理系统发育树的在线工具。<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1615778055094.png" alt="" loading="lazy"></p>
-<h2 id="刘小乐在线书籍">刘小乐在线书籍</h2>
-<p>《Introduction to Bioinformatics and Computational Biology》<br>
-<a href="https://github.com/liulab-dfci/bioinfo-combio">链接</a></p>
-<h2 id="biomart-r包">Biomart R包</h2>
-<figure data-type="image" tabindex="1"><img src="https://ninjagg.github.io/Xuan.github.io//post-images/1615779286637.png" alt="" loading="lazy"></figure>
-<h2 id="ensemble下载gtf">ensemble下载gtf</h2>
-<p>只有gene name 没有gene symbol  而且gene symbol也不太可靠有别名重名 hgnc下的文件读取不进来</p>
-<h2 id="hs_org包">hs_org包</h2>
-<p>转换名字会丢失部分基因</p>
-<h2 id="组装线粒体">组装线粒体</h2>
-<p>getor ganelle</p>
-<h2 id="kegg-id应该是entrez-id">KEGG ID应该是entrez id</h2>
-<h2 id="更换conda源">更换Conda源</h2>
-<p>查看当前conda源信息 <code>conda info</code></p>
-<h3 id="清华源">清华源</h3>
-<pre><code>conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
-conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
-conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/
-</code></pre>
-<h3 id="中科大源">中科大源</h3>
-<pre><code>conda config --add channels https://mirrors.ustc.edu.cn/anaconda/pkgs/main/
-conda config --add channels https://mirrors.ustc.edu.cn/anaconda/pkgs/free/
-conda config --add channels https://mirrors.ustc.edu.cn/anaconda/cloud/conda-forge/
-conda config --add channels https://mirrors.ustc.edu.cn/anaconda/cloud/msys2/
-conda config --add channels https://mirrors.ustc.edu.cn/anaconda/cloud/bioconda/
-conda config --add channels https://mirrors.ustc.edu.cn/anaconda/cloud/menpo/
-conda config --set show_channel_urls yes
-</code></pre>
-<h3 id="北外源">北外源</h3>
-<pre><code>conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/pkgs/free/ 
-conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/bioconda/ 
-conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/msys2/
-conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/menpo/
-conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/peterjc123/
-conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/pkgs/main/
-conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/conda-forge/
-conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/pytorch/
-conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/pkgs/r/
-conda config --set show_channel_urls yes
-</code></pre>
-<h2 id="改依赖库把系统弄崩溃">改依赖库把系统弄崩溃</h2>
-<p>不小心删除lib64 libc.so.6软链接导致大多数命令无法运行，此时不能退系统，重新恢复该链接或许可以，一般不要动这些。</p>
-<h2 id="数据作图有大量na">数据作图有大量NA</h2>
-<p>①将NA替换为0直接+1取Log<br>
-②<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1618576176895.png" alt="" loading="lazy"></p>
-<h1 id="20210222-20210314">2021.02.22-2021.03.14</h1>
-<h2 id="深度学习">深度学习</h2>
-<p>基础是线性代数、一点点矩阵分析、概率论，剩下学到哪里现学，不如听课</p>
-<h2 id="基因组组装">基因组组装</h2>
-<p>Spades 可以使用多个Kmer长度的组装结果，一般选auto模式就可以了(数据质量不好的话碎片片段会多)<br>
-megahit</p>
-<h2 id="外源基因共转进细胞">外源基因共转进细胞</h2>
-<p>测序时可以把该基因的序列加在基因组文件中,同时修改注释文件，重新构建索引，进行比对<br>
-单独看可以用Pcr</p>
-<h2 id="nanopore的guppy软件">Nanopore的guppy软件</h2>
-<p><code>wget https://mirror.oxfordnanoportal.com/software/analysis/ont-guppy-cpu_4.2.2_linux64.tar.gz</code></p>
-<h2 id="两组a和ba平均表达量比b组高使用boxplot把点打上之后wilcox或t-test检验">两组A和B，A平均表达量比B组高，使用boxplot+把点打上，之后wilcox或t-test检验</h2>
-<h2 id="基因家族画共线性-基因组共线性用mcscanxtbtools-circos">基因家族画共线性、基因组共线性用mcscanx，tbtools、circos</h2>
-<h2 id="ucla-qcbio-collaboratory的ngs培训视频">UCLA QCBio Collaboratory的NGS培训视频</h2>
-<p><a href="https://www.youtube.com/channel/UC_Nsj_F_u7X7Il9x9V-g-sQ/playlists">飞机票</a><br>
-不要贪多，用到什么或者即将用到什么就去看看，每一部分也就 6-10h</p>
-<h2 id="geoquery-下载geo数据">GEOquery 下载GEO数据</h2>
-<h2 id="好的workshop">好的workshop</h2>
-<p><a href="https://space.bilibili.com/401352356/video">飞机票</a><br>
-按需观看</p>
-<h2 id="测序技术标准化">测序技术标准化</h2>
-<p><a href="https://blog.csdn.net/weixin_46585008/article/details/109478030?spm=1001.2014.3001.5501">链接</a></p>
-<h2 id="ascp下载sra文件还好下载fastq容易崩">ascp下载SRA文件还好，下载fastq容易崩</h2>
-<h1 id="20210315-">2021.03.15 -</h1>
-<h2 id="rnc-seq正在翻译的全长mrna测序-待验证补充植物中">RNC-seq(正在翻译的全长mRNA测序, 待验证补充，植物中？)</h2>
-<p>用蔗糖超速离心法分离出与核糖体结合的mRNA<br>
-可以直接polyA建库测序</p>
-<h2 id="3d散点图">3D散点图</h2>
-<p><a href="http://www.sthda.com/english/wiki/scatterplot3d-3d-graphics-r-software-and-data-visualization">链接1</a><br>
-<a href="https://cran.r-project.org/web/packages/barplot3d/vignettes/barplot3d.html">链接2</a><br>
-<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1622857900316.jpg" alt="" loading="lazy"></p>
-<h2 id="snakemake">snakemake</h2>
-<p>有坑、一般只用简单功能搭流程，复杂功能调试起来很麻烦<br>
-文档写的不好<br>
-限定软件cpu使用核数：snakemake --cores<br>
-重要功能：wildcard功能</p>
-<h2 id="nature母刊新筛药平台">Nature母刊，新筛药平台</h2>
-<p>An open-source drug discovery platform enables ultra-large virtual screens</p>
-<h2 id="去除类似ab和ba这样的重复行">去除类似AB和BA这样的重复行</h2>
-<p><a href="https://www.jianshu.com/p/a2860df3f654?utm_campaign=haruki&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=qq">链接</a></p>
-<h2 id="complexheatmap">Complexheatmap</h2>
-<p>可以左边基因表达热图，右边给GO<br>
-<a href="https://jokergoo.github.io/ComplexHeatmap-reference/book/a-single-heatmap.html#render-dendrograms">github参考</a><br>
-<a href="https://bioconductor.org/packages/release/bioc/html/ComplexHeatmap.html">bioconductor</a><br>
-<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1622860594640.jpg" alt="" loading="lazy"></p>
-<h2 id="dns">DNS</h2>
-<p>mac情况下 使用 8.8.8.8域名浏览器打开速度很快</p>
-<h2 id="识别肿瘤细胞">识别肿瘤细胞</h2>
-<p>使用inferCNV<br>
-使用CopyKAT<br>
-singlerR注释结果里面，好像没有肿瘤细胞这个分类<br>
-细胞注释只能注释细胞属于哪种细胞类型，无法注释细胞是否是肿瘤细胞</p>
-<h2 id="sratoolkit把下载的sra数据转换成fastq">SRAtoolkit把下载的SRA数据转换成fastq</h2>
-<p><code>fastq-dump SRR10845261.sra</code>  # 需要在文件名后面加上后缀？ 待确认</p>
-<h2 id="按固定符号分隔一个列表">按固定符号分隔一个列表</h2>
-<p>linux/mac: <code>cut -f [list] -d &quot;,&quot; -s [file]</code>  # [list] 是选择的列 [file] 是要处理的文件<br>
-R: separate_rows(V2, sep = &quot;,&quot;, convert = F)  # tidyr的函数 对行按固定符号分隔？？<br>
-excel: 分列功能</p>
-<h2 id="igv可视化-rseqc">igv可视化、RSeQC</h2>
-<p>观察：RNA测序数据比对到基因组上类似直方图，反应不同位置比对到的reads量</p>
-<h2 id="配色网站">配色网站</h2>
-<p><a href="https://www.materialpalette.com/colors">链接1</a><br>
-<a href="http://colorschemedesigner.com/csd-3.5/">链接2</a><br>
-<a href="https://coolors.co/8da7be-f8333c-e4b363-72a98d-39a4a2-009fb7">链接3</a><br>
-<a href="">链接4</a></p>
 ]]></content>
     </entry>
 </feed>
