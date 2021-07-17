@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>知识整理 2020.12.04 to 2021.03.24 | Gridea</title>
-<link rel="shortcut icon" href="https://ninjagg.github.io/Xuan.github.io//favicon.ico?v=1624800174434">
+<link rel="shortcut icon" href="https://ninjagg.github.io/Xuan.github.io//favicon.ico?v=1626527848735">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://ninjagg.github.io/Xuan.github.io//styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="知识整理 2020.12.04 to 2021.03.24 | Gridea - Atom Feed" href="https://ninjagg.github.io/Xuan.github.io//atom.xml">
@@ -25,7 +25,7 @@ conda search homer -c bioconda
       <div class="main-content">
         <div class="site-header">
   <a href="https://ninjagg.github.io/Xuan.github.io/">
-  <img class="avatar" src="https://ninjagg.github.io/Xuan.github.io//images/avatar.png?v=1624800174434" alt="">
+  <img class="avatar" src="https://ninjagg.github.io/Xuan.github.io//images/avatar.png?v=1626527848735" alt="">
   </a>
   <h1 class="site-title">
     Gridea
@@ -85,7 +85,7 @@ conda search homer -c bioconda
                 2021-03-15
               </span>
               <span>
-                9 min read
+                14 min read
               </span>
               
             </div>
@@ -269,7 +269,7 @@ RSeQC<br>
 <h2 id="sratoolkit下载的sra数据转换成fastq">SRAtoolkit下载的SRA数据转换成fastq</h2>
 <p><code>fastq-dump SRR10845261.sra # 需要把.sra后缀带上</code></p>
 <h2 id="序列拼接-双端测序原理-拼接-pandaseq-知乎">[序列拼接] 双端测序，原理 + 拼接 （Pandaseq） - 知乎</h2>
-<p><a href="https://zhuanlan.zhihu.com/p/61963366">链接</a></p>
+<p>(链接)[https://zhuanlan.zhihu.com/p/61963366]</p>
 <h2 id="总结rna-seq数据指标q20-q30-错误率好用小工具快速给出数据">总结RNA-seq数据指标：q20, q30 错误率，好用小工具快速给出数据</h2>
 <p>使用multiqc</p>
 <h2 id="很多临床预测模型图像加神经网络预测基因突变好像也没其他很多东西就有八九分">很多临床预测模型，图像加神经网络预测基因突变，好像也没其他很多东西，就有八九分？</h2>
@@ -279,6 +279,88 @@ RSeQC<br>
 <p>&quot;*&quot;一般代表终止密码子<br>
 ! 可能是下图中的意思<br>
 <img src="https://ninjagg.github.io/Xuan.github.io//post-images/1624799786153.jpg" alt="" loading="lazy"></p>
+<h1 id="20210324-">2021.03.24-</h1>
+<h2 id="批量下载scihubeva">批量下载SCIHUBEVA</h2>
+<h2 id="linux切割字符串以标点符号分列">linux切割字符串，以标点符号分列</h2>
+<p>awk -F  # 用[]设多个分隔符 配合重定向</p>
+<h2 id="可以把gtf读进r统计最大intron长度">可以把gtf读进R，统计最大intron长度</h2>
+<p>GenomicFeatures::intronsByTranscript()</p>
+<h2 id="新手生信分析时常遇见的数据处理问题">新手生信分析时常遇见的数据处理问题</h2>
+<p>(飞机票)[https://mp.weixin.qq.com/s?__biz=MzIwMjUzMjQ1Ng==&amp;mid=2247486591&amp;idx=2&amp;sn=2b41eba6e3aaf1a24d551771439d1b45&amp;chksm=96dc7f78a1abf66e78d371afefa38356ac70fcc66df54df3b6a40cfd2827bd0f57d7619de60c&amp;mpshare=1&amp;scene=23&amp;srcid=0326DaV94yu6M0UnRYp7Bbua&amp;sharer_sharetime=1616729899009&amp;sharer_shareid=69ab6509fa7c770e50fcfd5d81cd339e%23rd]</p>
+<h2 id="rin值28s18s-表明rrna降解程度">RIN值=28S/18S 表明rRNA降解程度</h2>
+<h2 id="除了ascp下载reads方法">除了ascp下载reads方法</h2>
+<p>ENA下载</p>
+<h2 id="计算样本相关性并绘制矩阵热图">计算样本相关性并绘制矩阵热图</h2>
+<p>ggcor<br>
+corrplot</p>
+<h2 id="计算差异表达基因只有tpm或fpkm可以用deseq2不用标准化就行了">计算差异表达基因，只有TPM或FPKM，可以用DESeq2不用标准化就行了</h2>
+<h2 id="conda-activate命令在命令行里运行正常放到脚本里运行就不行说要init">conda activate命令，在命令行里运行正常，放到脚本里运行就不行，说要init。</h2>
+<h2 id="beast相关教程">beast相关教程</h2>
+<p>(飞机票)[http://wap.sciencenet.cn/blog-460481-1098684.html?mobile=1]<br>
+语雀(湖大博士) id 寄明月？<br>
+《生物信息学分析实践》作者：高？</p>
+<h2 id="安装新软件">安装新软件</h2>
+<p>建议创建一个新环境，每次用激活一下，不然迟早有一天卸载干净重来<br>
+macs2 现在好像是 python2.7 ?</p>
+<h2 id="搜书">搜书</h2>
+<p>google 或 bing 搜书名 + pdf<br>
+<code>生物信息学 pdf</code></p>
+<h2 id="chipseeker做注释">Chipseeker做注释</h2>
+<p>问题：annotatePeak指定参数sameStrand = T 还是会正链注释到反链<br>
+答案：可能strand只能是+，+和+匹配，不能+和1匹配</p>
+<h2 id="3d散点图好看一些">3D散点图好看一些</h2>
+<p>plot3D::scatter3D<br>
+<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1626503035654.jpeg" alt="" loading="lazy"></p>
+<h2 id="拿到几十个差异表达基因可以去ncbi或uniprot把基因的参考文献找到过一遍">拿到几十个差异表达基因，可以去NCBI或uniprot把基因的参考文献找到过一遍</h2>
+<p>参考文献一列，genelist非常可靠</p>
+<h2 id="翻译组ribo-seq植物">翻译组Ribo-seq(植物)</h2>
+<p>计算翻译效率可以使用 Ribo-seq/RNA-seq 使用FPKM或TPM</p>
+<h2 id="检测肠道菌群找到菌种比例及关系你和一个人的健康程度α多样性">检测肠道菌群，找到菌种比例及关系，你和一个人的健康程度——α多样性</h2>
+<h2 id="部分过时r包需要安装">部分过时R包需要安装</h2>
+<p>下载R包源码本地安装，R CMD INSTALL R包.tar.gz</p>
+<h2 id="complex实例">complex实例</h2>
+<figure data-type="image" tabindex="3"><img src="https://ninjagg.github.io/Xuan.github.io//post-images/1626507534788.jpg" alt="" loading="lazy"></figure>
+<h2 id="log2fc阈值一般1">log2FC阈值一般±1</h2>
+<h2 id="单细胞批次校正法">单细胞批次校正法</h2>
+<p>清华大学张强锋课题组新开发了SCALEX方法来校正单细胞数据中的批次效应，该方法使用VAE框架，可将细胞映射到广义的，批次无关的低维空间中，可以准确有效地整合异构单细胞数据，包括scRNA-seq，scATAC-seq，cross-modality sequencing data等。</p>
+<p>SCALEX在异质性高，细胞类型差异比较大数据中，可以有效避免过度校正带来的细胞类型的混淆；同时该方法可以通过增加新数据持续扩展细胞空间，并在百万级别的单细胞数据量下仍保持很高的计算效率，适用于各种单细胞图谱的分析工作。SCALEX构建了多个atlas，包括mouse atlas，human atlas，COVID-19 PBMC atlas，在带来新的生物学发现的同时，可以通过映射对新产生的单细胞数据进行准确注释。欢迎大家使用，并期待大家的宝贵意见。</p>
+<p>bioRxiv链接https://www.biorxiv.org/content/10.1101/2021.04.06.438536v1<br>
+GitHub链接https://github.com/jsxlei/SCALEX<br>
+文档链接https://scalex.readthedocs.io</p>
+<h2 id="linux-sed实例">linux sed实例</h2>
+<p>批量消除&quot;chr&quot; <code>sed -i 's/chr//g' file</code> 或 <code>awk -F 'chr' '{print $2}' file</code><br>
+<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1626509015892.jpg" alt="" loading="lazy"></p>
+<h2 id="ggplot2-去掉坐标轴">ggplot2 去掉坐标轴</h2>
+<p>theme里把坐标轴的参数设置为element_blank()就好了，具体忘了叫啥了，可以谷歌一下那个参数<br>
+好像是<code>theme(axis.line.x = element_blank(),axis.line.y =element_blank()</code></p>
+<h2 id="画tcga相关性时候一般使用斯皮尔曼相关">画TCGA相关性时候一般使用斯皮尔曼相关</h2>
+<p>①根据 ENCODE，转录组一般是 spearman https://www.encodeproject.org/data-standards/terms/#read-depth，至于为什么，自己可以看下孟叔第一次的统计视频。Pearson可能更适合于类似DNA甲基化的数据？<br>
+②实际pearson和spearman大家都用4、6开。<br>
+③转录组一般rpkm、fpkm、tpm用Pearson, 其他用spearman<br>
+<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1626509341381.jpg" alt="" loading="lazy"></p>
+<h2 id="空间转录组">空间转录组</h2>
+<p>小鼠一个芯片 1W<br>
+10X测序一般1.6-2W</p>
+<h2 id="测数据库里没有的物种">测数据库里没有的物种</h2>
+<p>可以做无参转录组，若有自己组装好的基因组没必要做无参，一般最后的mapping率应该在90%以上，在质控过程中如果检测到重复序列超过百分之一可能是样本被污染了，可以看看gc峰是不是有两个或以上</p>
+<h2 id="统计学比较a-b组差异">统计学比较A-B组差异</h2>
+<p>组内生物学重复样本之间相关性很差，组内方差过大，导致每个基因的P-value不显著(p值不好看)。</p>
+<h2 id="biomarttcga转换基因id但在mart里没有找到entrez-id的正确名称">biomart(TCGA)转换基因id，但在mart里没有找到entrez id的正确名称</h2>
+<p>把他复制给temp，在temp里搜字符串entriz就出来了</p>
+<h2 id="注释文件没有一些基因的注释信息可以手动按相应格式加进去bam里">注释文件没有一些基因的注释信息，可以手动按相应格式加进去(BAM里？？)</h2>
+<p>刘博：如果该基因的相关信息没有，可以blast将这个基因的相关坐标信息拿到，或者可以自己重新注释一个gtf文件，stringTie可以做到。<br>
+刘博：如果只几个基因，直接 IGV 里面看一下 BAM 文件就行其次也可以直接根据近源的物种blast得到大概的位置信息。</p>
+<h2 id="代谢组和脂质组结果阐释">代谢组和脂质组结果阐释</h2>
+<p>两个大方向：相关性和通路关联，结果中存在很多奇奇怪怪的代谢物</p>
+<h2 id="chip-seq分析">Chip-seq分析</h2>
+<p>Chipseeker<br>
+<a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzI5NjUyNzkxMg==&amp;action=getalbum&amp;album_id=1300625300497268737&amp;scene=173&amp;from_msgid=2247488220&amp;from_itemidx=1&amp;count=3&amp;nolastread=1#wechat_redirect">链接</a></p>
+<h2 id="标准化gene-counts">标准化gene counts</h2>
+<p>depth一般指比对到所有基因的counts数总和<br>
+该图是比对到所有基因上的counts<br>
+<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1626522047255.jpg" alt="" loading="lazy"></p>
+<p>bam文件中比对的总reads数目(这个也说的过去，但一般用第一个)</p>
+<h2 id=""></h2>
 
               </div>
               <div class="toc-container">
@@ -360,6 +442,43 @@ RSeQC<br>
 <li><a href="#%E5%BE%88%E5%A4%9A%E4%B8%B4%E5%BA%8A%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B%E5%9B%BE%E5%83%8F%E5%8A%A0%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E9%A2%84%E6%B5%8B%E5%9F%BA%E5%9B%A0%E7%AA%81%E5%8F%98%E5%A5%BD%E5%83%8F%E4%B9%9F%E6%B2%A1%E5%85%B6%E4%BB%96%E5%BE%88%E5%A4%9A%E4%B8%9C%E8%A5%BF%E5%B0%B1%E6%9C%89%E5%85%AB%E4%B9%9D%E5%88%86">很多临床预测模型，图像加神经网络预测基因突变，好像也没其他很多东西，就有八九分？</a></li>
 <li><a href="#%E6%89%B9%E9%87%8F%E4%B8%8B%E8%BD%BD%E6%96%87%E7%8C%AE">批量下载文献</a></li>
 <li><a href="#%E6%B0%A8%E5%9F%BA%E9%85%B8%E5%BA%8F%E5%88%97%E4%B8%AD%E5%92%8C%E4%B8%80%E8%88%AC%E4%BB%A3%E8%A1%A8%E4%BB%80%E4%B9%88%E6%84%8F%E6%80%9D">氨基酸序列中！和*一般代表什么意思</a></li>
+</ul>
+</li>
+<li><a href="#20210324-">2021.03.24-</a>
+<ul>
+<li><a href="#%E6%89%B9%E9%87%8F%E4%B8%8B%E8%BD%BDscihubeva">批量下载SCIHUBEVA</a></li>
+<li><a href="#linux%E5%88%87%E5%89%B2%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%BB%A5%E6%A0%87%E7%82%B9%E7%AC%A6%E5%8F%B7%E5%88%86%E5%88%97">linux切割字符串，以标点符号分列</a></li>
+<li><a href="#%E5%8F%AF%E4%BB%A5%E6%8A%8Agtf%E8%AF%BB%E8%BF%9Br%E7%BB%9F%E8%AE%A1%E6%9C%80%E5%A4%A7intron%E9%95%BF%E5%BA%A6">可以把gtf读进R，统计最大intron长度</a></li>
+<li><a href="#%E6%96%B0%E6%89%8B%E7%94%9F%E4%BF%A1%E5%88%86%E6%9E%90%E6%97%B6%E5%B8%B8%E9%81%87%E8%A7%81%E7%9A%84%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E9%97%AE%E9%A2%98">新手生信分析时常遇见的数据处理问题</a></li>
+<li><a href="#rin%E5%80%BC28s18s-%E8%A1%A8%E6%98%8Errna%E9%99%8D%E8%A7%A3%E7%A8%8B%E5%BA%A6">RIN值=28S/18S 表明rRNA降解程度</a></li>
+<li><a href="#%E9%99%A4%E4%BA%86ascp%E4%B8%8B%E8%BD%BDreads%E6%96%B9%E6%B3%95">除了ascp下载reads方法</a></li>
+<li><a href="#%E8%AE%A1%E7%AE%97%E6%A0%B7%E6%9C%AC%E7%9B%B8%E5%85%B3%E6%80%A7%E5%B9%B6%E7%BB%98%E5%88%B6%E7%9F%A9%E9%98%B5%E7%83%AD%E5%9B%BE">计算样本相关性并绘制矩阵热图</a></li>
+<li><a href="#%E8%AE%A1%E7%AE%97%E5%B7%AE%E5%BC%82%E8%A1%A8%E8%BE%BE%E5%9F%BA%E5%9B%A0%E5%8F%AA%E6%9C%89tpm%E6%88%96fpkm%E5%8F%AF%E4%BB%A5%E7%94%A8deseq2%E4%B8%8D%E7%94%A8%E6%A0%87%E5%87%86%E5%8C%96%E5%B0%B1%E8%A1%8C%E4%BA%86">计算差异表达基因，只有TPM或FPKM，可以用DESeq2不用标准化就行了</a></li>
+<li><a href="#conda-activate%E5%91%BD%E4%BB%A4%E5%9C%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E9%87%8C%E8%BF%90%E8%A1%8C%E6%AD%A3%E5%B8%B8%E6%94%BE%E5%88%B0%E8%84%9A%E6%9C%AC%E9%87%8C%E8%BF%90%E8%A1%8C%E5%B0%B1%E4%B8%8D%E8%A1%8C%E8%AF%B4%E8%A6%81init">conda activate命令，在命令行里运行正常，放到脚本里运行就不行，说要init。</a></li>
+<li><a href="#beast%E7%9B%B8%E5%85%B3%E6%95%99%E7%A8%8B">beast相关教程</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85%E6%96%B0%E8%BD%AF%E4%BB%B6">安装新软件</a></li>
+<li><a href="#%E6%90%9C%E4%B9%A6">搜书</a></li>
+<li><a href="#chipseeker%E5%81%9A%E6%B3%A8%E9%87%8A">Chipseeker做注释</a></li>
+<li><a href="#3d%E6%95%A3%E7%82%B9%E5%9B%BE%E5%A5%BD%E7%9C%8B%E4%B8%80%E4%BA%9B">3D散点图好看一些</a></li>
+<li><a href="#%E6%8B%BF%E5%88%B0%E5%87%A0%E5%8D%81%E4%B8%AA%E5%B7%AE%E5%BC%82%E8%A1%A8%E8%BE%BE%E5%9F%BA%E5%9B%A0%E5%8F%AF%E4%BB%A5%E5%8E%BBncbi%E6%88%96uniprot%E6%8A%8A%E5%9F%BA%E5%9B%A0%E7%9A%84%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE%E6%89%BE%E5%88%B0%E8%BF%87%E4%B8%80%E9%81%8D">拿到几十个差异表达基因，可以去NCBI或uniprot把基因的参考文献找到过一遍</a></li>
+<li><a href="#%E7%BF%BB%E8%AF%91%E7%BB%84ribo-seq%E6%A4%8D%E7%89%A9">翻译组Ribo-seq(植物)</a></li>
+<li><a href="#%E6%A3%80%E6%B5%8B%E8%82%A0%E9%81%93%E8%8F%8C%E7%BE%A4%E6%89%BE%E5%88%B0%E8%8F%8C%E7%A7%8D%E6%AF%94%E4%BE%8B%E5%8F%8A%E5%85%B3%E7%B3%BB%E4%BD%A0%E5%92%8C%E4%B8%80%E4%B8%AA%E4%BA%BA%E7%9A%84%E5%81%A5%E5%BA%B7%E7%A8%8B%E5%BA%A6%CE%B1%E5%A4%9A%E6%A0%B7%E6%80%A7">检测肠道菌群，找到菌种比例及关系，你和一个人的健康程度——α多样性</a></li>
+<li><a href="#%E9%83%A8%E5%88%86%E8%BF%87%E6%97%B6r%E5%8C%85%E9%9C%80%E8%A6%81%E5%AE%89%E8%A3%85">部分过时R包需要安装</a></li>
+<li><a href="#complex%E5%AE%9E%E4%BE%8B">complex实例</a></li>
+<li><a href="#log2fc%E9%98%88%E5%80%BC%E4%B8%80%E8%88%AC1">log2FC阈值一般±1</a></li>
+<li><a href="#%E5%8D%95%E7%BB%86%E8%83%9E%E6%89%B9%E6%AC%A1%E6%A0%A1%E6%AD%A3%E6%B3%95">单细胞批次校正法</a></li>
+<li><a href="#linux-sed%E5%AE%9E%E4%BE%8B">linux sed实例</a></li>
+<li><a href="#ggplot2-%E5%8E%BB%E6%8E%89%E5%9D%90%E6%A0%87%E8%BD%B4">ggplot2 去掉坐标轴</a></li>
+<li><a href="#%E7%94%BBtcga%E7%9B%B8%E5%85%B3%E6%80%A7%E6%97%B6%E5%80%99%E4%B8%80%E8%88%AC%E4%BD%BF%E7%94%A8%E6%96%AF%E7%9A%AE%E5%B0%94%E6%9B%BC%E7%9B%B8%E5%85%B3">画TCGA相关性时候一般使用斯皮尔曼相关</a></li>
+<li><a href="#%E7%A9%BA%E9%97%B4%E8%BD%AC%E5%BD%95%E7%BB%84">空间转录组</a></li>
+<li><a href="#%E6%B5%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E9%87%8C%E6%B2%A1%E6%9C%89%E7%9A%84%E7%89%A9%E7%A7%8D">测数据库里没有的物种</a></li>
+<li><a href="#%E7%BB%9F%E8%AE%A1%E5%AD%A6%E6%AF%94%E8%BE%83a-b%E7%BB%84%E5%B7%AE%E5%BC%82">统计学比较A-B组差异</a></li>
+<li><a href="#biomarttcga%E8%BD%AC%E6%8D%A2%E5%9F%BA%E5%9B%A0id%E4%BD%86%E5%9C%A8mart%E9%87%8C%E6%B2%A1%E6%9C%89%E6%89%BE%E5%88%B0entrez-id%E7%9A%84%E6%AD%A3%E7%A1%AE%E5%90%8D%E7%A7%B0">biomart(TCGA)转换基因id，但在mart里没有找到entrez id的正确名称</a></li>
+<li><a href="#%E6%B3%A8%E9%87%8A%E6%96%87%E4%BB%B6%E6%B2%A1%E6%9C%89%E4%B8%80%E4%BA%9B%E5%9F%BA%E5%9B%A0%E7%9A%84%E6%B3%A8%E9%87%8A%E4%BF%A1%E6%81%AF%E5%8F%AF%E4%BB%A5%E6%89%8B%E5%8A%A8%E6%8C%89%E7%9B%B8%E5%BA%94%E6%A0%BC%E5%BC%8F%E5%8A%A0%E8%BF%9B%E5%8E%BBbam%E9%87%8C">注释文件没有一些基因的注释信息，可以手动按相应格式加进去(BAM里？？)</a></li>
+<li><a href="#%E4%BB%A3%E8%B0%A2%E7%BB%84%E5%92%8C%E8%84%82%E8%B4%A8%E7%BB%84%E7%BB%93%E6%9E%9C%E9%98%90%E9%87%8A">代谢组和脂质组结果阐释</a></li>
+<li><a href="#chip-seq%E5%88%86%E6%9E%90">Chip-seq分析</a></li>
+<li><a href="#%E6%A0%87%E5%87%86%E5%8C%96gene-counts">标准化gene counts</a></li>
+<li></li>
 </ul>
 </li>
 </ul>
