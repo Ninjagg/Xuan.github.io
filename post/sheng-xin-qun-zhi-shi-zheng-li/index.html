@@ -2,11 +2,11 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>知识整理 2020.12.04 to 2021.03.24 | Gridea</title>
-<link rel="shortcut icon" href="https://ninjagg.github.io/Xuan.github.io//favicon.ico?v=1626527848735">
+<title>知识整理 2020.12.04 to 2021.04.30 | Gridea</title>
+<link rel="shortcut icon" href="https://ninjagg.github.io/Xuan.github.io//favicon.ico?v=1626593922341">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://ninjagg.github.io/Xuan.github.io//styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="知识整理 2020.12.04 to 2021.03.24 | Gridea - Atom Feed" href="https://ninjagg.github.io/Xuan.github.io//atom.xml">
+<link rel="alternate" type="application/atom+xml" title="知识整理 2020.12.04 to 2021.04.30 | Gridea - Atom Feed" href="https://ninjagg.github.io/Xuan.github.io//atom.xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
@@ -25,7 +25,7 @@ conda search homer -c bioconda
       <div class="main-content">
         <div class="site-header">
   <a href="https://ninjagg.github.io/Xuan.github.io/">
-  <img class="avatar" src="https://ninjagg.github.io/Xuan.github.io//images/avatar.png?v=1626527848735" alt="">
+  <img class="avatar" src="https://ninjagg.github.io/Xuan.github.io//images/avatar.png?v=1626593922341" alt="">
   </a>
   <h1 class="site-title">
     Gridea
@@ -78,14 +78,14 @@ conda search homer -c bioconda
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              知识整理 2020.12.04 to 2021.03.24
+              知识整理 2020.12.04 to 2021.04.30
             </h2>
             <div class="post-info">
               <span>
                 2021-03-15
               </span>
               <span>
-                14 min read
+                16 min read
               </span>
               
             </div>
@@ -177,7 +177,7 @@ conda config --set show_channel_urls yes
 <h2 id="数据作图有大量na">数据作图有大量NA</h2>
 <p>①将NA替换为0直接+1取Log<br>
 ②<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1618576176895.png" alt="" loading="lazy"></p>
-<h1 id="20210222-20210314">2021.02.22-2021.03.14</h1>
+<h1 id="20210222-20210430">2021.02.22-2021.04.30</h1>
 <h2 id="深度学习">深度学习</h2>
 <p>基础是线性代数、一点点矩阵分析、概率论，剩下学到哪里现学，不如听课</p>
 <h2 id="基因组组装">基因组组装</h2>
@@ -360,7 +360,64 @@ GitHub链接https://github.com/jsxlei/SCALEX<br>
 该图是比对到所有基因上的counts<br>
 <img src="https://ninjagg.github.io/Xuan.github.io//post-images/1626522047255.jpg" alt="" loading="lazy"></p>
 <p>bam文件中比对的总reads数目(这个也说的过去，但一般用第一个)</p>
-<h2 id=""></h2>
+<h2 id="kegg结果富集">KEGG结果富集</h2>
+<p>kobas</p>
+<h2 id="ncbi上pubmed爬虫">NCBI上Pubmed爬虫</h2>
+<p>biopython<br>
+scrapy</p>
+<h2 id="chipseeker-r包教程">chipseeker R包教程</h2>
+<p><a href="http://bioconductor.org/packages/devel/bioc/vignettes/ChIPseeker/inst/doc/ChIPseeker.html#:~:text=ChIPseeker%20is%20an%20R%20package,peaks%20binding%20to%20TSS%20regions.&amp;text=Currently%2C%20ChIPseeker%20contains%2017%2C000%20bed%20file%20information%20from%20GEO%20database.">链接</a></p>
+<h2 id="txt格式文件转bed格式">txt格式文件转bed格式</h2>
+<p>如果txt格式文件中内容是bed格式，直接把后缀改成bed即可，本质都是文本文件</p>
+<h2 id="使用ggplot2更改pheatmap热图">使用ggplot2更改pheatmap热图</h2>
+<p>ggplotify<br>
+as.ggplot(p)</p>
+<h2 id="bedtools对两个文件取完交集覆盖程度可视化">bedtools对两个文件取完交集，覆盖程度可视化</h2>
+<p>igv即可</p>
+<h2 id="图片转换">图片转换</h2>
+<p><img src="https://ninjagg.github.io/Xuan.github.io//post-images/1626581921895.png" alt="" loading="lazy"><br>
+<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1626581928032.png" alt="" loading="lazy"><br>
+<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1626581940155.jpg" alt="" loading="lazy"><br>
+缺口的大小，意味着中位数的置信区间的宽窄</p>
+<h2 id="二代测序确定一个细胞是几倍体">二代测序确定一个细胞是几倍体</h2>
+<p>kmer</p>
+<h2 id="基因标记的火山图">基因标记的火山图</h2>
+<p>刘潜发过一个但是过期了</p>
+<h2 id="在计算芯片表达时多个芯片id对应一个基因id如何确定最终的logfc呢">在计算芯片表达时，多个芯片ID对应一个基因ID，如何确定最终的logFC呢？</h2>
+<p>一般做差异之前就先对这种探针取均值，假如你有3个探针都对应一个基因，这三个探针取均值作为这个基因的表达</p>
+<h2 id="排过序的boxplot散点图然后又去掉了box">排过序的boxplot散点图，然后又去掉了box</h2>
+<p><img src="https://ninjagg.github.io/Xuan.github.io//post-images/1626590727817.jpg" alt="" loading="lazy"><br>
+也有点像qqplot</p>
+<h2 id="r中的空白数值">R中的空白数值</h2>
+<p><img src="https://ninjagg.github.io/Xuan.github.io//post-images/1626591004027.png" alt="" loading="lazy"><br>
+此处空白怎么表示就怎么删除，使用&quot;subset&quot;<br>
+或<code>！=&quot;&quot;</code></p>
+<h2 id="s4结构数据挑选想要的行进行go绘图">s4结构数据，挑选想要的行进行GO绘图</h2>
+<pre><code>ego_CC@result$ID[[c(1,2),]] 
+Error in ego_CC@result$ID[[c(1, 2), ]] : incorrect number of subscripts
+</code></pre>
+<p><code>[[c(1,2),]]</code> 报错<br>
+解决方法：<br>
+①as.data.frame后，可以单独提取出来<br>
+②使用subset可以提取出来<code>subset(ego_CC@result,ID==&quot;GO:0042611&quot; | ID==&quot;GO:0098553&quot;)</code>，单独去掉逗号不行</p>
+<h2 id="基因snp及位置画出snp在染色体上的分布情况">基因SNP及位置，画出SNP在染色体上的分布情况</h2>
+<p><img src="https://ninjagg.github.io/Xuan.github.io//post-images/1626593216667.png" alt="" loading="lazy"><br>
+matplotlib<br>
+也可以用CMplot包画snp密度图</p>
+<pre><code># 此图为折线图，换成点图即可
+ggplot(aes(x=BIN_START/1000000, y =PI, group = species, colour = species)) +
+  geom_line(size = 0.5) +
+  theme_classic() +
+  scale_colour_manual(values = color_species) +
+  facet_wrap(df$CHROM, scales = &quot;free_x&quot;) +
+  xlab(&quot;Physical Distance(Mb)&quot;) +
+  ylab(&quot;Θπ&quot;)
+</code></pre>
+<h2 id="作图rpdf-xchange-editor-inkscape-ppt">作图R，PDF Xchange editor, inkscape, PPT</h2>
+<p>PDF Xchange editor可以把矢量图转换为PPT</p>
+<h2 id="点误差棒">点+误差棒</h2>
+<p><img src="https://ninjagg.github.io/Xuan.github.io//post-images/1626593780330.jpg" alt="" loading="lazy"><br>
+<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1626593795689.jpg" alt="" loading="lazy"></p>
 
               </div>
               <div class="toc-container">
@@ -398,7 +455,7 @@ GitHub链接https://github.com/jsxlei/SCALEX<br>
 <li><a href="#%E6%95%B0%E6%8D%AE%E4%BD%9C%E5%9B%BE%E6%9C%89%E5%A4%A7%E9%87%8Fna">数据作图有大量NA</a></li>
 </ul>
 </li>
-<li><a href="#20210222-20210314">2021.02.22-2021.03.14</a>
+<li><a href="#20210222-20210430">2021.02.22-2021.04.30</a>
 <ul>
 <li><a href="#%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0">深度学习</a></li>
 <li><a href="#%E5%9F%BA%E5%9B%A0%E7%BB%84%E7%BB%84%E8%A3%85">基因组组装</a></li>
@@ -478,7 +535,22 @@ GitHub链接https://github.com/jsxlei/SCALEX<br>
 <li><a href="#%E4%BB%A3%E8%B0%A2%E7%BB%84%E5%92%8C%E8%84%82%E8%B4%A8%E7%BB%84%E7%BB%93%E6%9E%9C%E9%98%90%E9%87%8A">代谢组和脂质组结果阐释</a></li>
 <li><a href="#chip-seq%E5%88%86%E6%9E%90">Chip-seq分析</a></li>
 <li><a href="#%E6%A0%87%E5%87%86%E5%8C%96gene-counts">标准化gene counts</a></li>
-<li></li>
+<li><a href="#kegg%E7%BB%93%E6%9E%9C%E5%AF%8C%E9%9B%86">KEGG结果富集</a></li>
+<li><a href="#ncbi%E4%B8%8Apubmed%E7%88%AC%E8%99%AB">NCBI上Pubmed爬虫</a></li>
+<li><a href="#chipseeker-r%E5%8C%85%E6%95%99%E7%A8%8B">chipseeker R包教程</a></li>
+<li><a href="#txt%E6%A0%BC%E5%BC%8F%E6%96%87%E4%BB%B6%E8%BD%ACbed%E6%A0%BC%E5%BC%8F">txt格式文件转bed格式</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8ggplot2%E6%9B%B4%E6%94%B9pheatmap%E7%83%AD%E5%9B%BE">使用ggplot2更改pheatmap热图</a></li>
+<li><a href="#bedtools%E5%AF%B9%E4%B8%A4%E4%B8%AA%E6%96%87%E4%BB%B6%E5%8F%96%E5%AE%8C%E4%BA%A4%E9%9B%86%E8%A6%86%E7%9B%96%E7%A8%8B%E5%BA%A6%E5%8F%AF%E8%A7%86%E5%8C%96">bedtools对两个文件取完交集，覆盖程度可视化</a></li>
+<li><a href="#%E5%9B%BE%E7%89%87%E8%BD%AC%E6%8D%A2">图片转换</a></li>
+<li><a href="#%E4%BA%8C%E4%BB%A3%E6%B5%8B%E5%BA%8F%E7%A1%AE%E5%AE%9A%E4%B8%80%E4%B8%AA%E7%BB%86%E8%83%9E%E6%98%AF%E5%87%A0%E5%80%8D%E4%BD%93">二代测序确定一个细胞是几倍体</a></li>
+<li><a href="#%E5%9F%BA%E5%9B%A0%E6%A0%87%E8%AE%B0%E7%9A%84%E7%81%AB%E5%B1%B1%E5%9B%BE">基因标记的火山图</a></li>
+<li><a href="#%E5%9C%A8%E8%AE%A1%E7%AE%97%E8%8A%AF%E7%89%87%E8%A1%A8%E8%BE%BE%E6%97%B6%E5%A4%9A%E4%B8%AA%E8%8A%AF%E7%89%87id%E5%AF%B9%E5%BA%94%E4%B8%80%E4%B8%AA%E5%9F%BA%E5%9B%A0id%E5%A6%82%E4%BD%95%E7%A1%AE%E5%AE%9A%E6%9C%80%E7%BB%88%E7%9A%84logfc%E5%91%A2">在计算芯片表达时，多个芯片ID对应一个基因ID，如何确定最终的logFC呢？</a></li>
+<li><a href="#%E6%8E%92%E8%BF%87%E5%BA%8F%E7%9A%84boxplot%E6%95%A3%E7%82%B9%E5%9B%BE%E7%84%B6%E5%90%8E%E5%8F%88%E5%8E%BB%E6%8E%89%E4%BA%86box">排过序的boxplot散点图，然后又去掉了box</a></li>
+<li><a href="#r%E4%B8%AD%E7%9A%84%E7%A9%BA%E7%99%BD%E6%95%B0%E5%80%BC">R中的空白数值</a></li>
+<li><a href="#s4%E7%BB%93%E6%9E%84%E6%95%B0%E6%8D%AE%E6%8C%91%E9%80%89%E6%83%B3%E8%A6%81%E7%9A%84%E8%A1%8C%E8%BF%9B%E8%A1%8Cgo%E7%BB%98%E5%9B%BE">s4结构数据，挑选想要的行进行GO绘图</a></li>
+<li><a href="#%E5%9F%BA%E5%9B%A0snp%E5%8F%8A%E4%BD%8D%E7%BD%AE%E7%94%BB%E5%87%BAsnp%E5%9C%A8%E6%9F%93%E8%89%B2%E4%BD%93%E4%B8%8A%E7%9A%84%E5%88%86%E5%B8%83%E6%83%85%E5%86%B5">基因SNP及位置，画出SNP在染色体上的分布情况</a></li>
+<li><a href="#%E4%BD%9C%E5%9B%BErpdf-xchange-editor-inkscape-ppt">作图R，PDF Xchange editor, inkscape, PPT</a></li>
+<li><a href="#%E7%82%B9%E8%AF%AF%E5%B7%AE%E6%A3%92">点+误差棒</a></li>
 </ul>
 </li>
 </ul>
