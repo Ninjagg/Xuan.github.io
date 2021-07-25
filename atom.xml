@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ninjagg.github.io/Xuan.github.io/</id>
     <title>Gridea</title>
-    <updated>2021-07-18T07:48:42.351Z</updated>
+    <updated>2021-07-25T14:36:29.769Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ninjagg.github.io/Xuan.github.io/"/>
     <link rel="self" href="https://ninjagg.github.io/Xuan.github.io/atom.xml"/>
@@ -287,6 +287,24 @@ str_split(Filename, pattern = &quot;\t&quot;, simplify = T)
 <h1 id="identical-判断两个对象是否完全相等">identical() 判断两个对象是否完全相等</h1>
 <p>用法：<code>identical(x, y)</code></p>
 <h1 id="cmd-opt-o-快速折叠r脚本中所有分组shift-cmd-opt-o-快速打开r脚本中所有分组">cmd + opt + o 快速折叠R脚本中所有分组，shift + cmd + opt + o 快速打开R脚本中所有分组</h1>
+<h1 id="datatable表格">data.table表格</h1>
+<p>在做按列filter的时候，存过滤值的变量名，不能和datatable中某一列名相同，否则此时你的变量作用域是data.table本身，而不是全局变量。识别的是datatable里的“complexity”那一列，不是你自己在全局定义的complexity向量<br>
+<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1627181951778.jpg" alt="" loading="lazy"><br>
+<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1627181961175.jpg" alt="" loading="lazy"></p>
+<h1 id="根据geneset筛选一个数据框中相应的行时">根据geneset筛选一个数据框中相应的行时</h1>
+<p>能不用which尽量不用which &quot;%in%&quot;是很好的选择(需要把gene_symbol作为单独一列)</p>
+<pre><code>require(tidyverse)
+tb &lt;- tibble(&quot;liu&quot; = c(1,2,3),
+             &quot;xuan&quot; = c(4,5,6),
+             &quot;ming&quot; = c(7,8,9),
+             &quot;gene_symbol&quot; = c(&quot;shi&quot;,&quot;ce&quot;,&quot;ji&quot;))
+test &lt;- c(&quot;ce&quot;,&quot;shi&quot;,&quot;liu&quot;)
+which(test == tb$gene_symbol)  # integer(0)
+test %in% tb$gene_symbol  # TRUE  TRUE FALSE
+temp &lt;- tb[test %in% tb$gene_symbol,]  # 可以筛选出相应行
+</code></pre>
+<h1 id="r-绘图截断纵坐标">R 绘图截断纵坐标</h1>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzI5NjUyNzkxMg==&amp;mid=2247490820&amp;idx=1&amp;sn=653ee5971fa79a718867ab0bf5e33a31&amp;chksm=ec43ac43db3425550af196c3b4681696773fca8143333e36286333a6d62cb86dbbbc04f34ef9&amp;mpshare=1&amp;scene=23&amp;srcid=0523OIHF3z2qUI1yyrSi7186&amp;sharer_sharetime=1621750217009&amp;sharer_shareid=57f69e562db94e4e682fc0073cfaa3cd%23rd">链接</a></p>
 ]]></content>
     </entry>
     <entry>

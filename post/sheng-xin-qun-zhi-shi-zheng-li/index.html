@@ -2,11 +2,11 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>知识整理 2020.12.04 to 2021.04.30 | Gridea</title>
-<link rel="shortcut icon" href="https://ninjagg.github.io/Xuan.github.io//favicon.ico?v=1626593922341">
+<title>知识整理 2020.12.04 to 2021.06.09 | Gridea</title>
+<link rel="shortcut icon" href="https://ninjagg.github.io/Xuan.github.io//favicon.ico?v=1627223787069">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://ninjagg.github.io/Xuan.github.io//styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="知识整理 2020.12.04 to 2021.04.30 | Gridea - Atom Feed" href="https://ninjagg.github.io/Xuan.github.io//atom.xml">
+<link rel="alternate" type="application/atom+xml" title="知识整理 2020.12.04 to 2021.06.09 | Gridea - Atom Feed" href="https://ninjagg.github.io/Xuan.github.io//atom.xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
@@ -25,7 +25,7 @@ conda search homer -c bioconda
       <div class="main-content">
         <div class="site-header">
   <a href="https://ninjagg.github.io/Xuan.github.io/">
-  <img class="avatar" src="https://ninjagg.github.io/Xuan.github.io//images/avatar.png?v=1626593922341" alt="">
+  <img class="avatar" src="https://ninjagg.github.io/Xuan.github.io//images/avatar.png?v=1627223787069" alt="">
   </a>
   <h1 class="site-title">
     Gridea
@@ -78,14 +78,14 @@ conda search homer -c bioconda
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              知识整理 2020.12.04 to 2021.04.30
+              知识整理 2020.12.04 to 2021.06.09
             </h2>
             <div class="post-info">
               <span>
                 2021-03-15
               </span>
               <span>
-                16 min read
+                20 min read
               </span>
               
             </div>
@@ -177,7 +177,7 @@ conda config --set show_channel_urls yes
 <h2 id="数据作图有大量na">数据作图有大量NA</h2>
 <p>①将NA替换为0直接+1取Log<br>
 ②<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1618576176895.png" alt="" loading="lazy"></p>
-<h1 id="20210222-20210430">2021.02.22-2021.04.30</h1>
+<h1 id="20210222-20210324">2021.02.22-2021.03.24</h1>
 <h2 id="深度学习">深度学习</h2>
 <p>基础是线性代数、一点点矩阵分析、概率论，剩下学到哪里现学，不如听课</p>
 <h2 id="基因组组装">基因组组装</h2>
@@ -279,7 +279,7 @@ RSeQC<br>
 <p>&quot;*&quot;一般代表终止密码子<br>
 ! 可能是下图中的意思<br>
 <img src="https://ninjagg.github.io/Xuan.github.io//post-images/1624799786153.jpg" alt="" loading="lazy"></p>
-<h1 id="20210324-">2021.03.24-</h1>
+<h1 id="20210324-20210430">2021.03.24-2021.04.30</h1>
 <h2 id="批量下载scihubeva">批量下载SCIHUBEVA</h2>
 <h2 id="linux切割字符串以标点符号分列">linux切割字符串，以标点符号分列</h2>
 <p>awk -F  # 用[]设多个分隔符 配合重定向</p>
@@ -418,6 +418,110 @@ ggplot(aes(x=BIN_START/1000000, y =PI, group = species, colour = species)) +
 <h2 id="点误差棒">点+误差棒</h2>
 <p><img src="https://ninjagg.github.io/Xuan.github.io//post-images/1626593780330.jpg" alt="" loading="lazy"><br>
 <img src="https://ninjagg.github.io/Xuan.github.io//post-images/1626593795689.jpg" alt="" loading="lazy"></p>
+<h1 id="20210430-20210609">2021.04.30-2021.06.09</h1>
+<h2 id="统计bam文件中mapping到某一个区域的reads数目sequence一定">统计bam文件中mapping到某一个区域的reads数目(sequence一定)</h2>
+<p>Q: IGV里看贴上的reads不太好展示<br>
+A: bedtools、FeatureCounts 用 SAF 文件都行</p>
+<h2 id="mac用zotero一般都很正常">mac用zotero一般都很正常</h2>
+<h2 id="linux中把多个文件夹中相同名字文件导出">linux中把多个文件夹中相同名字文件导出</h2>
+<p>可以把每个文件夹下的文件名字存成一个列表，合并以后排序，名字一样的会排在一起<br>
+列表制作<code>ls &gt; namelist</code><br>
+cat合并以后sort一下</p>
+<h2 id="go-id-和-go-description-关联的表">GO ID 和 GO description 关联的表</h2>
+<p>genescf下载 或者</p>
+<pre><code>library(GO.db)
+GO &lt;- as.list(GOTERM)
+k &lt;- keys(GO.db, keytype = &quot;GOID&quot;)
+res &lt;- select(GO.db,
+       keys = k,
+       columns = c(&quot;TERM&quot;,&quot;ONTOLOGY&quot;),
+       keytype=&quot;GOID&quot;)
+</code></pre>
+<h2 id="二代有参转录组如何拼接获得转录本序列">二代有参转录组如何拼接获得转录本序列</h2>
+<p>cuffread</p>
+<h2 id="python中shuffle和sample有什么本质区别么我自己想从一个列表中随机抽取指定数目的元素">python中shuffle和sample有什么本质区别么？我自己想从一个列表中随机抽取指定数目的元素。。</h2>
+<p>shuffle是随机排序，随机抽取用sample就好了</p>
+<h2 id="edger的对比按照分组来">edgeR的对比按照分组来</h2>
+<p>这样设置结果就是GP/ZR<br>
+<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1627184985164.jpg" alt="" loading="lazy"></p>
+<h2 id="建库问题">建库问题</h2>
+<p>mRNA/ LncRNA/cirRNA(40%) 同一个库,miRNA需要单独建库<br>
+全转录组测序一般会有miRNA</p>
+<h2 id="上传测序数据至ncbi">上传测序数据至NCBI</h2>
+<p>用Aspera不太稳定<br>
+用Ftp更稳定<br>
+可以给NCBI写邮件，回复速度很快</p>
+<h2 id="ggplot绘制坐标轴在中间">ggplot绘制坐标轴在中间</h2>
+<p><a href="https://mp.weixin.qq.com/s/_iws32h5K8xejvzoEBDGrw">ggplot2—x，y轴置于图中间</a><br>
+这个写成了一个函数，copy后自己改改<br>
+segment里面有个箭头的参数，把箭头加上就是了<br>
+感觉有的简单图没必要非要ggplot2花，我个人还觉得不太美观，excel就很好了</p>
+<h2 id="go富集分析图上调基因和下调基因分开画">GO富集分析图，上调基因和下调基因分开画</h2>
+<p>根据上下调基因分开作图，可以把上下调映射为形状</p>
+<h2 id="deseq2-差异分析1个半小时音频纯英文">DESeq2 差异分析1个半小时音频(纯英文)</h2>
+<p><a href="https://bioinformatics.chat/deseq2">链接</a></p>
+<h2 id="r筛选table某列a在list_b中的行">R筛选table某列A在list_B中的行</h2>
+<p><code>table[table$A %in% list_B, ]</code></p>
+<h2 id="vcfgz-格式的文件按照不同的-chromosome-拆分开">vcf.gz 格式的文件按照不同的 chromosome 拆分开</h2>
+<p>vcftools, vcftools处理gz速度不快，拆染色体最快的是bcftools，基于tabix来做的<br>
+csvtk split</p>
+<h2 id="ggplot添加显著性标记">ggplot添加显著性标记</h2>
+<figure data-type="image" tabindex="4"><img src="https://ninjagg.github.io/Xuan.github.io//post-images/1627188068123.jpg" alt="" loading="lazy"></figure>
+<h2 id="参考基因组相关">参考基因组相关</h2>
+<p>参考基因组使用ensembl数据库，注释文件使用UCSC，基因组版本都是GRCh38，只要版本相同最后的结果就不会有问题</p>
+<h2 id="做单细胞">做单细胞</h2>
+<p><a href="https://bioconductor.org/books/release/OSCA/">单细胞</a></p>
+<h2 id="快速求一个bam文件的测序深度">快速求一个BAM文件的测序深度</h2>
+<p>mosdepth 30x的人类WGS只要1分钟<br>
+<a href="https://github.com/brentp/mosdepth">链接</a></p>
+<h2 id="单细胞给细胞分群">单细胞给细胞分群</h2>
+<p>生信技能树说不应刻意限制细胞数量，但有的文章0-50的细胞亚群可能直接删掉了</p>
+<h2 id="坐标轴转换后调整p值">坐标轴转换后调整P值</h2>
+<p><a href="https://www.google.com.hk/search?q=stat_compare_means++coord+flip&amp;newwindow=1&amp;safe=strict&amp;source=lnms&amp;tbm=isch&amp;sa=X&amp;ved=2ahUKEwjel-n2l9DwAhWMuJ4KHWmgCOkQ_AUoAXoECAEQAw&amp;biw=1829&amp;bih=891#imgrc=dXH-vcAbFDle7M">链接</a><br>
+<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1627193295627.png" alt="" loading="lazy"></p>
+<h2 id="单细胞分析工具">单细胞分析工具</h2>
+<p><a href="https://genomebiology.biomedcentral.com/articles/10.1186/s13059-021-02286-2">链接</a></p>
+<h2 id="一个蛋白带ha-tag然后要做chip-seq的话用哪种ha抗体">一个蛋白带HA-tag，然后要做ChIP-Seq的话，用哪种HA抗体</h2>
+<p>sigma，或是直接用带HA的磁珠，罗氏的ha beads(可以结合HA的beads)</p>
+<h2 id="图解">图解</h2>
+<p>第三个转录本的1、2是不翻译的外显子<br>
+<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1627196845229.jpg" alt="" loading="lazy"></p>
+<h2 id="宏基因组">宏基因组</h2>
+<p>刘永鑫的课腾讯课堂以及微信公众号</p>
+<h2 id="r箱线图加标记">R箱线图加*标记</h2>
+<p><img src="https://ninjagg.github.io/Xuan.github.io//post-images/1627200033678.jpg" alt="" loading="lazy"><br>
+ggpubr or <code>stat_compare_means(method = &quot;t.test&quot;,label = &quot;p.signif&quot;)</code> or prism graph 9</p>
+<h2 id="梯度热图">梯度热图</h2>
+<p><img src="https://ninjagg.github.io/Xuan.github.io//post-images/1627200212647.jpg" alt="" loading="lazy"><br>
+先 cluster，然后得到每个 cluster 的基因，再按照顺序排列好再画热图</p>
+<h2 id="atac-seq目前公认-5-4">ATAC-seq目前公认-5 +4</h2>
+<h2 id="二代测序结果read-count-直接转成tpm就不需要normalize了">二代测序结果read count 直接转成TPM就不需要normalize了</h2>
+<h2 id="python画图的包">python画图的包</h2>
+<p>matplotlib，seaborn， Echarts，turtle</p>
+<h2 id="基因组格式fnagz解压后就是fasta格式">基因组格式fna.gz解压后就是fasta格式</h2>
+<h2 id="gwas可以分析snp和疾病的关系">GWAS可以分析SNP和疾病的关系</h2>
+<h2 id="单细胞伪时分析monocle-estimate-dispersions可能会爆内存">单细胞伪时分析monocle estimate Dispersions可能会爆内存</h2>
+<p>Seurat monocle 之前常用的单细胞分析包<br>
+可以考虑换用python的scanpy试试，貌似吃内存少一些</p>
+<p>空间转录组？ squidpy吧 python的话</p>
+<p>大数据量用R要命。。<br>
+不过r生态更好一点....所以我现在都是scanpy搭主流程  rpy2调一些必须要用的r包</p>
+<h2 id="项目结束后数据处理问题">项目结束后数据处理问题</h2>
+<p>中间产生的sam文件之类可以放到移动硬盘上，或者把数据传到网上去<br>
+一般留sort.bam文件</p>
+<h2 id="stlearn画图软件">stlearn画图软件</h2>
+<figure data-type="image" tabindex="5"><img src="https://ninjagg.github.io/Xuan.github.io//post-images/1627208522362.png" alt="" loading="lazy"></figure>
+<h2 id="fastqc结果解读">Fastqc结果解读</h2>
+<p><a href="https://blog.csdn.net/gateswell/article/details/78858579">链接</a></p>
+<h2 id="miranda-microrna靶基因分析">miRanda microRNA靶基因分析</h2>
+<p><a href="http://www.microrna.org/microrna/getDownloads.do">挂代理下载</a><br>
+目前上不去</p>
+<h2 id="venn图超过4个交集时候处理方式">Venn图超过4个交集时候处理方式</h2>
+<figure data-type="image" tabindex="6"><img src="https://ninjagg.github.io/Xuan.github.io//post-images/1627223033098.jpg" alt="" loading="lazy"></figure>
+<h2 id="deeptools画profile的线不平滑改进方法">deeptools画profile的线不平滑，改进方法</h2>
+<p><img src="https://ninjagg.github.io/Xuan.github.io//post-images/1627223370553.png" alt="" loading="lazy"><br>
+computeMatrix里的-bs可以调整<br>
+这图左右两侧趋势很奇怪，建议如果是基因的话，扩展长度不要超过基因的长度</p>
 
               </div>
               <div class="toc-container">
@@ -455,7 +559,7 @@ ggplot(aes(x=BIN_START/1000000, y =PI, group = species, colour = species)) +
 <li><a href="#%E6%95%B0%E6%8D%AE%E4%BD%9C%E5%9B%BE%E6%9C%89%E5%A4%A7%E9%87%8Fna">数据作图有大量NA</a></li>
 </ul>
 </li>
-<li><a href="#20210222-20210430">2021.02.22-2021.04.30</a>
+<li><a href="#20210222-20210324">2021.02.22-2021.03.24</a>
 <ul>
 <li><a href="#%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0">深度学习</a></li>
 <li><a href="#%E5%9F%BA%E5%9B%A0%E7%BB%84%E7%BB%84%E8%A3%85">基因组组装</a></li>
@@ -501,7 +605,7 @@ ggplot(aes(x=BIN_START/1000000, y =PI, group = species, colour = species)) +
 <li><a href="#%E6%B0%A8%E5%9F%BA%E9%85%B8%E5%BA%8F%E5%88%97%E4%B8%AD%E5%92%8C%E4%B8%80%E8%88%AC%E4%BB%A3%E8%A1%A8%E4%BB%80%E4%B9%88%E6%84%8F%E6%80%9D">氨基酸序列中！和*一般代表什么意思</a></li>
 </ul>
 </li>
-<li><a href="#20210324-">2021.03.24-</a>
+<li><a href="#20210324-20210430">2021.03.24-2021.04.30</a>
 <ul>
 <li><a href="#%E6%89%B9%E9%87%8F%E4%B8%8B%E8%BD%BDscihubeva">批量下载SCIHUBEVA</a></li>
 <li><a href="#linux%E5%88%87%E5%89%B2%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%BB%A5%E6%A0%87%E7%82%B9%E7%AC%A6%E5%8F%B7%E5%88%86%E5%88%97">linux切割字符串，以标点符号分列</a></li>
@@ -551,6 +655,48 @@ ggplot(aes(x=BIN_START/1000000, y =PI, group = species, colour = species)) +
 <li><a href="#%E5%9F%BA%E5%9B%A0snp%E5%8F%8A%E4%BD%8D%E7%BD%AE%E7%94%BB%E5%87%BAsnp%E5%9C%A8%E6%9F%93%E8%89%B2%E4%BD%93%E4%B8%8A%E7%9A%84%E5%88%86%E5%B8%83%E6%83%85%E5%86%B5">基因SNP及位置，画出SNP在染色体上的分布情况</a></li>
 <li><a href="#%E4%BD%9C%E5%9B%BErpdf-xchange-editor-inkscape-ppt">作图R，PDF Xchange editor, inkscape, PPT</a></li>
 <li><a href="#%E7%82%B9%E8%AF%AF%E5%B7%AE%E6%A3%92">点+误差棒</a></li>
+</ul>
+</li>
+<li><a href="#20210430-20210609">2021.04.30-2021.06.09</a>
+<ul>
+<li><a href="#%E7%BB%9F%E8%AE%A1bam%E6%96%87%E4%BB%B6%E4%B8%ADmapping%E5%88%B0%E6%9F%90%E4%B8%80%E4%B8%AA%E5%8C%BA%E5%9F%9F%E7%9A%84reads%E6%95%B0%E7%9B%AEsequence%E4%B8%80%E5%AE%9A">统计bam文件中mapping到某一个区域的reads数目(sequence一定)</a></li>
+<li><a href="#mac%E7%94%A8zotero%E4%B8%80%E8%88%AC%E9%83%BD%E5%BE%88%E6%AD%A3%E5%B8%B8">mac用zotero一般都很正常</a></li>
+<li><a href="#linux%E4%B8%AD%E6%8A%8A%E5%A4%9A%E4%B8%AA%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%AD%E7%9B%B8%E5%90%8C%E5%90%8D%E5%AD%97%E6%96%87%E4%BB%B6%E5%AF%BC%E5%87%BA">linux中把多个文件夹中相同名字文件导出</a></li>
+<li><a href="#go-id-%E5%92%8C-go-description-%E5%85%B3%E8%81%94%E7%9A%84%E8%A1%A8">GO ID 和 GO description 关联的表</a></li>
+<li><a href="#%E4%BA%8C%E4%BB%A3%E6%9C%89%E5%8F%82%E8%BD%AC%E5%BD%95%E7%BB%84%E5%A6%82%E4%BD%95%E6%8B%BC%E6%8E%A5%E8%8E%B7%E5%BE%97%E8%BD%AC%E5%BD%95%E6%9C%AC%E5%BA%8F%E5%88%97">二代有参转录组如何拼接获得转录本序列</a></li>
+<li><a href="#python%E4%B8%ADshuffle%E5%92%8Csample%E6%9C%89%E4%BB%80%E4%B9%88%E6%9C%AC%E8%B4%A8%E5%8C%BA%E5%88%AB%E4%B9%88%E6%88%91%E8%87%AA%E5%B7%B1%E6%83%B3%E4%BB%8E%E4%B8%80%E4%B8%AA%E5%88%97%E8%A1%A8%E4%B8%AD%E9%9A%8F%E6%9C%BA%E6%8A%BD%E5%8F%96%E6%8C%87%E5%AE%9A%E6%95%B0%E7%9B%AE%E7%9A%84%E5%85%83%E7%B4%A0">python中shuffle和sample有什么本质区别么？我自己想从一个列表中随机抽取指定数目的元素。。</a></li>
+<li><a href="#edger%E7%9A%84%E5%AF%B9%E6%AF%94%E6%8C%89%E7%85%A7%E5%88%86%E7%BB%84%E6%9D%A5">edgeR的对比按照分组来</a></li>
+<li><a href="#%E5%BB%BA%E5%BA%93%E9%97%AE%E9%A2%98">建库问题</a></li>
+<li><a href="#%E4%B8%8A%E4%BC%A0%E6%B5%8B%E5%BA%8F%E6%95%B0%E6%8D%AE%E8%87%B3ncbi">上传测序数据至NCBI</a></li>
+<li><a href="#ggplot%E7%BB%98%E5%88%B6%E5%9D%90%E6%A0%87%E8%BD%B4%E5%9C%A8%E4%B8%AD%E9%97%B4">ggplot绘制坐标轴在中间</a></li>
+<li><a href="#go%E5%AF%8C%E9%9B%86%E5%88%86%E6%9E%90%E5%9B%BE%E4%B8%8A%E8%B0%83%E5%9F%BA%E5%9B%A0%E5%92%8C%E4%B8%8B%E8%B0%83%E5%9F%BA%E5%9B%A0%E5%88%86%E5%BC%80%E7%94%BB">GO富集分析图，上调基因和下调基因分开画</a></li>
+<li><a href="#deseq2-%E5%B7%AE%E5%BC%82%E5%88%86%E6%9E%901%E4%B8%AA%E5%8D%8A%E5%B0%8F%E6%97%B6%E9%9F%B3%E9%A2%91%E7%BA%AF%E8%8B%B1%E6%96%87">DESeq2 差异分析1个半小时音频(纯英文)</a></li>
+<li><a href="#r%E7%AD%9B%E9%80%89table%E6%9F%90%E5%88%97a%E5%9C%A8list_b%E4%B8%AD%E7%9A%84%E8%A1%8C">R筛选table某列A在list_B中的行</a></li>
+<li><a href="#vcfgz-%E6%A0%BC%E5%BC%8F%E7%9A%84%E6%96%87%E4%BB%B6%E6%8C%89%E7%85%A7%E4%B8%8D%E5%90%8C%E7%9A%84-chromosome-%E6%8B%86%E5%88%86%E5%BC%80">vcf.gz 格式的文件按照不同的 chromosome 拆分开</a></li>
+<li><a href="#ggplot%E6%B7%BB%E5%8A%A0%E6%98%BE%E8%91%97%E6%80%A7%E6%A0%87%E8%AE%B0">ggplot添加显著性标记</a></li>
+<li><a href="#%E5%8F%82%E8%80%83%E5%9F%BA%E5%9B%A0%E7%BB%84%E7%9B%B8%E5%85%B3">参考基因组相关</a></li>
+<li><a href="#%E5%81%9A%E5%8D%95%E7%BB%86%E8%83%9E">做单细胞</a></li>
+<li><a href="#%E5%BF%AB%E9%80%9F%E6%B1%82%E4%B8%80%E4%B8%AAbam%E6%96%87%E4%BB%B6%E7%9A%84%E6%B5%8B%E5%BA%8F%E6%B7%B1%E5%BA%A6">快速求一个BAM文件的测序深度</a></li>
+<li><a href="#%E5%8D%95%E7%BB%86%E8%83%9E%E7%BB%99%E7%BB%86%E8%83%9E%E5%88%86%E7%BE%A4">单细胞给细胞分群</a></li>
+<li><a href="#%E5%9D%90%E6%A0%87%E8%BD%B4%E8%BD%AC%E6%8D%A2%E5%90%8E%E8%B0%83%E6%95%B4p%E5%80%BC">坐标轴转换后调整P值</a></li>
+<li><a href="#%E5%8D%95%E7%BB%86%E8%83%9E%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7">单细胞分析工具</a></li>
+<li><a href="#%E4%B8%80%E4%B8%AA%E8%9B%8B%E7%99%BD%E5%B8%A6ha-tag%E7%84%B6%E5%90%8E%E8%A6%81%E5%81%9Achip-seq%E7%9A%84%E8%AF%9D%E7%94%A8%E5%93%AA%E7%A7%8Dha%E6%8A%97%E4%BD%93">一个蛋白带HA-tag，然后要做ChIP-Seq的话，用哪种HA抗体</a></li>
+<li><a href="#%E5%9B%BE%E8%A7%A3">图解</a></li>
+<li><a href="#%E5%AE%8F%E5%9F%BA%E5%9B%A0%E7%BB%84">宏基因组</a></li>
+<li><a href="#r%E7%AE%B1%E7%BA%BF%E5%9B%BE%E5%8A%A0%E6%A0%87%E8%AE%B0">R箱线图加*标记</a></li>
+<li><a href="#%E6%A2%AF%E5%BA%A6%E7%83%AD%E5%9B%BE">梯度热图</a></li>
+<li><a href="#atac-seq%E7%9B%AE%E5%89%8D%E5%85%AC%E8%AE%A4-5-4">ATAC-seq目前公认-5 +4</a></li>
+<li><a href="#%E4%BA%8C%E4%BB%A3%E6%B5%8B%E5%BA%8F%E7%BB%93%E6%9E%9Cread-count-%E7%9B%B4%E6%8E%A5%E8%BD%AC%E6%88%90tpm%E5%B0%B1%E4%B8%8D%E9%9C%80%E8%A6%81normalize%E4%BA%86">二代测序结果read count 直接转成TPM就不需要normalize了</a></li>
+<li><a href="#python%E7%94%BB%E5%9B%BE%E7%9A%84%E5%8C%85">python画图的包</a></li>
+<li><a href="#%E5%9F%BA%E5%9B%A0%E7%BB%84%E6%A0%BC%E5%BC%8Ffnagz%E8%A7%A3%E5%8E%8B%E5%90%8E%E5%B0%B1%E6%98%AFfasta%E6%A0%BC%E5%BC%8F">基因组格式fna.gz解压后就是fasta格式</a></li>
+<li><a href="#gwas%E5%8F%AF%E4%BB%A5%E5%88%86%E6%9E%90snp%E5%92%8C%E7%96%BE%E7%97%85%E7%9A%84%E5%85%B3%E7%B3%BB">GWAS可以分析SNP和疾病的关系</a></li>
+<li><a href="#%E5%8D%95%E7%BB%86%E8%83%9E%E4%BC%AA%E6%97%B6%E5%88%86%E6%9E%90monocle-estimate-dispersions%E5%8F%AF%E8%83%BD%E4%BC%9A%E7%88%86%E5%86%85%E5%AD%98">单细胞伪时分析monocle estimate Dispersions可能会爆内存</a></li>
+<li><a href="#%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9D%9F%E5%90%8E%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E9%97%AE%E9%A2%98">项目结束后数据处理问题</a></li>
+<li><a href="#stlearn%E7%94%BB%E5%9B%BE%E8%BD%AF%E4%BB%B6">stlearn画图软件</a></li>
+<li><a href="#fastqc%E7%BB%93%E6%9E%9C%E8%A7%A3%E8%AF%BB">Fastqc结果解读</a></li>
+<li><a href="#miranda-microrna%E9%9D%B6%E5%9F%BA%E5%9B%A0%E5%88%86%E6%9E%90">miRanda microRNA靶基因分析</a></li>
+<li><a href="#venn%E5%9B%BE%E8%B6%85%E8%BF%874%E4%B8%AA%E4%BA%A4%E9%9B%86%E6%97%B6%E5%80%99%E5%A4%84%E7%90%86%E6%96%B9%E5%BC%8F">Venn图超过4个交集时候处理方式</a></li>
+<li><a href="#deeptools%E7%94%BBprofile%E7%9A%84%E7%BA%BF%E4%B8%8D%E5%B9%B3%E6%BB%91%E6%94%B9%E8%BF%9B%E6%96%B9%E6%B3%95">deeptools画profile的线不平滑，改进方法</a></li>
 </ul>
 </li>
 </ul>
