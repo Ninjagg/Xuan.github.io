@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ninjagg.github.io/Xuan.github.io/</id>
     <title>Gridea</title>
-    <updated>2021-07-25T15:40:22.469Z</updated>
+    <updated>2021-08-06T08:51:23.411Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ninjagg.github.io/Xuan.github.io/"/>
     <link rel="self" href="https://ninjagg.github.io/Xuan.github.io/atom.xml"/>
@@ -11,6 +11,24 @@
     <icon>https://ninjagg.github.io/Xuan.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Gridea</rights>
     <entry>
+        <title type="html"><![CDATA[分子生物学试验Tips]]></title>
+        <id>https://ninjagg.github.io/Xuan.github.io/post/fen-zi-sheng-wu-xue-shi-yan-tips/</id>
+        <link href="https://ninjagg.github.io/Xuan.github.io/post/fen-zi-sheng-wu-xue-shi-yan-tips/">
+        </link>
+        <updated>2021-07-26T05:57:56.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="细胞生物学">细胞生物学</h1>
+<h2 id="种板">种板</h2>
+<figure data-type="image" tabindex="1"><img src="https://ninjagg.github.io/Xuan.github.io//post-images/1627282159722.jpg" alt="" loading="lazy"></figure>
+<p><strong>细胞计数法：</strong></p>
+<p><strong>96孔板种板法：</strong><br>
+将吹打均匀的细胞紧贴着孔的一侧壁(枪头尖不能触底)，将枪头中的细胞缓换打下去，种好后千万不要摇晃板直接放到显微镜下看就可以了。<br>
+MCF-7：每孔种5000个较好(细胞增殖试验) 100uL</p>
+<p><strong>6孔板种板法：</strong><br>
+2mL 每孔 1 10e-4 个细胞不行，长两天长不满</p>
+<h1 id="circadian-rhythm-国自然实验设计">circadian rhythm 国自然实验设计</h1>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[论文写作好词好句总结]]></title>
         <id>https://ninjagg.github.io/Xuan.github.io/post/lun-wen-xie-zuo-hao-ci-hao-ju-zong-jie/</id>
         <link href="https://ninjagg.github.io/Xuan.github.io/post/lun-wen-xie-zuo-hao-ci-hao-ju-zong-jie/">
@@ -18,15 +36,79 @@
         <updated>2021-07-25T14:58:03.000Z</updated>
         <content type="html"><![CDATA[<h1 id="常见同义词替换">常见同义词替换</h1>
 <h2 id="词组区">词组区</h2>
-<p>be thought to = be considered 被认为</p>
+<p>has been proposed to = be thought to = be considered 被认为<br>
+can/could = be capable of =  be sufficient to 能够<br>
+account for = cause = pose<br>
+health and well-being 一生安康<br>
+help = aid in = serve as a referrence to 对...有帮助<br>
+lack of = a paucity of = few = little 缺乏<br>
+plays a important role on = be essential for 对...重要的<br>
+notion = insight = study 概念，观点<br>
+in line with = be aligned with 与...一致</p>
 <h2 id="单词区">单词区</h2>
+<h3 id="动词区v">动词区(V.)</h3>
+<p>regulate = modulate = program<br>
+display = function = has emerged to be = perform = produce (response/...function) = employ = query = implement V. 表达..功能<br>
+underpin = consolidate = reinforce V. 加强 加固(某种观点)<br>
+resemble V. 类似，像<br>
+different = vary = be inconsistent with V. 与...不同<br>
+suggest = illustrate = reveal = represent = uncover = illuminate = indicate  = found = support = clarify V. 表明(结果)<br>
+reflect = mirror 反映、反射<br>
+promote = facilitate = stablize = harbor V. 促进<br>
+prevent = obliterate = restrain = suppress = attenuate V. 阻碍<br>
+upregulate = improve = elevate = increase = rise V. 提升，增加<br>
+downregulate = decrease = degrade = reduce = decline = drop V. 降低，减少<br>
+treated = administrated = undergone  V. (经历)给药<br>
+affect = modify = have influence on = impact V. 影响...<br>
+advance V. 提前<br>
+delay V. 推迟<br>
+study = explore = invest = exploit V. 研究<br>
+generate V. 产生，生成<br>
+contain = comprise = be consisted of = consisting of = constitute V. 包含，由...组成</p>
+<h3 id="名词区n">名词区(n.)</h3>
+<p>fashion = pattern = manner 方式、模式<br>
+eg. in a dose-dependent manner 呈剂量依赖性模式<br>
+the involvement of = relationship</p>
+<h3 id="连词区">连词区</h3>
+<p>however = whereas 然而<br>
+due to = because = bacause of = since 因为<br>
+Thus = therefore = accordingly</p>
+<h3 id="形容词-副词区">形容词、副词区</h3>
+<p>significantly = remarkably = notably 显著地<br>
+with respect to = about = in relation to = relative = related = in response to 相关的<br>
+temporal = transient 暂时的<br>
+in fact = actually 事实上<br>
+herein 本文中，于此处<br>
+thoroughly = entirely 彻底地<br>
+increased = increasingly = incremental 逐渐的，递增的<br>
+decreased = reduced 逐渐减少的</p>
+<h1 id="前言摘要-introductionabstract">前言/摘要 Introduction/Abstract</h1>
+<p>A growing body of evidence revealed that ... 越来越多的证据表明<br>
+It is well known that ... 众所周知的<br>
+Thus far 迄今为止<br>
+be manifested at ... 体现在....<br>
+As the expansion of ...   随着某方面研究的增加...<br>
+It is now well understood that .... ...仍有缺陷<br>
+Consistent with the findings that ..., the studies in ... showed ....<br>
+be attributed to ... 对...有作用<br>
+we wished to determine whether ..., whether ..., whether ... (...中是正常陈述句)</p>
+<h1 id="阐述方法-materious-and-method">阐述方法 Materious and method</h1>
+<p>A(细胞) placed into B(培养环境)  置于<br>
+mouse were sacrificed at ....  在...时间杀一批老鼠<br>
+...(组织) were removed, frozen ....<br>
+... were harvested for RNA and whole-cell protein 收细胞提取RNA和蛋白质</p>
 <h1 id="阐述结果-result">阐述结果 Result</h1>
 <h2 id="常用句型">常用句型</h2>
 <p>We also point to ways in which ... 我们也指出了<br>
 There are known significant differences in ... 已知在...领域存在显著差异<br>
 likely due 可能是因为(可作插入语)<br>
 in part 一部分(可作插入语)<br>
-eg.  Importantly, <strong>there are known sex differences in</strong> the expression of circadian locomotor activity and molecular organization of the suprachiasmatic nucleus, <strong>likely due</strong>, <strong>in part</strong>, to the actions of circulating estrogens.</p>
+eg.  Importantly, <strong>there are known sex differences in</strong> the expression of circadian locomotor activity and molecular organization of the suprachiasmatic nucleus, <strong>likely due</strong>, <strong>in part</strong>, to the actions of circulating estrogens.<br>
+... without marked change ...无显著性差异</p>
+<h2 id="常用词组">常用词组</h2>
+<p>response to misalignment 反应失调<br>
+energy consumption and expenditure 能量的消耗和支出<br>
+like to = might 可能</p>
 ]]></content>
     </entry>
     <entry>
@@ -324,6 +406,19 @@ temp &lt;- tb[test %in% tb$gene_symbol,]  # 可以筛选出相应行
 </code></pre>
 <h1 id="r-绘图截断纵坐标">R 绘图截断纵坐标</h1>
 <p><a href="https://mp.weixin.qq.com/s?__biz=MzI5NjUyNzkxMg==&amp;mid=2247490820&amp;idx=1&amp;sn=653ee5971fa79a718867ab0bf5e33a31&amp;chksm=ec43ac43db3425550af196c3b4681696773fca8143333e36286333a6d62cb86dbbbc04f34ef9&amp;mpshare=1&amp;scene=23&amp;srcid=0523OIHF3z2qUI1yyrSi7186&amp;sharer_sharetime=1621750217009&amp;sharer_shareid=57f69e562db94e4e682fc0073cfaa3cd%23rd">链接</a></p>
+<h1 id="基因表达矩阵转换id后存在一个ensembl_id对应多个gene_symbol">基因表达矩阵转换ID后，存在一个Ensembl_ID对应多个gene_symbol</h1>
+<pre><code>df %&gt;% group_by(gene_symbol)   #将df中gene_symbol相同的行进行分组
+outcome &lt;- summarize(df, expression)  # 对同一组求表达量的均值
+</code></pre>
+<h1 id="对一个数据框所有数值进行筛选">对一个数据框所有数值进行筛选</h1>
+<p>eg. 将df中所有数值&gt;15的更改为&quot;large&quot;</p>
+<pre><code>df &lt;- data.frame(
+  liu = c(1:10),
+  xuan = c(11:20),
+  ming = c(21:30)
+)  
+df[df&gt;15] &lt;- &quot;larget&quot;  # 此处使用data.frame可以进行修改，但使用tibble则不行，因为tibble无法改变列的类型
+</code></pre>
 ]]></content>
     </entry>
     <entry>
@@ -653,97 +748,6 @@ venn.plot &lt;- venn.diagram(list(&quot;A&quot; = con_u_name, &quot;B&quot; = uv
              cex = 1.5 ) ##圆内数字大小
 
 
-</code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[基于TCGA的单基因survival analysis]]></title>
-        <id>https://ninjagg.github.io/Xuan.github.io/post/ji-yu-tcga-de-dan-ji-yin-survival-analysis/</id>
-        <link href="https://ninjagg.github.io/Xuan.github.io/post/ji-yu-tcga-de-dan-ji-yin-survival-analysis/">
-        </link>
-        <updated>2021-03-18T12:17:20.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="一确定基因名字">一：确定基因名字</h1>
-<p>基因的名字很多，登录<a href="https://ninjagg.github.io/Xuan.github.io//post-images/1616070388162.png">Uniprot</a></p>
-<h1 id="二疾病">二：疾病</h1>
-<p>以结直肠癌为例</p>
-<h1 id="三tcga基因表达以及临床生存信息下载">三：TCGA&quot;基因表达&quot;以及&quot;临床生存信息&quot;下载：</h1>
-<p><a href="https://xenabrowser.net/datapages/">UCSC Xena</a><br>
-<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1616071647107.png" alt="" loading="lazy"><br>
-&quot;基因表达&quot;数据下载：<br>
-<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1616071773525.png" alt="" loading="lazy"><br>
-<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1616071809308.png" alt="" loading="lazy"><br>
-&quot;临床生存信息&quot;下载：<br>
-<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1616071883082.png" alt="" loading="lazy"><br>
-下载后放到R的工作目录中即可</p>
-<h1 id="四r代码survival-analysis">四：R代码survival analysis</h1>
-<pre><code>rm(list = ls())
-
-####load package####
-library(tidyverse)
-
-####读取数据####
-gene_exp &lt;- read.table(file = &quot;./TCGA.COAD.sampleMap%2FHiSeqV2&quot;, header = T, sep = &quot;\t&quot;)
-
-####gene_expression数据清洗####
-rownames(gene_exp) &lt;- gene_exp[ ,1] #第一列是Sample，将第一列作为行名
-gene_exp &lt;- gene_exp[ ,-1] #删掉原本第一列Sample的数据
-
-####得到基因KIAA1324在各个样本中的表达数据####
-GENE &lt;- as.data.frame(t(gene_exp)) #t()转置之后是matrix 需要转换
-temp &lt;- rownames(GENE) == &quot;KIAA1324&quot; #筛选，基因的名字(Gene names)都试一试
-GENE2 &lt;- GENE[temp, ]
-GENE &lt;- GENE2 #防止变量弄混
-GENE &lt;- as.data.frame(t(GENE)) #让&quot;临床分组&quot;变为观测，&quot;基因名&quot;为变量
-
-####计算基因&quot;KIAA1324&quot;表达量中位数####
-med &lt;- median(GENE$KIAA1324)
-
-####筛选基因高低表达####
-high &lt;- GENE$KIAA1324 &gt; med
-low &lt;- GENE$KIAA1324 &lt;= med
-GENE[high, ] &lt;- &quot;High&quot;
-GENE[low, ] &lt;- &quot;Low&quot;
-
-####获取临床####
-clinical &lt;- read.table(file = &quot;./survival%2FCOAD_survival.txt&quot;, header = T, sep = &quot;\t&quot;)
-
-####clinical数据清洗####
-clinical_clean &lt;- data.frame(gsub(&quot;-&quot;, &quot;.&quot;, clinical$Sample), clinical) #将行名中连接的&quot;-&quot;换为&quot;.&quot;
-colnames(clinical_clean[1]) &lt;- &quot;SampleID&quot; #修改列&quot;名字&quot;
-clinical_clean_2 &lt;- clinical_clean[ ,-2] #删除原列&quot;名字&quot;
-
-####合并基因表达及临床数据####
-gene_clinical &lt;- data.frame(clinical_clean_2[match(rownames(GENE), clinical_clean_2$SampleID), ], GENE)
-
-####&quot;KIAA1324&quot;低表达为1，高表达为2####
-gene_clinical$KIAA1324 &lt;- ifelse((gene_clinical$KIAA1324 == &quot;Low&quot;), 1, 2)
-GC &lt;- gene_clinical
-
-##################生存分析作图 OS作图####
-library(survival)
-fit.surv &lt;- Surv(GC$OS.time, GC$OS)
-km &lt;- survfit(fit.surv~1, data = GC)
-km_2 &lt;- survfit(fit.surv~KIAA1324, data = GC)
-
-library(survminer)
-ggsurvplot(km_2,
-legend.title = &quot;KIAA1324&quot;, #改变图例名称
-legend.labs = c(&quot;High&quot;, Low&quot;),
-pval = T #显示P值
-)
-
-##################生存分析作图 OS作图####
-library(survival)
-fit.surv &lt;- Surv(GC$PFI.time, GC$PFI)
-km &lt;- survfit(fit.surv~1, data = GC)
-km_2 &lt;- survfit(fit.surv~KIAA1324, data = GC)
-
-library(survminer)
-ggsurvplot(km_2,
-legend.title = &quot;KIAA1324&quot;, #改变图例名称
-legend.labs = c(&quot;High&quot;, &quot;Low&quot;),
-pval = T #显示P值
-)
 </code></pre>
 ]]></content>
     </entry>

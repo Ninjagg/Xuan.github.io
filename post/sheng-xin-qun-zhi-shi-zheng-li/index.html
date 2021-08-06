@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>知识整理 2020.12.04 to 2021.06.09 | Gridea</title>
-<link rel="shortcut icon" href="https://ninjagg.github.io/Xuan.github.io//favicon.ico?v=1627226992048">
+<link rel="shortcut icon" href="https://ninjagg.github.io/Xuan.github.io//favicon.ico?v=1628239881508">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://ninjagg.github.io/Xuan.github.io//styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="知识整理 2020.12.04 to 2021.06.09 | Gridea - Atom Feed" href="https://ninjagg.github.io/Xuan.github.io//atom.xml">
@@ -25,7 +25,7 @@ conda search homer -c bioconda
       <div class="main-content">
         <div class="site-header">
   <a href="https://ninjagg.github.io/Xuan.github.io/">
-  <img class="avatar" src="https://ninjagg.github.io/Xuan.github.io//images/avatar.png?v=1627226992048" alt="">
+  <img class="avatar" src="https://ninjagg.github.io/Xuan.github.io//images/avatar.png?v=1628239881508" alt="">
   </a>
   <h1 class="site-title">
     Gridea
@@ -85,7 +85,7 @@ conda search homer -c bioconda
                 2021-03-15
               </span>
               <span>
-                20 min read
+                23 min read
               </span>
               
             </div>
@@ -521,7 +521,60 @@ ggpubr or <code>stat_compare_means(method = &quot;t.test&quot;,label = &quot;p.s
 <h2 id="deeptools画profile的线不平滑改进方法">deeptools画profile的线不平滑，改进方法</h2>
 <p><img src="https://ninjagg.github.io/Xuan.github.io//post-images/1627223370553.png" alt="" loading="lazy"><br>
 computeMatrix里的-bs可以调整<br>
-这图左右两侧趋势很奇怪，建议如果是基因的话，扩展长度不要超过基因的长度</p>
+这图左右两侧趋势很奇怪，建议如果是基因的话，扩展长度不要超过基因的长度<br>
+tss上下游3kb<br>
+画这种图的时候无需区分正负链</p>
+<h2 id="测转录组一个500块6g一个iso-seq-3000块">测转录组一个500块6G，一个Iso-seq 3000块</h2>
+<h2 id="samtools-faidx-filenamefa-chr_idstart-end-resultfa-获取指定区间的序列如何实现反选">samtools faidx filename.fa chr_id:start-end &gt; result.fa  获取指定区间的序列，如何实现反选</h2>
+<p>① 生成一个bed 用bed 去取fa？找bedtools的github<br>
+② samtools就能提阿，fa idx支持输入多个染色体名字的</p>
+<h1 id="20210610-20210630">2021.06.10-2021.06.30</h1>
+<h2 id="ncbi上传数据">NCBI上传数据</h2>
+<p>Q1：同一名称的一个样品，分别开展了转录组测序和sRNA测序，上传数据是建立在一个bioproject里，还是分别建立？<br>
+A1：先创建一个总体的GSE号，然后创两个子GSE号，分别把不同的流程测的数据放到不同的GSE号里，但是bioproject还是一个，可以关联三四个GSE号</p>
+<h2 id="ensemble-gff3chrgff3的区别">ensemble gff3/chr.gff3的区别</h2>
+<p>chr是定位到染色体上的，没有chr事没有定位到染色体的</p>
+<h2 id="atac富集建库测序">ATAC，富集+建库+测序</h2>
+<p>从细胞悬液开始算，裂解液没几块钱，Tn5看自提还是买，买的话配套的试剂盒一套，贵的200多一次，直接包含pcr了。加上纯化一次也就5-25不等，库检测序6个G，350块，所有往大了算1000以内，基本上就800以内</p>
+<h2 id="使用deeptools绘制chip-seq热图">使用deeptools绘制chip-seq热图</h2>
+<p>也是命令行模式<br>
+<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1628221070942.jpg" alt="" loading="lazy"></p>
+<h2 id="大壮的课">大壮的课</h2>
+<p><a href="https://ke.qq.com/course/3488174?tuin=313487d7">链接</a></p>
+<h2 id="绘图网站">绘图网站</h2>
+<p><a href="https://www.data-to-viz.com/">链接</a>,一种图三种绘制方式Python R JavaScript</p>
+<h2 id="统计">统计</h2>
+<p>想知道两个群体间耐药率是否差异显著。每个样本耐药为1，不耐药为0。<br>
+这类样本通过卡方检验(统计次数就是卡方)，离散型变量和连续性变量的检验方法不同</p>
+<h2 id="chip-seq">Chip-seq</h2>
+<p>我咋感觉是ROSE这个工具出的图<br>
+这是找super-enhancer，横坐标是合并后的peak信号强度排序,简单来说就是序号<br>
+<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1628226208679.jpg" alt="" loading="lazy"></p>
+<h2 id="aspera下载数据">aspera下载数据</h2>
+<p>报错<br>
+<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1628226377715.png" alt="" loading="lazy"><br>
+解决方式：需要制定sshkey</p>
+<h2 id="序列中小写字母">序列中小写字母</h2>
+<p>高度重复的区域使用小写？</p>
+<h2 id="热图标准化图例">热图标准化图例</h2>
+<p>pheatmap中可以使用breaks调整，比如从(-3,3)调整到(-2,2)</p>
+<h2 id="pheatmap热图色条控制">pheatmap热图色条控制</h2>
+<p><a href="https://www.jianshu.com/p/6b765e83d723">链接</a></p>
+<h2 id="设计引物软件">设计引物软件</h2>
+<p>oligo7/primer5</p>
+<h2 id="设计lncrna的qpcr引物">设计LncRNA的qpcr引物</h2>
+<p>就当是基因正常设计就行</p>
+<h2 id="图片绘制">图片绘制</h2>
+<p>平均值±标准误 + 数据点<br>
+<img src="https://ninjagg.github.io/Xuan.github.io//post-images/1628234776569.jpg" alt="" loading="lazy"></p>
+<h2 id="人类转录组编码非编码">人类转录组(编码+非编码)</h2>
+<p>ensembl下载ncRNA和cDNA = 转录本</p>
+<h2 id="做cnv时可以无需normal可以使用ref或者汉族ref炎黄基因组">做CNV时可以无需Normal可以使用ref或者汉族ref(炎黄基因组)</h2>
+<p>一般的话同pool 1-3个对照<br>
+临床上也得考虑患者的经济情况<br>
+一般缺少normal，推荐做小panel做定点检测</p>
+<h2 id="y叔frontiers专刊">Y叔Frontiers专刊</h2>
+<p>biomedical data visualization 影响因子4.599</p>
 
               </div>
               <div class="toc-container">
@@ -697,6 +750,30 @@ computeMatrix里的-bs可以调整<br>
 <li><a href="#miranda-microrna%E9%9D%B6%E5%9F%BA%E5%9B%A0%E5%88%86%E6%9E%90">miRanda microRNA靶基因分析</a></li>
 <li><a href="#venn%E5%9B%BE%E8%B6%85%E8%BF%874%E4%B8%AA%E4%BA%A4%E9%9B%86%E6%97%B6%E5%80%99%E5%A4%84%E7%90%86%E6%96%B9%E5%BC%8F">Venn图超过4个交集时候处理方式</a></li>
 <li><a href="#deeptools%E7%94%BBprofile%E7%9A%84%E7%BA%BF%E4%B8%8D%E5%B9%B3%E6%BB%91%E6%94%B9%E8%BF%9B%E6%96%B9%E6%B3%95">deeptools画profile的线不平滑，改进方法</a></li>
+<li><a href="#%E6%B5%8B%E8%BD%AC%E5%BD%95%E7%BB%84%E4%B8%80%E4%B8%AA500%E5%9D%976g%E4%B8%80%E4%B8%AAiso-seq-3000%E5%9D%97">测转录组一个500块6G，一个Iso-seq 3000块</a></li>
+<li><a href="#samtools-faidx-filenamefa-chr_idstart-end-resultfa-%E8%8E%B7%E5%8F%96%E6%8C%87%E5%AE%9A%E5%8C%BA%E9%97%B4%E7%9A%84%E5%BA%8F%E5%88%97%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%8F%8D%E9%80%89">samtools faidx filename.fa chr_id:start-end &gt; result.fa  获取指定区间的序列，如何实现反选</a></li>
+</ul>
+</li>
+<li><a href="#20210610-20210630">2021.06.10-2021.06.30</a>
+<ul>
+<li><a href="#ncbi%E4%B8%8A%E4%BC%A0%E6%95%B0%E6%8D%AE">NCBI上传数据</a></li>
+<li><a href="#ensemble-gff3chrgff3%E7%9A%84%E5%8C%BA%E5%88%AB">ensemble gff3/chr.gff3的区别</a></li>
+<li><a href="#atac%E5%AF%8C%E9%9B%86%E5%BB%BA%E5%BA%93%E6%B5%8B%E5%BA%8F">ATAC，富集+建库+测序</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8deeptools%E7%BB%98%E5%88%B6chip-seq%E7%83%AD%E5%9B%BE">使用deeptools绘制chip-seq热图</a></li>
+<li><a href="#%E5%A4%A7%E5%A3%AE%E7%9A%84%E8%AF%BE">大壮的课</a></li>
+<li><a href="#%E7%BB%98%E5%9B%BE%E7%BD%91%E7%AB%99">绘图网站</a></li>
+<li><a href="#%E7%BB%9F%E8%AE%A1">统计</a></li>
+<li><a href="#chip-seq">Chip-seq</a></li>
+<li><a href="#aspera%E4%B8%8B%E8%BD%BD%E6%95%B0%E6%8D%AE">aspera下载数据</a></li>
+<li><a href="#%E5%BA%8F%E5%88%97%E4%B8%AD%E5%B0%8F%E5%86%99%E5%AD%97%E6%AF%8D">序列中小写字母</a></li>
+<li><a href="#%E7%83%AD%E5%9B%BE%E6%A0%87%E5%87%86%E5%8C%96%E5%9B%BE%E4%BE%8B">热图标准化图例</a></li>
+<li><a href="#pheatmap%E7%83%AD%E5%9B%BE%E8%89%B2%E6%9D%A1%E6%8E%A7%E5%88%B6">pheatmap热图色条控制</a></li>
+<li><a href="#%E8%AE%BE%E8%AE%A1%E5%BC%95%E7%89%A9%E8%BD%AF%E4%BB%B6">设计引物软件</a></li>
+<li><a href="#%E8%AE%BE%E8%AE%A1lncrna%E7%9A%84qpcr%E5%BC%95%E7%89%A9">设计LncRNA的qpcr引物</a></li>
+<li><a href="#%E5%9B%BE%E7%89%87%E7%BB%98%E5%88%B6">图片绘制</a></li>
+<li><a href="#%E4%BA%BA%E7%B1%BB%E8%BD%AC%E5%BD%95%E7%BB%84%E7%BC%96%E7%A0%81%E9%9D%9E%E7%BC%96%E7%A0%81">人类转录组(编码+非编码)</a></li>
+<li><a href="#%E5%81%9Acnv%E6%97%B6%E5%8F%AF%E4%BB%A5%E6%97%A0%E9%9C%80normal%E5%8F%AF%E4%BB%A5%E4%BD%BF%E7%94%A8ref%E6%88%96%E8%80%85%E6%B1%89%E6%97%8Fref%E7%82%8E%E9%BB%84%E5%9F%BA%E5%9B%A0%E7%BB%84">做CNV时可以无需Normal可以使用ref或者汉族ref(炎黄基因组)</a></li>
+<li><a href="#y%E5%8F%94frontiers%E4%B8%93%E5%88%8A">Y叔Frontiers专刊</a></li>
 </ul>
 </li>
 </ul>

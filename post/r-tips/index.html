@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>R tips | Gridea</title>
-<link rel="shortcut icon" href="https://ninjagg.github.io/Xuan.github.io//favicon.ico?v=1627226992048">
+<link rel="shortcut icon" href="https://ninjagg.github.io/Xuan.github.io//favicon.ico?v=1628239881508">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://ninjagg.github.io/Xuan.github.io//styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="R tips | Gridea - Atom Feed" href="https://ninjagg.github.io/Xuan.github.io//atom.xml">
@@ -22,7 +22,7 @@ path &lt;- list.files(path = &quot;../hongshen_alcohol/components_target_csv..."
       <div class="main-content">
         <div class="site-header">
   <a href="https://ninjagg.github.io/Xuan.github.io/">
-  <img class="avatar" src="https://ninjagg.github.io/Xuan.github.io//images/avatar.png?v=1627226992048" alt="">
+  <img class="avatar" src="https://ninjagg.github.io/Xuan.github.io//images/avatar.png?v=1628239881508" alt="">
   </a>
   <h1 class="site-title">
     Gridea
@@ -82,7 +82,7 @@ path &lt;- list.files(path = &quot;../hongshen_alcohol/components_target_csv..."
                 2021-05-13
               </span>
               <span>
-                5 min read
+                6 min read
               </span>
               
             </div>
@@ -182,6 +182,19 @@ temp &lt;- tb[test %in% tb$gene_symbol,]  # 可以筛选出相应行
 </code></pre>
 <h1 id="r-绘图截断纵坐标">R 绘图截断纵坐标</h1>
 <p><a href="https://mp.weixin.qq.com/s?__biz=MzI5NjUyNzkxMg==&amp;mid=2247490820&amp;idx=1&amp;sn=653ee5971fa79a718867ab0bf5e33a31&amp;chksm=ec43ac43db3425550af196c3b4681696773fca8143333e36286333a6d62cb86dbbbc04f34ef9&amp;mpshare=1&amp;scene=23&amp;srcid=0523OIHF3z2qUI1yyrSi7186&amp;sharer_sharetime=1621750217009&amp;sharer_shareid=57f69e562db94e4e682fc0073cfaa3cd%23rd">链接</a></p>
+<h1 id="基因表达矩阵转换id后存在一个ensembl_id对应多个gene_symbol">基因表达矩阵转换ID后，存在一个Ensembl_ID对应多个gene_symbol</h1>
+<pre><code>df %&gt;% group_by(gene_symbol)   #将df中gene_symbol相同的行进行分组
+outcome &lt;- summarize(df, expression)  # 对同一组求表达量的均值
+</code></pre>
+<h1 id="对一个数据框所有数值进行筛选">对一个数据框所有数值进行筛选</h1>
+<p>eg. 将df中所有数值&gt;15的更改为&quot;large&quot;</p>
+<pre><code>df &lt;- data.frame(
+  liu = c(1:10),
+  xuan = c(11:20),
+  ming = c(21:30)
+)  
+df[df&gt;15] &lt;- &quot;larget&quot;  # 此处使用data.frame可以进行修改，但使用tibble则不行，因为tibble无法改变列的类型
+</code></pre>
 
               </div>
               <div class="toc-container">
@@ -207,6 +220,8 @@ temp &lt;- tb[test %in% tb$gene_symbol,]  # 可以筛选出相应行
 <li><a href="#datatable%E8%A1%A8%E6%A0%BC">data.table表格</a></li>
 <li><a href="#%E6%A0%B9%E6%8D%AEgeneset%E7%AD%9B%E9%80%89%E4%B8%80%E4%B8%AA%E6%95%B0%E6%8D%AE%E6%A1%86%E4%B8%AD%E7%9B%B8%E5%BA%94%E7%9A%84%E8%A1%8C%E6%97%B6">根据geneset筛选一个数据框中相应的行时</a></li>
 <li><a href="#r-%E7%BB%98%E5%9B%BE%E6%88%AA%E6%96%AD%E7%BA%B5%E5%9D%90%E6%A0%87">R 绘图截断纵坐标</a></li>
+<li><a href="#%E5%9F%BA%E5%9B%A0%E8%A1%A8%E8%BE%BE%E7%9F%A9%E9%98%B5%E8%BD%AC%E6%8D%A2id%E5%90%8E%E5%AD%98%E5%9C%A8%E4%B8%80%E4%B8%AAensembl_id%E5%AF%B9%E5%BA%94%E5%A4%9A%E4%B8%AAgene_symbol">基因表达矩阵转换ID后，存在一个Ensembl_ID对应多个gene_symbol</a></li>
+<li><a href="#%E5%AF%B9%E4%B8%80%E4%B8%AA%E6%95%B0%E6%8D%AE%E6%A1%86%E6%89%80%E6%9C%89%E6%95%B0%E5%80%BC%E8%BF%9B%E8%A1%8C%E7%AD%9B%E9%80%89">对一个数据框所有数值进行筛选</a></li>
 </ul>
 
               </div>
